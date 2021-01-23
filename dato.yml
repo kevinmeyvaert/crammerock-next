@@ -1,0 +1,14 @@
+overwrite: true
+schema:
+  - ${DATOCMS_ENDPOINT}:
+      headers:
+        Authorization: 'Bearer ${DATOCMS_TOKEN}'
+documents: 'queries/dato/*'
+generates:
+  types/dato.types.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+    config:
+      namingConvention:
+        enumValues: keep

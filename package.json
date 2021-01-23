@@ -5,11 +5,21 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "codegen": "eval $(egrep -v '^#' .env | xargs) graphql-codegen -c dato.yml"
   },
   "dependencies": {
+    "graphql": "^15.4.0",
+    "graphql-request": "^3.4.0",
     "next": "10.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.20.0",
+    "@graphql-codegen/typescript-operations": "^1.17.13",
+    "@types/node": "^14.14.22",
+    "@types/react": "^17.0.0",
+    "typescript": "^4.1.3"
   }
 }
