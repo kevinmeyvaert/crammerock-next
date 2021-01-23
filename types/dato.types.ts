@@ -3114,13 +3114,80 @@ export enum UploadOrderBy {
 
 export type EditionFragment = (
   { __typename?: 'EditionRecord' }
-  & Pick<EditionRecord, 'endDate' | 'facebookEvent' | 'startDate' | 'title'>
+  & Pick<EditionRecord, 'id' | 'endDate' | 'facebookEvent' | 'startDate' | 'title'>
   & { logo?: Maybe<(
     { __typename?: 'FileField' }
     & Pick<FileField, 'url'>
   )>, sponsors: Array<(
     { __typename?: 'SponsorRecord' }
     & SponsorFragment
+  )> }
+);
+
+export type NewsQueryVariables = Exact<{
+  slug?: Maybe<Scalars['String']>;
+}>;
+
+
+export type NewsQuery = (
+  { __typename?: 'Query' }
+  & { news?: Maybe<(
+    { __typename?: 'NewsRecord' }
+    & Pick<NewsRecord, 'title' | 'slug'>
+    & { seo?: Maybe<(
+      { __typename?: 'SeoField' }
+      & Pick<SeoField, 'description' | 'twitterCard'>
+      & { image?: Maybe<(
+        { __typename?: 'FileField' }
+        & Pick<FileField, 'url'>
+      )> }
+    )>, featuredImage?: Maybe<(
+      { __typename?: 'FileField' }
+      & Pick<FileField, 'blurhash' | 'url'>
+    )>, article?: Maybe<Array<Maybe<(
+      { __typename?: 'WysiwygRecord' }
+      & Pick<WysiwygRecord, 'content'>
+    )>>> }
+  )> }
+);
+
+export type NewsOverviewQueryVariables = Exact<{
+  edition?: Maybe<Scalars['ItemId']>;
+}>;
+
+
+export type NewsOverviewQuery = (
+  { __typename?: 'Query' }
+  & { news?: Maybe<(
+    { __typename?: 'NewsRecord' }
+    & Pick<NewsRecord, 'title' | 'slug'>
+    & { featuredImage?: Maybe<(
+      { __typename?: 'FileField' }
+      & Pick<FileField, 'blurhash' | 'url'>
+    )> }
+  )> }
+);
+
+export type PageQueryVariables = Exact<{
+  slug?: Maybe<Scalars['String']>;
+}>;
+
+
+export type PageQuery = (
+  { __typename?: 'Query' }
+  & { page?: Maybe<(
+    { __typename?: 'PageRecord' }
+    & Pick<PageRecord, 'slug' | 'title'>
+    & { content?: Maybe<Array<Maybe<(
+      { __typename?: 'WysiwygRecord' }
+      & Pick<WysiwygRecord, 'content'>
+    )>>>, children?: Maybe<Array<Maybe<(
+      { __typename?: 'PageRecord' }
+      & Pick<PageRecord, 'slug' | 'title'>
+    )>>>, parent?: Maybe<(
+      { __typename?: 'PageRecord' }
+      & Pick<PageRecord, 'title' | 'slug'>
+    )> }
   )> }
 );
 
