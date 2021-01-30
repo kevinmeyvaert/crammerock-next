@@ -76,13 +76,11 @@ export type Query = {
   website?: Maybe<WebsiteRecord>;
 };
 
-
 /** The query root for this schema */
 export type Query_AllArtistsMetaArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<ArtistModelFilter>;
 };
-
 
 /** The query root for this schema */
 export type Query_AllEditionsMetaArgs = {
@@ -90,13 +88,11 @@ export type Query_AllEditionsMetaArgs = {
   filter?: Maybe<EditionModelFilter>;
 };
 
-
 /** The query root for this schema */
 export type Query_AllNewsMetaArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<NewsModelFilter>;
 };
-
 
 /** The query root for this schema */
 export type Query_AllPagesMetaArgs = {
@@ -104,13 +100,11 @@ export type Query_AllPagesMetaArgs = {
   filter?: Maybe<PageModelFilter>;
 };
 
-
 /** The query root for this schema */
 export type Query_AllSponsorsMetaArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<SponsorModelFilter>;
 };
-
 
 /** The query root for this schema */
 export type Query_AllStagesMetaArgs = {
@@ -118,19 +112,16 @@ export type Query_AllStagesMetaArgs = {
   filter?: Maybe<StageModelFilter>;
 };
 
-
 /** The query root for this schema */
 export type Query_AllUploadsMetaArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<UploadFilter>;
 };
 
-
 /** The query root for this schema */
 export type Query_SiteArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 /** The query root for this schema */
 export type QueryAllArtistsArgs = {
@@ -141,7 +132,6 @@ export type QueryAllArtistsArgs = {
   orderBy?: Maybe<Array<Maybe<ArtistModelOrderBy>>>;
 };
 
-
 /** The query root for this schema */
 export type QueryAllEditionsArgs = {
   locale?: Maybe<SiteLocale>;
@@ -150,7 +140,6 @@ export type QueryAllEditionsArgs = {
   filter?: Maybe<EditionModelFilter>;
   orderBy?: Maybe<Array<Maybe<EditionModelOrderBy>>>;
 };
-
 
 /** The query root for this schema */
 export type QueryAllNewsArgs = {
@@ -161,7 +150,6 @@ export type QueryAllNewsArgs = {
   orderBy?: Maybe<Array<Maybe<NewsModelOrderBy>>>;
 };
 
-
 /** The query root for this schema */
 export type QueryAllPagesArgs = {
   locale?: Maybe<SiteLocale>;
@@ -170,7 +158,6 @@ export type QueryAllPagesArgs = {
   filter?: Maybe<PageModelFilter>;
   orderBy?: Maybe<Array<Maybe<PageModelOrderBy>>>;
 };
-
 
 /** The query root for this schema */
 export type QueryAllSponsorsArgs = {
@@ -181,7 +168,6 @@ export type QueryAllSponsorsArgs = {
   orderBy?: Maybe<Array<Maybe<SponsorModelOrderBy>>>;
 };
 
-
 /** The query root for this schema */
 export type QueryAllStagesArgs = {
   locale?: Maybe<SiteLocale>;
@@ -190,7 +176,6 @@ export type QueryAllStagesArgs = {
   filter?: Maybe<StageModelFilter>;
   orderBy?: Maybe<Array<Maybe<StageModelOrderBy>>>;
 };
-
 
 /** The query root for this schema */
 export type QueryAllUploadsArgs = {
@@ -201,14 +186,12 @@ export type QueryAllUploadsArgs = {
   orderBy?: Maybe<Array<Maybe<UploadOrderBy>>>;
 };
 
-
 /** The query root for this schema */
 export type QueryArtistArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<ArtistModelFilter>;
   orderBy?: Maybe<Array<Maybe<ArtistModelOrderBy>>>;
 };
-
 
 /** The query root for this schema */
 export type QueryEditionArgs = {
@@ -217,14 +200,12 @@ export type QueryEditionArgs = {
   orderBy?: Maybe<Array<Maybe<EditionModelOrderBy>>>;
 };
 
-
 /** The query root for this schema */
 export type QueryNewsArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<NewsModelFilter>;
   orderBy?: Maybe<Array<Maybe<NewsModelOrderBy>>>;
 };
-
 
 /** The query root for this schema */
 export type QueryPageArgs = {
@@ -233,14 +214,12 @@ export type QueryPageArgs = {
   orderBy?: Maybe<Array<Maybe<PageModelOrderBy>>>;
 };
 
-
 /** The query root for this schema */
 export type QuerySponsorArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<SponsorModelFilter>;
   orderBy?: Maybe<Array<Maybe<SponsorModelOrderBy>>>;
 };
-
 
 /** The query root for this schema */
 export type QueryStageArgs = {
@@ -249,14 +228,12 @@ export type QueryStageArgs = {
   orderBy?: Maybe<Array<Maybe<StageModelOrderBy>>>;
 };
 
-
 /** The query root for this schema */
 export type QueryUploadArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<UploadFilter>;
   orderBy?: Maybe<Array<Maybe<UploadOrderBy>>>;
 };
-
 
 /** The query root for this schema */
 export type QueryWebsiteArgs = {
@@ -268,6 +245,7 @@ export type EditionRecord = {
   __typename?: 'EditionRecord';
   _allLineupLocales?: Maybe<Array<Maybe<LineupItemRecordListMultiLocaleField>>>;
   _allSeoLocales?: Maybe<Array<Maybe<SeoFieldMultiLocaleField>>>;
+  _allTitleLocales?: Maybe<Array<Maybe<StringMultiLocaleField>>>;
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
   _isValid: Scalars['BooleanType'];
@@ -292,37 +270,40 @@ export type EditionRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Record of type Edition (edition) */
 export type EditionRecord_AllLineupLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 /** Record of type Edition (edition) */
 export type EditionRecord_AllSeoLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+/** Record of type Edition (edition) */
+export type EditionRecord_AllTitleLocalesArgs = {
+  locale?: Maybe<SiteLocale>;
+};
 
 /** Record of type Edition (edition) */
 export type EditionRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
 /** Record of type Edition (edition) */
 export type EditionRecordLineupArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 /** Record of type Edition (edition) */
 export type EditionRecordSeoArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
+/** Record of type Edition (edition) */
+export type EditionRecordTitleArgs = {
+  locale?: Maybe<SiteLocale>;
+};
 
 export type Tag = {
   __typename?: 'Tag';
@@ -331,17 +312,16 @@ export type Tag = {
   tag: Scalars['String'];
 };
 
-
 export enum SiteLocale {
-  nl = 'nl'
+  nl = 'nl',
+  en = 'en',
 }
 
 export enum ItemStatus {
   draft = 'draft',
   updated = 'updated',
-  published = 'published'
+  published = 'published',
 }
-
 
 /** Record of type Lineup Item (lineup_item) */
 export type LineupItemRecord = {
@@ -368,18 +348,15 @@ export type LineupItemRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Record of type Lineup Item (lineup_item) */
 export type LineupItemRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
 /** Record of type Lineup Item (lineup_item) */
 export type LineupItemRecordIntroductionArgs = {
   markdown?: Maybe<Scalars['Boolean']>;
 };
-
 
 /** Record of type Stage (stage) */
 export type StageRecord = {
@@ -401,7 +378,6 @@ export type StageRecord = {
   slug?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
 };
-
 
 /** Record of type Stage (stage) */
 export type StageRecord_SeoMetaTagsArgs = {
@@ -432,7 +408,6 @@ export type ArtistRecord = {
   spotify?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
 };
-
 
 /** Record of type Artist (artist) */
 export type ArtistRecord_SeoMetaTagsArgs = {
@@ -469,11 +444,9 @@ export type FileField = {
   width?: Maybe<Scalars['IntType']>;
 };
 
-
 export type FileFieldAltArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 export type FileFieldBlurUpThumbArgs = {
   punch?: Maybe<Scalars['Float']>;
@@ -482,33 +455,26 @@ export type FileFieldBlurUpThumbArgs = {
   imgixParams?: Maybe<ImgixParams>;
 };
 
-
 export type FileFieldCustomDataArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
 export type FileFieldFocalPointArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 export type FileFieldResponsiveImageArgs = {
   imgixParams?: Maybe<ImgixParams>;
   sizes?: Maybe<Scalars['String']>;
 };
 
-
 export type FileFieldTitleArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
 export type FileFieldUrlArgs = {
   imgixParams?: Maybe<ImgixParams>;
 };
-
-
 
 export type ColorField = {
   __typename?: 'ColorField';
@@ -519,1122 +485,1120 @@ export type ColorField = {
   red?: Maybe<Scalars['IntType']>;
 };
 
-
 export type FocalPoint = {
   __typename?: 'focalPoint';
   x?: Maybe<Scalars['FloatType']>;
   y?: Maybe<Scalars['FloatType']>;
 };
 
-
 export type ImgixParams = {
   /**
    * Aspect Ratio
-   * 
+   *
    * Specifies an aspect ratio to maintain when resizing and cropping the image
-   * 
+   *
    * Depends on: `fit=crop`
    */
   ar?: Maybe<Scalars['String']>;
   /**
    * Automatic
-   * 
+   *
    * Applies automatic enhancements to images.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/auto)
    */
   auto?: Maybe<Array<ImgixParamsAuto>>;
   /**
    * Background Color
-   * 
+   *
    * Colors the background of padded and partially-transparent images.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/bg)
    */
   bg?: Maybe<Scalars['String']>;
   /**
    * Blend Align
-   * 
+   *
    * Changes the blend alignment relative to the parent image.
-   * 
+   *
    * Depends on: `blend`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-align)
    */
   blendAlign?: Maybe<Array<ImgixParamsBlendAlign>>;
   /**
    * Blend Alpha
-   * 
+   *
    * Changes the alpha of the blend image.
-   * 
+   *
    * Depends on: `blend`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-alpha)
    */
   blendAlpha?: Maybe<Scalars['IntType']>;
   /**
    * Blend Color
-   * 
+   *
    * Specifies a color to use when applying the blend.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-color)
    */
   blendColor?: Maybe<Scalars['String']>;
   /**
    * Blend Crop
-   * 
+   *
    * Specifies the type of crop for blend images.
-   * 
+   *
    * Depends on: `blend`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-crop)
    */
   blendCrop?: Maybe<Array<ImgixParamsBlendCrop>>;
   /**
    * Blend Fit
-   * 
+   *
    * Specifies the fit mode for blend images.
-   * 
+   *
    * Depends on: `blend`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-fit)
    */
   blendFit?: Maybe<ImgixParamsBlendFit>;
   /**
    * Blend Height
-   * 
+   *
    * Adjusts the height of the blend image.
-   * 
+   *
    * Depends on: `blend`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-h)
    */
   blendH?: Maybe<Scalars['FloatType']>;
   /**
    * Blend Mode
-   * 
+   *
    * Sets the blend mode for a blend image.
-   * 
+   *
    * Depends on: `blend`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-mode)
    */
   blendMode?: Maybe<ImgixParamsBlendMode>;
   /**
    * Blend Padding
-   * 
+   *
    * Applies padding to the blend image.
-   * 
+   *
    * Depends on: `blend`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-pad)
    */
   blendPad?: Maybe<Scalars['IntType']>;
   /**
    * Blend Size
-   * 
+   *
    * Adjusts the size of the blend image.
-   * 
+   *
    * Depends on: `blend`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-size)
    */
   blendSize?: Maybe<ImgixParamsBlendSize>;
   /**
    * Blend Width
-   * 
+   *
    * Adjusts the width of the blend image.
-   * 
+   *
    * Depends on: `blend`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-w)
    */
   blendW?: Maybe<Scalars['FloatType']>;
   /**
    * Blend X Position
-   * 
+   *
    * Adjusts the x-offset of the blend image relative to its parent.
-   * 
+   *
    * Depends on: `blend`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-x)
    */
   blendX?: Maybe<Scalars['IntType']>;
   /**
    * Blend Y Position
-   * 
+   *
    * Adjusts the y-offset of the blend image relative to its parent.
-   * 
+   *
    * Depends on: `blend`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend-y)
    */
   blendY?: Maybe<Scalars['IntType']>;
   /**
    * Blend
-   * 
+   *
    * Specifies the location of the blend image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend)
    */
   blend?: Maybe<Scalars['String']>;
   /**
    * Gaussian Blur
-   * 
+   *
    * Applies a gaussian blur to an image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/blur)
    */
   blur?: Maybe<Scalars['IntType']>;
   /**
    * Border Bottom
-   * 
+   *
    * Sets bottom border of an image.
-   * 
+   *
    * Depends on: `border`
    */
   borderBottom?: Maybe<Scalars['IntType']>;
   /**
    * Border Left
-   * 
+   *
    * Sets left border of an image.
-   * 
+   *
    * Depends on: `border`
    */
   borderLeft?: Maybe<Scalars['IntType']>;
   /**
    * Inner Border Radius
-   * 
+   *
    * Sets the inner radius of the image's border in pixels.
-   * 
+   *
    * Depends on: `border`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-radius-inner)
    */
   borderRadiusInner?: Maybe<Scalars['String']>;
   /**
    * Outer Border Radius
-   * 
+   *
    * Sets the outer radius of the image's border in pixels.
-   * 
+   *
    * Depends on: `border`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-radius)
    */
   borderRadius?: Maybe<Scalars['String']>;
   /**
    * Border Right
-   * 
+   *
    * Sets right border of an image.
-   * 
+   *
    * Depends on: `border`
    */
   borderRight?: Maybe<Scalars['IntType']>;
   /**
    * Border Top
-   * 
+   *
    * Sets top border of an image.
-   * 
+   *
    * Depends on: `border`
    */
   borderTop?: Maybe<Scalars['IntType']>;
   /**
    * Border Size & Color
-   * 
+   *
    * Applies a border to an image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border)
    */
   border?: Maybe<Scalars['String']>;
   /**
    * Brightness
-   * 
+   *
    * Adjusts the brightness of the source image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/bri)
    */
   bri?: Maybe<Scalars['IntType']>;
   /**
    * Client Hints
-   * 
+   *
    * Sets one or more Client-Hints headers
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/ch)
    */
   ch?: Maybe<Array<ImgixParamsCh>>;
   /**
    * Chroma Subsampling
-   * 
+   *
    * Specifies the output chroma subsampling rate.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/chromasub)
    */
   chromasub?: Maybe<Scalars['IntType']>;
   /**
    * Color Quantization
-   * 
+   *
    * Limits the number of unique colors in an image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/colorquant)
    */
   colorquant?: Maybe<Scalars['IntType']>;
   /**
    * Palette Color Count
-   * 
+   *
    * Specifies how many colors to include in a palette-extraction response.
-   * 
+   *
    * Depends on: `palette`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/color-palette/colors)
    */
   colors?: Maybe<Scalars['IntType']>;
   /**
    * Contrast
-   * 
+   *
    * Adjusts the contrast of the source image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/con)
    */
   con?: Maybe<Scalars['IntType']>;
   /**
    * Mask Corner Radius
-   * 
+   *
    * Specifies the radius value for a rounded corner mask.
-   * 
+   *
    * Depends on: `mask=corners`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/mask/corner-radius)
    */
   cornerRadius?: Maybe<Scalars['String']>;
   /**
    * Crop Mode
-   * 
+   *
    * Specifies how to crop an image.
-   * 
+   *
    * Depends on: `fit=crop`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/crop)
    */
   crop?: Maybe<Array<ImgixParamsCrop>>;
   /**
    * Color Space
-   * 
+   *
    * Specifies the color space of the output image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/cs)
    */
   cs?: Maybe<ImgixParamsCs>;
   /**
    * Download
-   * 
+   *
    * Forces a URL to use send-file in its response.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/dl)
    */
   dl?: Maybe<Scalars['String']>;
   /**
    * Dots Per Inch
-   * 
+   *
    * Sets the DPI value in the EXIF header.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/dpi)
    */
   dpi?: Maybe<Scalars['IntType']>;
   /**
    * Device Pixel Ratio
-   * 
+   *
    * Adjusts the device-pixel ratio of the output image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/dpr)
    */
   dpr?: Maybe<Scalars['FloatType']>;
   /**
    * Duotone Alpha
-   * 
+   *
    * Changes the alpha of the duotone effect atop the source image.
-   * 
+   *
    * Depends on: `duotone`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/duotone-alpha)
    */
   duotoneAlpha?: Maybe<Scalars['IntType']>;
   /**
    * Duotone
-   * 
+   *
    * Applies a duotone effect to the source image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/duotone)
    */
   duotone?: Maybe<Scalars['String']>;
   /**
    * Exposure
-   * 
+   *
    * Adjusts the exposure of the output image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/exp)
    */
   exp?: Maybe<Scalars['IntType']>;
   /**
    * Url Expiration Timestamp
-   * 
+   *
    * A Unix timestamp specifying a UTC time. Requests made to this URL after that time will output a 404 status code.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/expires)
    */
   expires?: Maybe<Scalars['IntType']>;
   /**
    * Face Index
-   * 
+   *
    * Selects a face to crop to.
-   * 
+   *
    * Depends on: `fit=facearea`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/face-detection/faceindex)
    */
   faceindex?: Maybe<Scalars['IntType']>;
   /**
    * Face Padding
-   * 
+   *
    * Adjusts padding around a selected face.
-   * 
+   *
    * Depends on: `fit=facearea`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/face-detection/facepad)
    */
   facepad?: Maybe<Scalars['FloatType']>;
   /**
    * Json Face Data
-   * 
+   *
    * Specifies that face data should be included in output when combined with `fm=json`.
-   * 
+   *
    * Depends on: `fm=json`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/face-detection/faces)
    */
   faces?: Maybe<Scalars['IntType']>;
   /**
    * Fill Color
-   * 
+   *
    * Sets the fill color for images with additional space created by the fit setting
-   * 
+   *
    * Depends on: `fill=solid`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-color)
    */
   fillColor?: Maybe<Scalars['String']>;
   /**
    * Fill Mode
-   * 
+   *
    * Determines how to fill in additional space created by the fit setting
-   * 
+   *
    * Depends on: `fit`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill)
    */
   fill?: Maybe<ImgixParamsFill>;
   /**
    * Resize Fit Mode
-   * 
+   *
    * Specifies how to map the source image to the output image dimensions.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/fit)
    */
   fit?: Maybe<ImgixParamsFit>;
   /**
    * Flip Axis
-   * 
+   *
    * Flips an image on a specified axis.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/rotation/flip)
    */
   flip?: Maybe<ImgixParamsFlip>;
   /**
    * Output Format
-   * 
+   *
    * Changes the format of the output image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/fm)
    */
   fm?: Maybe<ImgixParamsFm>;
   /**
    * Focal Point Debug
-   * 
+   *
    * Displays crosshairs identifying the location of the set focal point
-   * 
+   *
    * Depends on: `fit=crop`, `crop=focalpoint`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-debug)
    */
   fpDebug?: Maybe<Scalars['BooleanType']>;
   /**
    * Focal Point X Position
-   * 
+   *
    * Sets the relative horizontal value for the focal point of an image
-   * 
+   *
    * Depends on: `fit=crop`, `crop=focalpoint`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-x)
    */
   fpX?: Maybe<Scalars['FloatType']>;
   /**
    * Focal Point Y Position
-   * 
+   *
    * Sets the relative vertical value for the focal point of an image
-   * 
+   *
    * Depends on: `fit=crop`, `crop=focalpoint`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-y)
    */
   fpY?: Maybe<Scalars['FloatType']>;
   /**
    * Focal Point Zoom
-   * 
+   *
    * Sets the relative zoom value for the focal point of an image
-   * 
+   *
    * Depends on: `fit=crop`, `crop=focalpoint`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-z)
    */
   fpZ?: Maybe<Scalars['IntType']>;
   /**
    * Gamma
-   * 
+   *
    * Adjusts the gamma of the source image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/gam)
    */
   gam?: Maybe<Scalars['IntType']>;
   /**
    * Grid Colors
-   * 
+   *
    * Sets grid colors for the transparency checkerboard grid.
-   * 
+   *
    * Depends on: `transparency`
    */
   gridColors?: Maybe<Scalars['String']>;
   /**
    * Grid Size
-   * 
+   *
    * Sets grid size for the transparency checkerboard grid.
-   * 
+   *
    * Depends on: `transparency`
    */
   gridSize?: Maybe<Scalars['IntType']>;
   /**
    * Image Height
-   * 
+   *
    * Adjusts the height of the output image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/h)
    */
   h?: Maybe<Scalars['FloatType']>;
   /**
    * Highlight
-   * 
+   *
    * Adjusts the highlights of the source image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/high)
    */
   high?: Maybe<Scalars['IntType']>;
   /**
    * Halftone
-   * 
+   *
    * Applies a half-tone effect to the source image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/htn)
    */
   htn?: Maybe<Scalars['IntType']>;
   /**
    * Hue Shift
-   * 
+   *
    * Adjusts the hue of the source image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/hue)
    */
   hue?: Maybe<Scalars['IntType']>;
   /**
    * Invert
-   * 
+   *
    * Inverts the colors on the source image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/invert)
    */
   invert?: Maybe<Scalars['BooleanType']>;
   /**
    * Lossless Compression
-   * 
+   *
    * Specifies that the output image should be a lossless variant.
-   * 
+   *
    * Depends on: `fm=webp`, `fm=jxr`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/lossless)
    */
   lossless?: Maybe<Scalars['BooleanType']>;
   /**
    * Watermark Alignment Mode
-   * 
+   *
    * Changes the watermark alignment relative to the parent image.
-   * 
+   *
    * Depends on: `mark`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-align)
    */
   markAlign?: Maybe<Array<ImgixParamsMarkAlign>>;
   /**
    * Watermark Alpha
-   * 
+   *
    * Changes the alpha of the watermark image.
-   * 
+   *
    * Depends on: `mark`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-alpha)
    */
   markAlpha?: Maybe<Scalars['IntType']>;
   /**
    * Watermark Base Url
-   * 
+   *
    * Changes base URL of the watermark image.
-   * 
+   *
    * Depends on: `mark`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-base)
    */
   markBase?: Maybe<Scalars['String']>;
   /**
    * Watermark Fit Mode
-   * 
+   *
    * Specifies the fit mode for watermark images.
-   * 
+   *
    * Depends on: `mark`, `markw`, `markh`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-fit)
    */
   markFit?: Maybe<ImgixParamsMarkFit>;
   /**
    * Watermark Height
-   * 
+   *
    * Adjusts the height of the watermark image.
-   * 
+   *
    * Depends on: `mark`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-h)
    */
   markH?: Maybe<Scalars['FloatType']>;
   /**
    * Watermark Padding
-   * 
+   *
    * Applies padding to the watermark image.
-   * 
+   *
    * Depends on: `mark`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-pad)
    */
   markPad?: Maybe<Scalars['IntType']>;
   /**
    * Watermark Scale
-   * 
+   *
    * Adjusts the scale of the watermark image.
-   * 
+   *
    * Depends on: `mark`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-scale)
    */
   markScale?: Maybe<Scalars['IntType']>;
   /**
    * Watermark Width
-   * 
+   *
    * Adjusts the width of the watermark image.
-   * 
+   *
    * Depends on: `mark`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-w)
    */
   markW?: Maybe<Scalars['FloatType']>;
   /**
    * Watermark X Position
-   * 
+   *
    * Adjusts the x-offset of the watermark image relative to its parent.
-   * 
+   *
    * Depends on: `mark`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-x)
    */
   markX?: Maybe<Scalars['IntType']>;
   /**
    * Watermark Y Position
-   * 
+   *
    * Adjusts the y-offset of the watermark image relative to its parent.
-   * 
+   *
    * Depends on: `mark`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-y)
    */
   markY?: Maybe<Scalars['IntType']>;
   /**
    * Watermark Image Url
-   * 
+   *
    * Specifies the location of the watermark image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark)
    */
   mark?: Maybe<Scalars['String']>;
   /**
    * Mask Background Color
-   * 
+   *
    * Colors the background of the transparent mask area of images
-   * 
+   *
    * Depends on: `mask`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/mask/mask-bg)
    */
   maskBg?: Maybe<Scalars['String']>;
   /**
    * Mask Type
-   * 
+   *
    * Defines the type of mask and specifies the URL if that type is selected.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/mask)
    */
   mask?: Maybe<Scalars['String']>;
   /**
    * Maximum Height
-   * 
+   *
    * Specifies the maximum height of the output image in pixels.
-   * 
+   *
    * Depends on: `fit=crop`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/max-height)
    */
   maxH?: Maybe<Scalars['IntType']>;
   /**
    * Maximum Width
-   * 
+   *
    * Specifies the maximum width of the output image in pixels.
-   * 
+   *
    * Depends on: `fit=crop`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/max-width)
    */
   maxW?: Maybe<Scalars['IntType']>;
   /**
    * Minimum Height
-   * 
+   *
    * Specifies the minimum height of the output image in pixels.
-   * 
+   *
    * Depends on: `fit=crop`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/min-height)
    */
   minH?: Maybe<Scalars['IntType']>;
   /**
    * Minimum Width
-   * 
+   *
    * Specifies the minimum width of the output image in pixels.
-   * 
+   *
    * Depends on: `fit=crop`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/min-width)
    */
   minW?: Maybe<Scalars['IntType']>;
   /**
    * Monochrome
-   * 
+   *
    * Applies a monochrome effect to the source image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/monochrome)
    */
   monochrome?: Maybe<Scalars['String']>;
   /**
    * Noise Reduction Bound
-   * 
+   *
    * Reduces the noise in an image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/noise-reduction/nr)
    */
   nr?: Maybe<Scalars['IntType']>;
   /**
    * Noise Reduction Sharpen
-   * 
+   *
    * Provides a threshold by which to sharpen an image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/noise-reduction/nrs)
    */
   nrs?: Maybe<Scalars['IntType']>;
   /**
    * Orientation
-   * 
+   *
    * Changes the image orientation.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/rotation/orient)
    */
   orient?: Maybe<Scalars['IntType']>;
   /**
    * Padding Bottom
-   * 
+   *
    * Sets bottom padding of an image.
    */
   padBottom?: Maybe<Scalars['IntType']>;
   /**
    * Padding Left
-   * 
+   *
    * Sets left padding of an image.
    */
   padLeft?: Maybe<Scalars['IntType']>;
   /**
    * Padding Right
-   * 
+   *
    * Sets right padding of an image.
    */
   padRight?: Maybe<Scalars['IntType']>;
   /**
    * Padding Top
-   * 
+   *
    * Sets top padding of an image.
    */
   padTop?: Maybe<Scalars['IntType']>;
   /**
    * Padding
-   * 
+   *
    * Pads an image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad)
    */
   pad?: Maybe<Scalars['IntType']>;
   /**
    * Pdf Page Number
-   * 
+   *
    * Selects a page from a PDF for display.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/pdf-page-number)
    */
   page?: Maybe<Scalars['IntType']>;
   /**
    * Color Palette Extraction
-   * 
+   *
    * Specifies an output format for palette-extraction.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/color-palette/palette)
    */
   palette?: Maybe<ImgixParamsPalette>;
   /**
    * Css Prefix
-   * 
+   *
    * Specifies a CSS prefix for all classes in palette-extraction.
-   * 
+   *
    * Depends on: `palette=css`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/color-palette/prefix)
    */
   prefix?: Maybe<Scalars['String']>;
   /**
    * Pixellate
-   * 
+   *
    * Applies a pixelation effect to an image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/px)
    */
   px?: Maybe<Scalars['IntType']>;
   /**
    * Output Quality
-   * 
+   *
    * Adjusts the quality of an output image.
-   * 
+   *
    * Depends on: `fm=jpg`, `fm=pjpg`, `fm=webp`, `fm=jxr`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/format/q)
    */
   q?: Maybe<Scalars['IntType']>;
   /**
    * Source Rectangle Region
-   * 
+   *
    * Crops an image to a specified rectangle.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/rect)
    */
   rect?: Maybe<Scalars['String']>;
   /**
    * Rotation
-   * 
+   *
    * Rotates an image by a specified number of degrees.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/rotation/rot)
    */
   rot?: Maybe<Scalars['FloatType']>;
   /**
    * Saturation
-   * 
+   *
    * Adjusts the saturation of an image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/sat)
    */
   sat?: Maybe<Scalars['IntType']>;
   /**
    * Sepia Tone
-   * 
+   *
    * Applies a sepia effect to an image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/sepia)
    */
   sepia?: Maybe<Scalars['IntType']>;
   /**
    * Shadow
-   * 
+   *
    * Adjusts the highlights of the source image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/shad)
    */
   shad?: Maybe<Scalars['FloatType']>;
   /**
    * Sharpen
-   * 
+   *
    * Adjusts the sharpness of the source image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/sharp)
    */
   sharp?: Maybe<Scalars['FloatType']>;
   /**
    * Transparency
-   * 
+   *
    * Adds checkerboard behind images which support transparency.
    */
   transparency?: Maybe<ImgixParamsTransparency>;
   /**
    * Trim Color
-   * 
+   *
    * Specifies a trim color on a trim operation.
-   * 
+   *
    * Depends on: `trim=color`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-color)
    */
   trimColor?: Maybe<Scalars['String']>;
   /**
    * Trim Mean Difference
-   * 
+   *
    * Specifies the mean difference on a trim operation.
-   * 
+   *
    * Depends on: `trim=auto`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-md)
    */
   trimMd?: Maybe<Scalars['FloatType']>;
   /**
    * Trim Padding
-   * 
+   *
    * Pads the area of the source image before trimming.
-   * 
+   *
    * Depends on: `trim`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-pad)
    */
   trimPad?: Maybe<Scalars['IntType']>;
   /**
    * Trim Standard Deviation
-   * 
+   *
    * Specifies the standard deviation on a trim operation.
-   * 
+   *
    * Depends on: `trim=auto`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-sd)
    */
   trimSd?: Maybe<Scalars['FloatType']>;
   /**
    * Trim Tolerance
-   * 
+   *
    * Specifies the tolerance on a trim operation.
-   * 
+   *
    * Depends on: `trim=color`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim-tol)
    */
   trimTol?: Maybe<Scalars['FloatType']>;
   /**
    * Trim Image
-   * 
+   *
    * Trims the source image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim)
    */
   trim?: Maybe<ImgixParamsTrim>;
   /**
    * Text Align
-   * 
+   *
    * Sets the vertical and horizontal alignment of rendered text relative to the base image.
-   * 
+   *
    * Depends on: `txt`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-align)
    */
   txtAlign?: Maybe<Array<ImgixParamsTxtAlign>>;
   /**
    * Text Clipping Mode
-   * 
+   *
    * Sets the clipping properties of rendered text.
-   * 
+   *
    * Depends on: `txt`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-clip)
    */
   txtClip?: Maybe<Array<ImgixParamsTxtClip>>;
   /**
    * Text Color
-   * 
+   *
    * Specifies the color of rendered text.
-   * 
+   *
    * Depends on: `txt`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-color)
    */
   txtColor?: Maybe<Scalars['String']>;
   /**
    * Text Fit Mode
-   * 
+   *
    * Specifies the fit approach for rendered text.
-   * 
+   *
    * Depends on: `txt`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-fit)
    */
   txtFit?: Maybe<ImgixParamsTxtFit>;
   /**
    * Text Font
-   * 
+   *
    * Selects a font for rendered text.
-   * 
+   *
    * Depends on: `txt`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-font)
    */
   txtFont?: Maybe<Scalars['String']>;
   /**
    * Text Leading
-   * 
+   *
    * Sets the leading (line spacing) for rendered text. Only works on the multi-line text endpoint.
-   * 
+   *
    * Depends on: `txt`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/typesetting/txt-lead)
    */
   txtLead?: Maybe<Scalars['IntType']>;
   /**
    * Text Ligatures
-   * 
+   *
    * Controls the level of ligature substitution
-   * 
+   *
    * Depends on: `txt`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-lig)
    */
   txtLig?: Maybe<Scalars['IntType']>;
   /**
    * Text Outline Color
-   * 
+   *
    * Specifies a text outline color.
-   * 
+   *
    * Depends on: `txt`, `txtline`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-line-color)
    */
   txtLineColor?: Maybe<Scalars['String']>;
   /**
    * Text Outline
-   * 
+   *
    * Outlines the rendered text with a specified color.
-   * 
+   *
    * Depends on: `txt`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-line)
    */
   txtLine?: Maybe<Scalars['IntType']>;
   /**
    * Text Padding
-   * 
+   *
    * Specifies the padding (in device-independent pixels) between a textbox and the edges of the base image.
-   * 
+   *
    * Depends on: `txt`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-pad)
    */
   txtPad?: Maybe<Scalars['IntType']>;
   /**
    * Text Shadow
-   * 
+   *
    * Applies a shadow to rendered text.
-   * 
+   *
    * Depends on: `txt`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-shad)
    */
   txtShad?: Maybe<Scalars['FloatType']>;
   /**
    * Text Font Size
-   * 
+   *
    * Sets the font size of rendered text.
-   * 
+   *
    * Depends on: `txt`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-size)
    */
   txtSize?: Maybe<Scalars['IntType']>;
   /**
    * Text Tracking
-   * 
+   *
    * Sets the tracking (letter spacing) for rendered text. Only works on the multi-line text endpoint.
-   * 
+   *
    * Depends on: `txt`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/typesetting/txt-track)
    */
   txtTrack?: Maybe<Scalars['IntType']>;
   /**
    * Text Width
-   * 
+   *
    * Sets the width of rendered text.
-   * 
+   *
    * Depends on: `txt`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-width)
    */
   txtWidth?: Maybe<Scalars['IntType']>;
   /**
    * Text String
-   * 
+   *
    * Sets the text string to render.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt)
    */
   txt?: Maybe<Scalars['String']>;
   /**
    * Unsharp Mask
-   * 
+   *
    * Sharpens the source image using an unsharp mask.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/usm)
    */
   usm?: Maybe<Scalars['IntType']>;
   /**
    * Unsharp Mask Radius
-   * 
+   *
    * Specifies the radius for an unsharp mask operation.
-   * 
+   *
    * Depends on: `usm`
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/usmrad)
    */
   usmrad?: Maybe<Scalars['FloatType']>;
   /**
    * Vibrance
-   * 
+   *
    * Adjusts the vibrance of an image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/adjustment/vib)
    */
   vib?: Maybe<Scalars['IntType']>;
   /**
    * Image Width
-   * 
+   *
    * Adjusts the width of the output image.
-   * 
+   *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/w)
    */
   w?: Maybe<Scalars['FloatType']>;
@@ -1644,7 +1608,7 @@ export enum ImgixParamsAuto {
   enhance = 'enhance',
   format = 'format',
   redeye = 'redeye',
-  compress = 'compress'
+  compress = 'compress',
 }
 
 export enum ImgixParamsBlendAlign {
@@ -1653,7 +1617,7 @@ export enum ImgixParamsBlendAlign {
   middle = 'middle',
   left = 'left',
   right = 'right',
-  center = 'center'
+  center = 'center',
 }
 
 export enum ImgixParamsBlendCrop {
@@ -1661,7 +1625,7 @@ export enum ImgixParamsBlendCrop {
   bottom = 'bottom',
   left = 'left',
   right = 'right',
-  faces = 'faces'
+  faces = 'faces',
 }
 
 export enum ImgixParamsBlendFit {
@@ -1669,7 +1633,7 @@ export enum ImgixParamsBlendFit {
   clip = 'clip',
   crop = 'crop',
   scale = 'scale',
-  max = 'max'
+  max = 'max',
 }
 
 export enum ImgixParamsBlendMode {
@@ -1688,17 +1652,17 @@ export enum ImgixParamsBlendMode {
   saturation = 'saturation',
   screen = 'screen',
   softlight = 'softlight',
-  normal = 'normal'
+  normal = 'normal',
 }
 
 export enum ImgixParamsBlendSize {
-  inherit = 'inherit'
+  inherit = 'inherit',
 }
 
 export enum ImgixParamsCh {
   width = 'width',
   dpr = 'dpr',
-  saveData = 'saveData'
+  saveData = 'saveData',
 }
 
 export enum ImgixParamsCrop {
@@ -1709,19 +1673,19 @@ export enum ImgixParamsCrop {
   faces = 'faces',
   entropy = 'entropy',
   edges = 'edges',
-  focalpoint = 'focalpoint'
+  focalpoint = 'focalpoint',
 }
 
 export enum ImgixParamsCs {
   srgb = 'srgb',
   adobergb1998 = 'adobergb1998',
   tinysrgb = 'tinysrgb',
-  strip = 'strip'
+  strip = 'strip',
 }
 
 export enum ImgixParamsFill {
   solid = 'solid',
-  blur = 'blur'
+  blur = 'blur',
 }
 
 export enum ImgixParamsFit {
@@ -1733,13 +1697,13 @@ export enum ImgixParamsFit {
   fillmax = 'fillmax',
   max = 'max',
   min = 'min',
-  scale = 'scale'
+  scale = 'scale',
 }
 
 export enum ImgixParamsFlip {
   h = 'h',
   v = 'v',
-  hv = 'hv'
+  hv = 'hv',
 }
 
 export enum ImgixParamsFm {
@@ -1754,7 +1718,7 @@ export enum ImgixParamsFm {
   png8 = 'png8',
   png32 = 'png32',
   webp = 'webp',
-  webm = 'webm'
+  webm = 'webm',
 }
 
 export enum ImgixParamsMarkAlign {
@@ -1763,7 +1727,7 @@ export enum ImgixParamsMarkAlign {
   bottom = 'bottom',
   left = 'left',
   center = 'center',
-  right = 'right'
+  right = 'right',
 }
 
 export enum ImgixParamsMarkFit {
@@ -1771,21 +1735,21 @@ export enum ImgixParamsMarkFit {
   crop = 'crop',
   fill = 'fill',
   max = 'max',
-  scale = 'scale'
+  scale = 'scale',
 }
 
 export enum ImgixParamsPalette {
   css = 'css',
-  json = 'json'
+  json = 'json',
 }
 
 export enum ImgixParamsTransparency {
-  grid = 'grid'
+  grid = 'grid',
 }
 
 export enum ImgixParamsTrim {
   auto = 'auto',
-  color = 'color'
+  color = 'color',
 }
 
 export enum ImgixParamsTxtAlign {
@@ -1794,18 +1758,18 @@ export enum ImgixParamsTxtAlign {
   bottom = 'bottom',
   left = 'left',
   center = 'center',
-  right = 'right'
+  right = 'right',
 }
 
 export enum ImgixParamsTxtClip {
   start = 'start',
   middle = 'middle',
   end = 'end',
-  ellipsis = 'ellipsis'
+  ellipsis = 'ellipsis',
 }
 
 export enum ImgixParamsTxtFit {
-  max = 'max'
+  max = 'max',
 }
 
 export type ResponsiveImage = {
@@ -1834,12 +1798,10 @@ export type UploadVideoField = {
   thumbnailUrl: Scalars['String'];
 };
 
-
 export type UploadVideoFieldMp4UrlArgs = {
   res?: Maybe<VideoMp4Res>;
   exactRes?: Maybe<VideoMp4Res>;
 };
-
 
 export type UploadVideoFieldThumbnailUrlArgs = {
   format?: Maybe<MuxThumbnailFormatType>;
@@ -1848,13 +1810,13 @@ export type UploadVideoFieldThumbnailUrlArgs = {
 export enum MuxThumbnailFormatType {
   jpg = 'jpg',
   png = 'png',
-  gif = 'gif'
+  gif = 'gif',
 }
 
 export enum VideoMp4Res {
   low = 'low',
   medium = 'medium',
-  high = 'high'
+  high = 'high',
 }
 
 export type LineupItemRecordListMultiLocaleField = {
@@ -1901,10 +1863,15 @@ export type SponsorRecord = {
   website?: Maybe<Scalars['String']>;
 };
 
-
 /** Record of type Sponsor (sponsor) */
 export type SponsorRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
+};
+
+export type StringMultiLocaleField = {
+  __typename?: 'StringMultiLocaleField';
+  locale?: Maybe<SiteLocale>;
+  value?: Maybe<Scalars['String']>;
 };
 
 export type EditionModelFilter = {
@@ -2119,7 +2086,7 @@ export enum EditionModelOrderBy {
   startDate_ASC = 'startDate_ASC',
   startDate_DESC = 'startDate_DESC',
   title_ASC = 'title_ASC',
-  title_DESC = 'title_DESC'
+  title_DESC = 'title_DESC',
 }
 
 export type CollectionMetadata = {
@@ -2156,54 +2123,45 @@ export type NewsRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Record of type News (news) */
 export type NewsRecord_AllArticleLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 /** Record of type News (news) */
 export type NewsRecord_AllSeoLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
 /** Record of type News (news) */
 export type NewsRecord_AllSlugLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 /** Record of type News (news) */
 export type NewsRecord_AllTitleLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
 /** Record of type News (news) */
 export type NewsRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 /** Record of type News (news) */
 export type NewsRecordArticleArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
 /** Record of type News (news) */
 export type NewsRecordSeoArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
 /** Record of type News (news) */
 export type NewsRecordSlugArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 /** Record of type News (news) */
 export type NewsRecordTitleArgs = {
@@ -2230,12 +2188,10 @@ export type WysiwygRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Record of type WYSIWYG (wysiwyg) */
 export type WysiwygRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 /** Record of type WYSIWYG (wysiwyg) */
 export type WysiwygRecordContentArgs = {
@@ -2246,12 +2202,6 @@ export type WysiwygRecordListMultiLocaleField = {
   __typename?: 'WysiwygRecordListMultiLocaleField';
   locale?: Maybe<SiteLocale>;
   value?: Maybe<Array<Maybe<WysiwygRecord>>>;
-};
-
-export type StringMultiLocaleField = {
-  __typename?: 'StringMultiLocaleField';
-  locale?: Maybe<SiteLocale>;
-  value?: Maybe<Scalars['String']>;
 };
 
 export type NewsModelFilter = {
@@ -2324,7 +2274,7 @@ export enum NewsModelOrderBy {
   _isValid_ASC = '_isValid_ASC',
   _isValid_DESC = '_isValid_DESC',
   title_ASC = 'title_ASC',
-  title_DESC = 'title_DESC'
+  title_DESC = 'title_DESC',
 }
 
 export type SponsorModelFilter = {
@@ -2377,7 +2327,7 @@ export enum SponsorModelOrderBy {
   website_ASC = 'website_ASC',
   website_DESC = 'website_DESC',
   name_ASC = 'name_ASC',
-  name_DESC = 'name_DESC'
+  name_DESC = 'name_DESC',
 }
 
 export type ArtistModelFilter = {
@@ -2431,7 +2381,7 @@ export enum ArtistModelOrderBy {
   spotify_ASC = 'spotify_ASC',
   spotify_DESC = 'spotify_DESC',
   name_ASC = 'name_ASC',
-  name_DESC = 'name_DESC'
+  name_DESC = 'name_DESC',
 }
 
 /** Record of type Page (page) */
@@ -2464,54 +2414,45 @@ export type PageRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Record of type Page (page) */
 export type PageRecord_AllContentLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 /** Record of type Page (page) */
 export type PageRecord_AllSeoLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
 /** Record of type Page (page) */
 export type PageRecord_AllSlugLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 /** Record of type Page (page) */
 export type PageRecord_AllTitleLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
 /** Record of type Page (page) */
 export type PageRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 /** Record of type Page (page) */
 export type PageRecordContentArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
 /** Record of type Page (page) */
 export type PageRecordSeoArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
 /** Record of type Page (page) */
 export type PageRecordSlugArgs = {
   locale?: Maybe<SiteLocale>;
 };
-
 
 /** Record of type Page (page) */
 export type PageRecordTitleArgs = {
@@ -2588,7 +2529,7 @@ export enum PageModelOrderBy {
   _isValid_ASC = '_isValid_ASC',
   _isValid_DESC = '_isValid_DESC',
   title_ASC = 'title_ASC',
-  title_DESC = 'title_DESC'
+  title_DESC = 'title_DESC',
 }
 
 /** Record of type Website (website) */
@@ -2618,7 +2559,6 @@ export type WebsiteRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Record of type Website (website) */
 export type WebsiteRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
@@ -2647,7 +2587,6 @@ export type InternalLinkRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
-
 /** Record of type Internal Link (internal_link) */
 export type InternalLinkRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
@@ -2673,7 +2612,6 @@ export type ExternalLinkRecord = {
   link?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
 };
-
 
 /** Record of type External Link (external_link) */
 export type ExternalLinkRecord_SeoMetaTagsArgs = {
@@ -2723,7 +2661,7 @@ export enum StageModelOrderBy {
   _isValid_ASC = '_isValid_ASC',
   _isValid_DESC = '_isValid_DESC',
   name_ASC = 'name_ASC',
-  name_DESC = 'name_DESC'
+  name_DESC = 'name_DESC',
 }
 
 export type Site = {
@@ -2733,11 +2671,9 @@ export type Site = {
   globalSeo?: Maybe<GlobalSeoField>;
 };
 
-
 export type SiteFaviconMetaTagsArgs = {
   variants?: Maybe<Array<Maybe<FaviconType>>>;
 };
-
 
 export type SiteGlobalSeoArgs = {
   locale?: Maybe<SiteLocale>;
@@ -2746,7 +2682,7 @@ export type SiteGlobalSeoArgs = {
 export enum FaviconType {
   icon = 'icon',
   appleTouchIcon = 'appleTouchIcon',
-  msApplication = 'msApplication'
+  msApplication = 'msApplication',
 }
 
 export type GlobalSeoField = {
@@ -2804,7 +2740,7 @@ export enum UploadType {
   presentation = 'presentation',
   spreadsheet = 'spreadsheet',
   pdfdocument = 'pdfdocument',
-  archive = 'archive'
+  archive = 'archive',
 }
 
 /** Specifies how to filter by usage */
@@ -2829,7 +2765,7 @@ export enum ResolutionType {
   icon = 'icon',
   small = 'small',
   medium = 'medium',
-  large = 'large'
+  large = 'large',
 }
 
 /** Specifies how to filter by size */
@@ -2888,7 +2824,7 @@ export enum ColorBucketType {
   brown = 'brown',
   grey = 'grey',
   white = 'white',
-  black = 'black'
+  black = 'black',
 }
 
 /** Specifies how to filter by image orientation */
@@ -2902,7 +2838,7 @@ export type OrientationFilter = {
 export enum UploadOrientation {
   landscape = 'landscape',
   portrait = 'portrait',
-  square = 'square'
+  square = 'square',
 }
 
 /** Specifies how to filter by ID */
@@ -3109,134 +3045,113 @@ export enum UploadOrderBy {
   _updatedAt_ASC = '_updatedAt_ASC',
   _updatedAt_DESC = '_updatedAt_DESC',
   id_ASC = 'id_ASC',
-  id_DESC = 'id_DESC'
+  id_DESC = 'id_DESC',
 }
 
-export type EditionFragment = (
-  { __typename?: 'EditionRecord' }
-  & Pick<EditionRecord, 'id' | 'endDate' | 'facebookEvent' | 'startDate' | 'title'>
-  & { logo?: Maybe<(
-    { __typename?: 'FileField' }
-    & Pick<FileField, 'url'>
-  )>, sponsors: Array<(
-    { __typename?: 'SponsorRecord' }
-    & SponsorFragment
-  )> }
-);
+export type EditionFragment = { __typename?: 'EditionRecord' } & Pick<
+  EditionRecord,
+  'id' | 'endDate' | 'facebookEvent' | 'startDate' | 'title'
+> & {
+    logo?: Maybe<{ __typename?: 'FileField' } & Pick<FileField, 'url'>>;
+    sponsors: Array<{ __typename?: 'SponsorRecord' } & SponsorFragment>;
+  };
 
 export type NewsQueryVariables = Exact<{
   slug?: Maybe<Scalars['String']>;
 }>;
 
-
-export type NewsQuery = (
-  { __typename?: 'Query' }
-  & { news?: Maybe<(
-    { __typename?: 'NewsRecord' }
-    & Pick<NewsRecord, 'title' | 'slug'>
-    & { seo?: Maybe<(
-      { __typename?: 'SeoField' }
-      & Pick<SeoField, 'description' | 'twitterCard'>
-      & { image?: Maybe<(
-        { __typename?: 'FileField' }
-        & Pick<FileField, 'url'>
-      )> }
-    )>, featuredImage?: Maybe<(
-      { __typename?: 'FileField' }
-      & Pick<FileField, 'blurhash' | 'url'>
-    )>, article?: Maybe<Array<Maybe<(
-      { __typename?: 'WysiwygRecord' }
-      & Pick<WysiwygRecord, 'content'>
-    )>>> }
-  )> }
-);
+export type NewsQuery = { __typename?: 'Query' } & {
+  news?: Maybe<
+    { __typename?: 'NewsRecord' } & Pick<NewsRecord, 'title' | 'slug'> & {
+        seo?: Maybe<
+          { __typename?: 'SeoField' } & Pick<SeoField, 'description' | 'twitterCard'> & {
+              image?: Maybe<{ __typename?: 'FileField' } & Pick<FileField, 'url'>>;
+            }
+        >;
+        featuredImage?: Maybe<{ __typename?: 'FileField' } & Pick<FileField, 'blurhash' | 'url'>>;
+        article?: Maybe<
+          Array<Maybe<{ __typename?: 'WysiwygRecord' } & Pick<WysiwygRecord, 'content'>>>
+        >;
+      }
+  >;
+};
 
 export type NewsOverviewQueryVariables = Exact<{
   edition?: Maybe<Scalars['ItemId']>;
 }>;
 
-
-export type NewsOverviewQuery = (
-  { __typename?: 'Query' }
-  & { news?: Maybe<(
-    { __typename?: 'NewsRecord' }
-    & Pick<NewsRecord, 'title' | 'slug'>
-    & { featuredImage?: Maybe<(
-      { __typename?: 'FileField' }
-      & Pick<FileField, 'blurhash' | 'url'>
-    )> }
-  )> }
-);
+export type NewsOverviewQuery = { __typename?: 'Query' } & {
+  news?: Maybe<
+    { __typename?: 'NewsRecord' } & Pick<NewsRecord, 'title' | 'slug'> & {
+        featuredImage?: Maybe<{ __typename?: 'FileField' } & Pick<FileField, 'blurhash' | 'url'>>;
+      }
+  >;
+};
 
 export type PageQueryVariables = Exact<{
   slug?: Maybe<Scalars['String']>;
 }>;
 
+export type PageQuery = { __typename?: 'Query' } & {
+  page?: Maybe<
+    { __typename?: 'PageRecord' } & Pick<PageRecord, 'slug' | 'title'> & {
+        content?: Maybe<
+          Array<Maybe<{ __typename?: 'WysiwygRecord' } & Pick<WysiwygRecord, 'content'>>>
+        >;
+        children?: Maybe<
+          Array<Maybe<{ __typename?: 'PageRecord' } & Pick<PageRecord, 'slug' | 'title'>>>
+        >;
+        parent?: Maybe<{ __typename?: 'PageRecord' } & Pick<PageRecord, 'title' | 'slug'>>;
+      }
+  >;
+};
 
-export type PageQuery = (
-  { __typename?: 'Query' }
-  & { page?: Maybe<(
-    { __typename?: 'PageRecord' }
-    & Pick<PageRecord, 'slug' | 'title'>
-    & { content?: Maybe<Array<Maybe<(
-      { __typename?: 'WysiwygRecord' }
-      & Pick<WysiwygRecord, 'content'>
-    )>>>, children?: Maybe<Array<Maybe<(
-      { __typename?: 'PageRecord' }
-      & Pick<PageRecord, 'slug' | 'title'>
-    )>>>, parent?: Maybe<(
-      { __typename?: 'PageRecord' }
-      & Pick<PageRecord, 'title' | 'slug'>
-    )> }
-  )> }
-);
+export type SponsorFragment = { __typename?: 'SponsorRecord' } & Pick<
+  SponsorRecord,
+  'website' | 'name' | 'displayLogo' | 'displayFooter'
+> & { logo?: Maybe<{ __typename?: 'FileField' } & Pick<FileField, 'url'>> };
 
-export type SponsorFragment = (
-  { __typename?: 'SponsorRecord' }
-  & Pick<SponsorRecord, 'website' | 'name' | 'displayLogo' | 'displayFooter'>
-  & { logo?: Maybe<(
-    { __typename?: 'FileField' }
-    & Pick<FileField, 'url'>
-  )> }
-);
+export type InternalLinkFragment = { __typename?: 'InternalLinkRecord' } & Pick<
+  InternalLinkRecord,
+  'label'
+> & { page?: Maybe<{ __typename?: 'PageRecord' } & Pick<PageRecord, 'id'>> };
 
-export type InternalLinkFragment = (
-  { __typename?: 'InternalLinkRecord' }
-  & Pick<InternalLinkRecord, 'label'>
-  & { page?: Maybe<(
-    { __typename?: 'PageRecord' }
-    & Pick<PageRecord, 'id'>
-  )> }
-);
+export type ExternalLinkFragment = { __typename?: 'ExternalLinkRecord' } & Pick<
+  ExternalLinkRecord,
+  'label' | 'link'
+>;
 
-export type ExternalLinkFragment = (
-  { __typename?: 'ExternalLinkRecord' }
-  & Pick<ExternalLinkRecord, 'label' | 'link'>
-);
+export type WebsiteQueryVariables = Exact<{
+  locale?: Maybe<SiteLocale>;
+}>;
 
-export type WebsiteQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type WebsiteQuery = (
-  { __typename?: 'Query' }
-  & { website?: Maybe<(
-    { __typename?: 'WebsiteRecord' }
-    & Pick<WebsiteRecord, 'ticketingActive' | 'lineupActive' | 'displayTimeLayout' | 'displayStageLayout' | 'displayDayLayout'>
-    & { activeEdition?: Maybe<(
-      { __typename?: 'EditionRecord' }
-      & EditionFragment
-    )>, mainNavigation?: Maybe<Array<Maybe<(
-      { __typename?: 'InternalLinkRecord' }
-      & InternalLinkFragment
-    ) | (
-      { __typename?: 'ExternalLinkRecord' }
-      & ExternalLinkFragment
-    )>>>, footerNavigation?: Maybe<Array<Maybe<(
-      { __typename?: 'InternalLinkRecord' }
-      & InternalLinkFragment
-    ) | (
-      { __typename?: 'ExternalLinkRecord' }
-      & ExternalLinkFragment
-    )>>> }
-  )> }
-);
+export type WebsiteQuery = { __typename?: 'Query' } & {
+  website?: Maybe<
+    { __typename?: 'WebsiteRecord' } & Pick<
+      WebsiteRecord,
+      | 'ticketingActive'
+      | 'lineupActive'
+      | 'displayTimeLayout'
+      | 'displayStageLayout'
+      | 'displayDayLayout'
+    > & {
+        activeEdition?: Maybe<{ __typename?: 'EditionRecord' } & EditionFragment>;
+        mainNavigation?: Maybe<
+          Array<
+            Maybe<
+              | ({ __typename?: 'InternalLinkRecord' } & InternalLinkFragment)
+              | ({ __typename?: 'ExternalLinkRecord' } & ExternalLinkFragment)
+            >
+          >
+        >;
+        footerNavigation?: Maybe<
+          Array<
+            Maybe<
+              | ({ __typename?: 'InternalLinkRecord' } & InternalLinkFragment)
+              | ({ __typename?: 'ExternalLinkRecord' } & ExternalLinkFragment)
+            >
+          >
+        >;
+      }
+  >;
+};

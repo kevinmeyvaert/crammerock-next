@@ -16,8 +16,8 @@ const PageLinks = gql`
 `;
 
 export const WEBSITE = gql`
-  query Website {
-    website {
+  query Website($locale: SiteLocale) {
+    website(locale: $locale) {
       ticketingActive
       lineupActive
       displayTimeLayout

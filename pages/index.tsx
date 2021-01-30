@@ -1,4 +1,4 @@
-import { InferGetServerSidePropsType } from 'next';
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import Head from 'next/head';
 import { FC } from 'react';
 
@@ -7,7 +7,9 @@ import { WEBSITE } from '../queries/dato/website';
 import styles from '../styles/Home.module.css';
 import { WebsiteQuery } from '../types/dato.types';
 
-const Home: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ activeEdition }) => {
+type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
+
+const Home: FC<Props> = ({ activeEdition }) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -21,8 +23,8 @@ const Home: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({ acti
   );
 };
 
-export const getServerSideProps = async () => {
-  const { website }: WebsiteQuery = await fetchDato(WEBSITE);
+export const getServerSideProps = async ({ locale }: GetServerSidePropsContext) => {
+  const { website }: WebsiteQuery = await fetchDato(WEBSITE, { variables: { locale } });
   return {
     props: {
       ...website,
