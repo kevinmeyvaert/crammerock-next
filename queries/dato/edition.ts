@@ -1,4 +1,5 @@
 import { gql } from 'graphql-request';
+
 import { Sponsor } from './sponsor';
 
 export const Edition = gql`
