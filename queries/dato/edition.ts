@@ -1,5 +1,5 @@
-import { gql } from "graphql-request";
-import { Sponsor } from "./sponsor";
+import { gql } from 'graphql-request';
+import { Sponsor } from './sponsor';
 
 export const Edition = gql`
   fragment edition on EditionRecord {

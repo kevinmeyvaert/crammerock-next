@@ -1,5 +1,5 @@
-import { gql } from "graphql-request";
-import { Edition } from "./edition";
+import { gql } from 'graphql-request';
+import { Edition } from './edition';
 
 const PageLinks = gql`
   fragment internalLink on InternalLinkRecord {
