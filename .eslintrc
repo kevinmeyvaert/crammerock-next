@@ -9,7 +9,14 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier", "react-hooks", "jsx-a11y", "simple-import-sort"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "react-hooks",
+    "jsx-a11y",
+    "simple-import-sort"
+  ],
   "extends": [
     "airbnb-typescript",
     "plugin:prettier/recommended",
@@ -27,6 +34,7 @@
     ],
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
+    "no-underscore-dangle": "off",
     "sort-imports": "off",
     "import/order": "off",
     "import/no-unresolved": ["off"],
