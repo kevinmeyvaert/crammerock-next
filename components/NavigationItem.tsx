@@ -9,7 +9,7 @@ interface Props {
 
 const NavigationItem: FC<Props> = ({ item }) => {
   if (item.__typename === 'InternalLinkRecord') {
-    return <Link href={`/${item.page}`}>{item.label}</Link>;
+    return <Link href={`/${item.page.slug}`}>{item.label}</Link>;
   }
   return <a href={item.link}>{item.label}</a>;
 };

@@ -7,6 +7,7 @@ const PageLinks = gql`
     label
     page {
       id
+      slug
     }
   }
   fragment externalLink on ExternalLinkRecord {
@@ -27,10 +28,12 @@ export const WEBSITE = gql`
         ...edition
       }
       mainNavigation {
+        __typename
         ...internalLink
         ...externalLink
       }
       footerNavigation {
+        __typename
         ...internalLink
         ...externalLink
       }

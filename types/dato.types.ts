@@ -76,11 +76,13 @@ export type Query = {
   website?: Maybe<WebsiteRecord>;
 };
 
+
 /** The query root for this schema */
 export type Query_AllArtistsMetaArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<ArtistModelFilter>;
 };
+
 
 /** The query root for this schema */
 export type Query_AllEditionsMetaArgs = {
@@ -88,11 +90,13 @@ export type Query_AllEditionsMetaArgs = {
   filter?: Maybe<EditionModelFilter>;
 };
 
+
 /** The query root for this schema */
 export type Query_AllNewsMetaArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<NewsModelFilter>;
 };
+
 
 /** The query root for this schema */
 export type Query_AllPagesMetaArgs = {
@@ -100,11 +104,13 @@ export type Query_AllPagesMetaArgs = {
   filter?: Maybe<PageModelFilter>;
 };
 
+
 /** The query root for this schema */
 export type Query_AllSponsorsMetaArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<SponsorModelFilter>;
 };
+
 
 /** The query root for this schema */
 export type Query_AllStagesMetaArgs = {
@@ -112,16 +118,19 @@ export type Query_AllStagesMetaArgs = {
   filter?: Maybe<StageModelFilter>;
 };
 
+
 /** The query root for this schema */
 export type Query_AllUploadsMetaArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<UploadFilter>;
 };
 
+
 /** The query root for this schema */
 export type Query_SiteArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 /** The query root for this schema */
 export type QueryAllArtistsArgs = {
@@ -132,6 +141,7 @@ export type QueryAllArtistsArgs = {
   orderBy?: Maybe<Array<Maybe<ArtistModelOrderBy>>>;
 };
 
+
 /** The query root for this schema */
 export type QueryAllEditionsArgs = {
   locale?: Maybe<SiteLocale>;
@@ -140,6 +150,7 @@ export type QueryAllEditionsArgs = {
   filter?: Maybe<EditionModelFilter>;
   orderBy?: Maybe<Array<Maybe<EditionModelOrderBy>>>;
 };
+
 
 /** The query root for this schema */
 export type QueryAllNewsArgs = {
@@ -150,6 +161,7 @@ export type QueryAllNewsArgs = {
   orderBy?: Maybe<Array<Maybe<NewsModelOrderBy>>>;
 };
 
+
 /** The query root for this schema */
 export type QueryAllPagesArgs = {
   locale?: Maybe<SiteLocale>;
@@ -158,6 +170,7 @@ export type QueryAllPagesArgs = {
   filter?: Maybe<PageModelFilter>;
   orderBy?: Maybe<Array<Maybe<PageModelOrderBy>>>;
 };
+
 
 /** The query root for this schema */
 export type QueryAllSponsorsArgs = {
@@ -168,6 +181,7 @@ export type QueryAllSponsorsArgs = {
   orderBy?: Maybe<Array<Maybe<SponsorModelOrderBy>>>;
 };
 
+
 /** The query root for this schema */
 export type QueryAllStagesArgs = {
   locale?: Maybe<SiteLocale>;
@@ -176,6 +190,7 @@ export type QueryAllStagesArgs = {
   filter?: Maybe<StageModelFilter>;
   orderBy?: Maybe<Array<Maybe<StageModelOrderBy>>>;
 };
+
 
 /** The query root for this schema */
 export type QueryAllUploadsArgs = {
@@ -186,12 +201,14 @@ export type QueryAllUploadsArgs = {
   orderBy?: Maybe<Array<Maybe<UploadOrderBy>>>;
 };
 
+
 /** The query root for this schema */
 export type QueryArtistArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<ArtistModelFilter>;
   orderBy?: Maybe<Array<Maybe<ArtistModelOrderBy>>>;
 };
+
 
 /** The query root for this schema */
 export type QueryEditionArgs = {
@@ -200,12 +217,14 @@ export type QueryEditionArgs = {
   orderBy?: Maybe<Array<Maybe<EditionModelOrderBy>>>;
 };
 
+
 /** The query root for this schema */
 export type QueryNewsArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<NewsModelFilter>;
   orderBy?: Maybe<Array<Maybe<NewsModelOrderBy>>>;
 };
+
 
 /** The query root for this schema */
 export type QueryPageArgs = {
@@ -214,12 +233,14 @@ export type QueryPageArgs = {
   orderBy?: Maybe<Array<Maybe<PageModelOrderBy>>>;
 };
 
+
 /** The query root for this schema */
 export type QuerySponsorArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<SponsorModelFilter>;
   orderBy?: Maybe<Array<Maybe<SponsorModelOrderBy>>>;
 };
+
 
 /** The query root for this schema */
 export type QueryStageArgs = {
@@ -228,12 +249,14 @@ export type QueryStageArgs = {
   orderBy?: Maybe<Array<Maybe<StageModelOrderBy>>>;
 };
 
+
 /** The query root for this schema */
 export type QueryUploadArgs = {
   locale?: Maybe<SiteLocale>;
   filter?: Maybe<UploadFilter>;
   orderBy?: Maybe<Array<Maybe<UploadOrderBy>>>;
 };
+
 
 /** The query root for this schema */
 export type QueryWebsiteArgs = {
@@ -245,7 +268,6 @@ export type EditionRecord = {
   __typename?: 'EditionRecord';
   _allLineupLocales?: Maybe<Array<Maybe<LineupItemRecordListMultiLocaleField>>>;
   _allSeoLocales?: Maybe<Array<Maybe<SeoFieldMultiLocaleField>>>;
-  _allTitleLocales?: Maybe<Array<Maybe<StringMultiLocaleField>>>;
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
   _isValid: Scalars['BooleanType'];
@@ -270,40 +292,37 @@ export type EditionRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
+
 /** Record of type Edition (edition) */
 export type EditionRecord_AllLineupLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 /** Record of type Edition (edition) */
 export type EditionRecord_AllSeoLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-/** Record of type Edition (edition) */
-export type EditionRecord_AllTitleLocalesArgs = {
-  locale?: Maybe<SiteLocale>;
-};
 
 /** Record of type Edition (edition) */
 export type EditionRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+
 /** Record of type Edition (edition) */
 export type EditionRecordLineupArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 /** Record of type Edition (edition) */
 export type EditionRecordSeoArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-/** Record of type Edition (edition) */
-export type EditionRecordTitleArgs = {
-  locale?: Maybe<SiteLocale>;
-};
+
 
 export type Tag = {
   __typename?: 'Tag';
@@ -312,16 +331,18 @@ export type Tag = {
   tag: Scalars['String'];
 };
 
+
 export enum SiteLocale {
   nl = 'nl',
-  en = 'en',
+  en = 'en'
 }
 
 export enum ItemStatus {
   draft = 'draft',
   updated = 'updated',
-  published = 'published',
+  published = 'published'
 }
+
 
 /** Record of type Lineup Item (lineup_item) */
 export type LineupItemRecord = {
@@ -348,15 +369,18 @@ export type LineupItemRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
+
 /** Record of type Lineup Item (lineup_item) */
 export type LineupItemRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+
 /** Record of type Lineup Item (lineup_item) */
 export type LineupItemRecordIntroductionArgs = {
   markdown?: Maybe<Scalars['Boolean']>;
 };
+
 
 /** Record of type Stage (stage) */
 export type StageRecord = {
@@ -378,6 +402,7 @@ export type StageRecord = {
   slug?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
 };
+
 
 /** Record of type Stage (stage) */
 export type StageRecord_SeoMetaTagsArgs = {
@@ -408,6 +433,7 @@ export type ArtistRecord = {
   spotify?: Maybe<Scalars['String']>;
   updatedAt: Scalars['DateTime'];
 };
+
 
 /** Record of type Artist (artist) */
 export type ArtistRecord_SeoMetaTagsArgs = {
@@ -444,9 +470,11 @@ export type FileField = {
   width?: Maybe<Scalars['IntType']>;
 };
 
+
 export type FileFieldAltArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 export type FileFieldBlurUpThumbArgs = {
   punch?: Maybe<Scalars['Float']>;
@@ -455,26 +483,33 @@ export type FileFieldBlurUpThumbArgs = {
   imgixParams?: Maybe<ImgixParams>;
 };
 
+
 export type FileFieldCustomDataArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+
 export type FileFieldFocalPointArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 export type FileFieldResponsiveImageArgs = {
   imgixParams?: Maybe<ImgixParams>;
   sizes?: Maybe<Scalars['String']>;
 };
 
+
 export type FileFieldTitleArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+
 export type FileFieldUrlArgs = {
   imgixParams?: Maybe<ImgixParams>;
 };
+
+
 
 export type ColorField = {
   __typename?: 'ColorField';
@@ -485,11 +520,13 @@ export type ColorField = {
   red?: Maybe<Scalars['IntType']>;
 };
 
+
 export type FocalPoint = {
   __typename?: 'focalPoint';
   x?: Maybe<Scalars['FloatType']>;
   y?: Maybe<Scalars['FloatType']>;
 };
+
 
 export type ImgixParams = {
   /**
@@ -1608,7 +1645,7 @@ export enum ImgixParamsAuto {
   enhance = 'enhance',
   format = 'format',
   redeye = 'redeye',
-  compress = 'compress',
+  compress = 'compress'
 }
 
 export enum ImgixParamsBlendAlign {
@@ -1617,7 +1654,7 @@ export enum ImgixParamsBlendAlign {
   middle = 'middle',
   left = 'left',
   right = 'right',
-  center = 'center',
+  center = 'center'
 }
 
 export enum ImgixParamsBlendCrop {
@@ -1625,7 +1662,7 @@ export enum ImgixParamsBlendCrop {
   bottom = 'bottom',
   left = 'left',
   right = 'right',
-  faces = 'faces',
+  faces = 'faces'
 }
 
 export enum ImgixParamsBlendFit {
@@ -1633,7 +1670,7 @@ export enum ImgixParamsBlendFit {
   clip = 'clip',
   crop = 'crop',
   scale = 'scale',
-  max = 'max',
+  max = 'max'
 }
 
 export enum ImgixParamsBlendMode {
@@ -1652,17 +1689,17 @@ export enum ImgixParamsBlendMode {
   saturation = 'saturation',
   screen = 'screen',
   softlight = 'softlight',
-  normal = 'normal',
+  normal = 'normal'
 }
 
 export enum ImgixParamsBlendSize {
-  inherit = 'inherit',
+  inherit = 'inherit'
 }
 
 export enum ImgixParamsCh {
   width = 'width',
   dpr = 'dpr',
-  saveData = 'saveData',
+  saveData = 'saveData'
 }
 
 export enum ImgixParamsCrop {
@@ -1673,19 +1710,19 @@ export enum ImgixParamsCrop {
   faces = 'faces',
   entropy = 'entropy',
   edges = 'edges',
-  focalpoint = 'focalpoint',
+  focalpoint = 'focalpoint'
 }
 
 export enum ImgixParamsCs {
   srgb = 'srgb',
   adobergb1998 = 'adobergb1998',
   tinysrgb = 'tinysrgb',
-  strip = 'strip',
+  strip = 'strip'
 }
 
 export enum ImgixParamsFill {
   solid = 'solid',
-  blur = 'blur',
+  blur = 'blur'
 }
 
 export enum ImgixParamsFit {
@@ -1697,13 +1734,13 @@ export enum ImgixParamsFit {
   fillmax = 'fillmax',
   max = 'max',
   min = 'min',
-  scale = 'scale',
+  scale = 'scale'
 }
 
 export enum ImgixParamsFlip {
   h = 'h',
   v = 'v',
-  hv = 'hv',
+  hv = 'hv'
 }
 
 export enum ImgixParamsFm {
@@ -1718,7 +1755,7 @@ export enum ImgixParamsFm {
   png8 = 'png8',
   png32 = 'png32',
   webp = 'webp',
-  webm = 'webm',
+  webm = 'webm'
 }
 
 export enum ImgixParamsMarkAlign {
@@ -1727,7 +1764,7 @@ export enum ImgixParamsMarkAlign {
   bottom = 'bottom',
   left = 'left',
   center = 'center',
-  right = 'right',
+  right = 'right'
 }
 
 export enum ImgixParamsMarkFit {
@@ -1735,21 +1772,21 @@ export enum ImgixParamsMarkFit {
   crop = 'crop',
   fill = 'fill',
   max = 'max',
-  scale = 'scale',
+  scale = 'scale'
 }
 
 export enum ImgixParamsPalette {
   css = 'css',
-  json = 'json',
+  json = 'json'
 }
 
 export enum ImgixParamsTransparency {
-  grid = 'grid',
+  grid = 'grid'
 }
 
 export enum ImgixParamsTrim {
   auto = 'auto',
-  color = 'color',
+  color = 'color'
 }
 
 export enum ImgixParamsTxtAlign {
@@ -1758,18 +1795,18 @@ export enum ImgixParamsTxtAlign {
   bottom = 'bottom',
   left = 'left',
   center = 'center',
-  right = 'right',
+  right = 'right'
 }
 
 export enum ImgixParamsTxtClip {
   start = 'start',
   middle = 'middle',
   end = 'end',
-  ellipsis = 'ellipsis',
+  ellipsis = 'ellipsis'
 }
 
 export enum ImgixParamsTxtFit {
-  max = 'max',
+  max = 'max'
 }
 
 export type ResponsiveImage = {
@@ -1798,10 +1835,12 @@ export type UploadVideoField = {
   thumbnailUrl: Scalars['String'];
 };
 
+
 export type UploadVideoFieldMp4UrlArgs = {
   res?: Maybe<VideoMp4Res>;
   exactRes?: Maybe<VideoMp4Res>;
 };
+
 
 export type UploadVideoFieldThumbnailUrlArgs = {
   format?: Maybe<MuxThumbnailFormatType>;
@@ -1810,13 +1849,13 @@ export type UploadVideoFieldThumbnailUrlArgs = {
 export enum MuxThumbnailFormatType {
   jpg = 'jpg',
   png = 'png',
-  gif = 'gif',
+  gif = 'gif'
 }
 
 export enum VideoMp4Res {
   low = 'low',
   medium = 'medium',
-  high = 'high',
+  high = 'high'
 }
 
 export type LineupItemRecordListMultiLocaleField = {
@@ -1863,15 +1902,10 @@ export type SponsorRecord = {
   website?: Maybe<Scalars['String']>;
 };
 
+
 /** Record of type Sponsor (sponsor) */
 export type SponsorRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
-};
-
-export type StringMultiLocaleField = {
-  __typename?: 'StringMultiLocaleField';
-  locale?: Maybe<SiteLocale>;
-  value?: Maybe<Scalars['String']>;
 };
 
 export type EditionModelFilter = {
@@ -2086,7 +2120,7 @@ export enum EditionModelOrderBy {
   startDate_ASC = 'startDate_ASC',
   startDate_DESC = 'startDate_DESC',
   title_ASC = 'title_ASC',
-  title_DESC = 'title_DESC',
+  title_DESC = 'title_DESC'
 }
 
 export type CollectionMetadata = {
@@ -2123,45 +2157,54 @@ export type NewsRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
+
 /** Record of type News (news) */
 export type NewsRecord_AllArticleLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 /** Record of type News (news) */
 export type NewsRecord_AllSeoLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+
 /** Record of type News (news) */
 export type NewsRecord_AllSlugLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 /** Record of type News (news) */
 export type NewsRecord_AllTitleLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+
 /** Record of type News (news) */
 export type NewsRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 /** Record of type News (news) */
 export type NewsRecordArticleArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+
 /** Record of type News (news) */
 export type NewsRecordSeoArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+
 /** Record of type News (news) */
 export type NewsRecordSlugArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 /** Record of type News (news) */
 export type NewsRecordTitleArgs = {
@@ -2188,10 +2231,12 @@ export type WysiwygRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
+
 /** Record of type WYSIWYG (wysiwyg) */
 export type WysiwygRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 /** Record of type WYSIWYG (wysiwyg) */
 export type WysiwygRecordContentArgs = {
@@ -2202,6 +2247,12 @@ export type WysiwygRecordListMultiLocaleField = {
   __typename?: 'WysiwygRecordListMultiLocaleField';
   locale?: Maybe<SiteLocale>;
   value?: Maybe<Array<Maybe<WysiwygRecord>>>;
+};
+
+export type StringMultiLocaleField = {
+  __typename?: 'StringMultiLocaleField';
+  locale?: Maybe<SiteLocale>;
+  value?: Maybe<Scalars['String']>;
 };
 
 export type NewsModelFilter = {
@@ -2274,7 +2325,7 @@ export enum NewsModelOrderBy {
   _isValid_ASC = '_isValid_ASC',
   _isValid_DESC = '_isValid_DESC',
   title_ASC = 'title_ASC',
-  title_DESC = 'title_DESC',
+  title_DESC = 'title_DESC'
 }
 
 export type SponsorModelFilter = {
@@ -2327,7 +2378,7 @@ export enum SponsorModelOrderBy {
   website_ASC = 'website_ASC',
   website_DESC = 'website_DESC',
   name_ASC = 'name_ASC',
-  name_DESC = 'name_DESC',
+  name_DESC = 'name_DESC'
 }
 
 export type ArtistModelFilter = {
@@ -2381,7 +2432,7 @@ export enum ArtistModelOrderBy {
   spotify_ASC = 'spotify_ASC',
   spotify_DESC = 'spotify_DESC',
   name_ASC = 'name_ASC',
-  name_DESC = 'name_DESC',
+  name_DESC = 'name_DESC'
 }
 
 /** Record of type Page (page) */
@@ -2414,45 +2465,54 @@ export type PageRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
+
 /** Record of type Page (page) */
 export type PageRecord_AllContentLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 /** Record of type Page (page) */
 export type PageRecord_AllSeoLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+
 /** Record of type Page (page) */
 export type PageRecord_AllSlugLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 /** Record of type Page (page) */
 export type PageRecord_AllTitleLocalesArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+
 /** Record of type Page (page) */
 export type PageRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 /** Record of type Page (page) */
 export type PageRecordContentArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+
 /** Record of type Page (page) */
 export type PageRecordSeoArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+
 /** Record of type Page (page) */
 export type PageRecordSlugArgs = {
   locale?: Maybe<SiteLocale>;
 };
+
 
 /** Record of type Page (page) */
 export type PageRecordTitleArgs = {
@@ -2529,12 +2589,14 @@ export enum PageModelOrderBy {
   _isValid_ASC = '_isValid_ASC',
   _isValid_DESC = '_isValid_DESC',
   title_ASC = 'title_ASC',
-  title_DESC = 'title_DESC',
+  title_DESC = 'title_DESC'
 }
 
 /** Record of type Website (website) */
 export type WebsiteRecord = {
   __typename?: 'WebsiteRecord';
+  _allFooterNavigationLocales?: Maybe<Array<Maybe<WebsiteModelFooterNavigationFieldListMultiLocaleField>>>;
+  _allMainNavigationLocales?: Maybe<Array<Maybe<WebsiteModelMainNavigationFieldListMultiLocaleField>>>;
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
   _isValid: Scalars['BooleanType'];
@@ -2559,8 +2621,33 @@ export type WebsiteRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
+
+/** Record of type Website (website) */
+export type WebsiteRecord_AllFooterNavigationLocalesArgs = {
+  locale?: Maybe<SiteLocale>;
+};
+
+
+/** Record of type Website (website) */
+export type WebsiteRecord_AllMainNavigationLocalesArgs = {
+  locale?: Maybe<SiteLocale>;
+};
+
+
 /** Record of type Website (website) */
 export type WebsiteRecord_SeoMetaTagsArgs = {
+  locale?: Maybe<SiteLocale>;
+};
+
+
+/** Record of type Website (website) */
+export type WebsiteRecordFooterNavigationArgs = {
+  locale?: Maybe<SiteLocale>;
+};
+
+
+/** Record of type Website (website) */
+export type WebsiteRecordMainNavigationArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
@@ -2586,6 +2673,7 @@ export type InternalLinkRecord = {
   page?: Maybe<PageRecord>;
   updatedAt: Scalars['DateTime'];
 };
+
 
 /** Record of type Internal Link (internal_link) */
 export type InternalLinkRecord_SeoMetaTagsArgs = {
@@ -2613,12 +2701,25 @@ export type ExternalLinkRecord = {
   updatedAt: Scalars['DateTime'];
 };
 
+
 /** Record of type External Link (external_link) */
 export type ExternalLinkRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+export type WebsiteModelFooterNavigationFieldListMultiLocaleField = {
+  __typename?: 'WebsiteModelFooterNavigationFieldListMultiLocaleField';
+  locale?: Maybe<SiteLocale>;
+  value?: Maybe<Array<Maybe<WebsiteModelFooterNavigationField>>>;
+};
+
 export type WebsiteModelMainNavigationField = InternalLinkRecord | ExternalLinkRecord;
+
+export type WebsiteModelMainNavigationFieldListMultiLocaleField = {
+  __typename?: 'WebsiteModelMainNavigationFieldListMultiLocaleField';
+  locale?: Maybe<SiteLocale>;
+  value?: Maybe<Array<Maybe<WebsiteModelMainNavigationField>>>;
+};
 
 export type StageModelFilter = {
   _createdAt?: Maybe<CreatedAtFilter>;
@@ -2661,7 +2762,7 @@ export enum StageModelOrderBy {
   _isValid_ASC = '_isValid_ASC',
   _isValid_DESC = '_isValid_DESC',
   name_ASC = 'name_ASC',
-  name_DESC = 'name_DESC',
+  name_DESC = 'name_DESC'
 }
 
 export type Site = {
@@ -2671,9 +2772,11 @@ export type Site = {
   globalSeo?: Maybe<GlobalSeoField>;
 };
 
+
 export type SiteFaviconMetaTagsArgs = {
   variants?: Maybe<Array<Maybe<FaviconType>>>;
 };
+
 
 export type SiteGlobalSeoArgs = {
   locale?: Maybe<SiteLocale>;
@@ -2682,7 +2785,7 @@ export type SiteGlobalSeoArgs = {
 export enum FaviconType {
   icon = 'icon',
   appleTouchIcon = 'appleTouchIcon',
-  msApplication = 'msApplication',
+  msApplication = 'msApplication'
 }
 
 export type GlobalSeoField = {
@@ -2740,7 +2843,7 @@ export enum UploadType {
   presentation = 'presentation',
   spreadsheet = 'spreadsheet',
   pdfdocument = 'pdfdocument',
-  archive = 'archive',
+  archive = 'archive'
 }
 
 /** Specifies how to filter by usage */
@@ -2765,7 +2868,7 @@ export enum ResolutionType {
   icon = 'icon',
   small = 'small',
   medium = 'medium',
-  large = 'large',
+  large = 'large'
 }
 
 /** Specifies how to filter by size */
@@ -2824,7 +2927,7 @@ export enum ColorBucketType {
   brown = 'brown',
   grey = 'grey',
   white = 'white',
-  black = 'black',
+  black = 'black'
 }
 
 /** Specifies how to filter by image orientation */
@@ -2838,7 +2941,7 @@ export type OrientationFilter = {
 export enum UploadOrientation {
   landscape = 'landscape',
   portrait = 'portrait',
-  square = 'square',
+  square = 'square'
 }
 
 /** Specifies how to filter by ID */
@@ -3045,113 +3148,139 @@ export enum UploadOrderBy {
   _updatedAt_ASC = '_updatedAt_ASC',
   _updatedAt_DESC = '_updatedAt_DESC',
   id_ASC = 'id_ASC',
-  id_DESC = 'id_DESC',
+  id_DESC = 'id_DESC'
 }
 
-export type EditionFragment = { __typename?: 'EditionRecord' } & Pick<
-  EditionRecord,
-  'id' | 'endDate' | 'facebookEvent' | 'startDate' | 'title'
-> & {
-    logo?: Maybe<{ __typename?: 'FileField' } & Pick<FileField, 'url'>>;
-    sponsors: Array<{ __typename?: 'SponsorRecord' } & SponsorFragment>;
-  };
+export type EditionFragment = (
+  { __typename?: 'EditionRecord' }
+  & Pick<EditionRecord, 'id' | 'endDate' | 'facebookEvent' | 'startDate' | 'title'>
+  & { logo?: Maybe<(
+    { __typename?: 'FileField' }
+    & { responsiveImage?: Maybe<(
+      { __typename?: 'ResponsiveImage' }
+      & Pick<ResponsiveImage, 'srcSet' | 'webpSrcSet' | 'sizes' | 'src' | 'width' | 'height' | 'aspectRatio' | 'alt' | 'title' | 'bgColor' | 'base64'>
+    )> }
+  )>, sponsors: Array<(
+    { __typename?: 'SponsorRecord' }
+    & SponsorFragment
+  )> }
+);
 
 export type NewsQueryVariables = Exact<{
   slug?: Maybe<Scalars['String']>;
 }>;
 
-export type NewsQuery = { __typename?: 'Query' } & {
-  news?: Maybe<
-    { __typename?: 'NewsRecord' } & Pick<NewsRecord, 'title' | 'slug'> & {
-        seo?: Maybe<
-          { __typename?: 'SeoField' } & Pick<SeoField, 'description' | 'twitterCard'> & {
-              image?: Maybe<{ __typename?: 'FileField' } & Pick<FileField, 'url'>>;
-            }
-        >;
-        featuredImage?: Maybe<{ __typename?: 'FileField' } & Pick<FileField, 'blurhash' | 'url'>>;
-        article?: Maybe<
-          Array<Maybe<{ __typename?: 'WysiwygRecord' } & Pick<WysiwygRecord, 'content'>>>
-        >;
-      }
-  >;
-};
+
+export type NewsQuery = (
+  { __typename?: 'Query' }
+  & { news?: Maybe<(
+    { __typename?: 'NewsRecord' }
+    & Pick<NewsRecord, 'title' | 'slug'>
+    & { seo?: Maybe<(
+      { __typename?: 'SeoField' }
+      & Pick<SeoField, 'description' | 'twitterCard'>
+      & { image?: Maybe<(
+        { __typename?: 'FileField' }
+        & Pick<FileField, 'url'>
+      )> }
+    )>, featuredImage?: Maybe<(
+      { __typename?: 'FileField' }
+      & Pick<FileField, 'blurhash' | 'url'>
+    )>, article?: Maybe<Array<Maybe<(
+      { __typename?: 'WysiwygRecord' }
+      & Pick<WysiwygRecord, 'content'>
+    )>>> }
+  )> }
+);
 
 export type NewsOverviewQueryVariables = Exact<{
   edition?: Maybe<Scalars['ItemId']>;
 }>;
 
-export type NewsOverviewQuery = { __typename?: 'Query' } & {
-  news?: Maybe<
-    { __typename?: 'NewsRecord' } & Pick<NewsRecord, 'title' | 'slug'> & {
-        featuredImage?: Maybe<{ __typename?: 'FileField' } & Pick<FileField, 'blurhash' | 'url'>>;
-      }
-  >;
-};
+
+export type NewsOverviewQuery = (
+  { __typename?: 'Query' }
+  & { news?: Maybe<(
+    { __typename?: 'NewsRecord' }
+    & Pick<NewsRecord, 'title' | 'slug'>
+    & { featuredImage?: Maybe<(
+      { __typename?: 'FileField' }
+      & Pick<FileField, 'blurhash' | 'url'>
+    )> }
+  )> }
+);
 
 export type PageQueryVariables = Exact<{
   slug?: Maybe<Scalars['String']>;
 }>;
 
-export type PageQuery = { __typename?: 'Query' } & {
-  page?: Maybe<
-    { __typename?: 'PageRecord' } & Pick<PageRecord, 'slug' | 'title'> & {
-        content?: Maybe<
-          Array<Maybe<{ __typename?: 'WysiwygRecord' } & Pick<WysiwygRecord, 'content'>>>
-        >;
-        children?: Maybe<
-          Array<Maybe<{ __typename?: 'PageRecord' } & Pick<PageRecord, 'slug' | 'title'>>>
-        >;
-        parent?: Maybe<{ __typename?: 'PageRecord' } & Pick<PageRecord, 'title' | 'slug'>>;
-      }
-  >;
-};
 
-export type SponsorFragment = { __typename?: 'SponsorRecord' } & Pick<
-  SponsorRecord,
-  'website' | 'name' | 'displayLogo' | 'displayFooter'
-> & { logo?: Maybe<{ __typename?: 'FileField' } & Pick<FileField, 'url'>> };
+export type PageQuery = (
+  { __typename?: 'Query' }
+  & { page?: Maybe<(
+    { __typename?: 'PageRecord' }
+    & Pick<PageRecord, 'slug' | 'title'>
+    & { content?: Maybe<Array<Maybe<(
+      { __typename?: 'WysiwygRecord' }
+      & Pick<WysiwygRecord, 'content'>
+    )>>>, children?: Maybe<Array<Maybe<(
+      { __typename?: 'PageRecord' }
+      & Pick<PageRecord, 'slug' | 'title'>
+    )>>>, parent?: Maybe<(
+      { __typename?: 'PageRecord' }
+      & Pick<PageRecord, 'title' | 'slug'>
+    )> }
+  )> }
+);
 
-export type InternalLinkFragment = { __typename?: 'InternalLinkRecord' } & Pick<
-  InternalLinkRecord,
-  'label'
-> & { page?: Maybe<{ __typename?: 'PageRecord' } & Pick<PageRecord, 'id'>> };
+export type SponsorFragment = (
+  { __typename?: 'SponsorRecord' }
+  & Pick<SponsorRecord, 'website' | 'name' | 'displayLogo' | 'displayFooter'>
+  & { logo?: Maybe<(
+    { __typename?: 'FileField' }
+    & Pick<FileField, 'url'>
+  )> }
+);
 
-export type ExternalLinkFragment = { __typename?: 'ExternalLinkRecord' } & Pick<
-  ExternalLinkRecord,
-  'label' | 'link'
->;
+export type InternalLinkFragment = (
+  { __typename?: 'InternalLinkRecord' }
+  & Pick<InternalLinkRecord, 'label'>
+  & { page?: Maybe<(
+    { __typename?: 'PageRecord' }
+    & Pick<PageRecord, 'id'>
+  )> }
+);
+
+export type ExternalLinkFragment = (
+  { __typename?: 'ExternalLinkRecord' }
+  & Pick<ExternalLinkRecord, 'label' | 'link'>
+);
 
 export type WebsiteQueryVariables = Exact<{
   locale?: Maybe<SiteLocale>;
 }>;
 
-export type WebsiteQuery = { __typename?: 'Query' } & {
-  website?: Maybe<
-    { __typename?: 'WebsiteRecord' } & Pick<
-      WebsiteRecord,
-      | 'ticketingActive'
-      | 'lineupActive'
-      | 'displayTimeLayout'
-      | 'displayStageLayout'
-      | 'displayDayLayout'
-    > & {
-        activeEdition?: Maybe<{ __typename?: 'EditionRecord' } & EditionFragment>;
-        mainNavigation?: Maybe<
-          Array<
-            Maybe<
-              | ({ __typename?: 'InternalLinkRecord' } & InternalLinkFragment)
-              | ({ __typename?: 'ExternalLinkRecord' } & ExternalLinkFragment)
-            >
-          >
-        >;
-        footerNavigation?: Maybe<
-          Array<
-            Maybe<
-              | ({ __typename?: 'InternalLinkRecord' } & InternalLinkFragment)
-              | ({ __typename?: 'ExternalLinkRecord' } & ExternalLinkFragment)
-            >
-          >
-        >;
-      }
-  >;
-};
+
+export type WebsiteQuery = (
+  { __typename?: 'Query' }
+  & { website?: Maybe<(
+    { __typename?: 'WebsiteRecord' }
+    & Pick<WebsiteRecord, 'ticketingActive' | 'lineupActive' | 'displayTimeLayout' | 'displayStageLayout' | 'displayDayLayout'>
+    & { activeEdition?: Maybe<(
+      { __typename?: 'EditionRecord' }
+      & EditionFragment
+    )>, mainNavigation?: Maybe<Array<Maybe<(
+      { __typename?: 'InternalLinkRecord' }
+      & InternalLinkFragment
+    ) | (
+      { __typename?: 'ExternalLinkRecord' }
+      & ExternalLinkFragment
+    )>>>, footerNavigation?: Maybe<Array<Maybe<(
+      { __typename?: 'InternalLinkRecord' }
+      & InternalLinkFragment
+    ) | (
+      { __typename?: 'ExternalLinkRecord' }
+      & ExternalLinkFragment
+    )>>> }
+  )> }
+);
