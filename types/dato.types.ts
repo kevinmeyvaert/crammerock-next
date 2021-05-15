@@ -207,6 +207,8 @@ export type EditionModelFilter = {
   OR?: Maybe<Array<Maybe<EditionModelFilter>>>;
 };
 
+export type EditionModelHomepageBlocksField = IframeRecord | ImageRecord;
+
 export enum EditionModelOrderBy {
   _createdAt_ASC = '_createdAt_ASC',
   _createdAt_DESC = '_createdAt_DESC',
@@ -258,6 +260,7 @@ export type EditionRecord = {
   createdAt: Scalars['DateTime'];
   endDate?: Maybe<Scalars['Date']>;
   facebookEvent?: Maybe<Scalars['String']>;
+  homepageBlocks?: Maybe<Array<Maybe<EditionModelHomepageBlocksField>>>;
   id: Scalars['ItemId'];
   logo?: Maybe<FileField>;
   seo?: Maybe<SeoField>;
@@ -409,6 +412,60 @@ export type GlobalSeoField = {
   siteName?: Maybe<Scalars['String']>;
   titleSuffix?: Maybe<Scalars['String']>;
   twitterAccount?: Maybe<Scalars['String']>;
+};
+
+/** Record of type Homepage iFrame (iframe) */
+export type IframeRecord = {
+  __typename?: 'IframeRecord';
+  _createdAt: Scalars['DateTime'];
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  createdAt: Scalars['DateTime'];
+  id: Scalars['ItemId'];
+  iframeEmbedUrl?: Maybe<Scalars['String']>;
+  size?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+};
+
+
+/** Record of type Homepage iFrame (iframe) */
+export type IframeRecord_SeoMetaTagsArgs = {
+  locale?: Maybe<SiteLocale>;
+};
+
+/** Record of type Homepage Image (image) */
+export type ImageRecord = {
+  __typename?: 'ImageRecord';
+  _createdAt: Scalars['DateTime'];
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  asset?: Maybe<FileField>;
+  createdAt: Scalars['DateTime'];
+  id: Scalars['ItemId'];
+  size?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+};
+
+
+/** Record of type Homepage Image (image) */
+export type ImageRecord_SeoMetaTagsArgs = {
+  locale?: Maybe<SiteLocale>;
 };
 
 export type ImgixParams = {
@@ -1835,11 +1892,10 @@ export type NewsModelFilter = {
   _updatedAt?: Maybe<UpdatedAtFilter>;
   updatedAt?: Maybe<UpdatedAtFilter>;
   _isValid?: Maybe<BooleanFilter>;
-  seo?: Maybe<SeoFilter>;
   featuredImage?: Maybe<FileFilter>;
-  edition?: Maybe<LinkFilter>;
   title?: Maybe<StringFilter>;
   slug?: Maybe<SlugFilter>;
+  seo?: Maybe<SeoFilter>;
   OR?: Maybe<Array<Maybe<NewsModelFilter>>>;
 };
 
@@ -1890,7 +1946,6 @@ export type NewsRecord = {
   _updatedAt: Scalars['DateTime'];
   article?: Maybe<Array<Maybe<WysiwygRecord>>>;
   createdAt: Scalars['DateTime'];
-  edition?: Maybe<EditionRecord>;
   featuredImage?: Maybe<FileField>;
   id: Scalars['ItemId'];
   seo?: Maybe<SeoField>;
@@ -3267,7 +3322,43 @@ export type EditionFragment = (
   )>, sponsors: Array<(
     { __typename?: 'SponsorRecord' }
     & SponsorFragment
+  )>, homepageBlocks?: Maybe<Array<Maybe<(
+    { __typename?: 'IframeRecord' }
+    & HomepageIframeFragment
+  ) | (
+    { __typename?: 'ImageRecord' }
+    & HomepageImageFragment
+  )>>> }
+);
+
+export type HomepageImageFragment = (
+  { __typename?: 'ImageRecord' }
+  & Pick<ImageRecord, 'id' | 'size'>
+  & { type: 'ImageRecord' }
+  & { asset?: Maybe<(
+    { __typename?: 'FileField' }
+    & { square?: Maybe<(
+      { __typename?: 'ResponsiveImage' }
+      & ResponsiveImageFragmentFragment
+    )>, normal?: Maybe<(
+      { __typename?: 'ResponsiveImage' }
+      & ResponsiveImageFragmentFragment
+    )>, long?: Maybe<(
+      { __typename?: 'ResponsiveImage' }
+      & ResponsiveImageFragmentFragment
+    )> }
   )> }
+);
+
+export type ResponsiveImageFragmentFragment = (
+  { __typename?: 'ResponsiveImage' }
+  & Pick<ResponsiveImage, 'srcSet' | 'webpSrcSet' | 'sizes' | 'src' | 'width' | 'height' | 'aspectRatio' | 'alt' | 'title' | 'bgColor' | 'base64'>
+);
+
+export type HomepageIframeFragment = (
+  { __typename?: 'IframeRecord' }
+  & Pick<IframeRecord, 'id' | 'size' | 'iframeEmbedUrl'>
+  & { type: 'IframeRecord' }
 );
 
 export type NewsQueryVariables = Exact<{
@@ -3299,7 +3390,6 @@ export type NewsQuery = (
 
 export type NewsOverviewQueryVariables = Exact<{
   locale?: Maybe<SiteLocale>;
-  edition?: Maybe<Scalars['ItemId']>;
 }>;
 
 
@@ -3307,10 +3397,19 @@ export type NewsOverviewQuery = (
   { __typename?: 'Query' }
   & { news: Array<(
     { __typename?: 'NewsRecord' }
-    & Pick<NewsRecord, 'title' | 'slug'>
+    & Pick<NewsRecord, 'title' | 'slug' | '_publishedAt'>
     & { featuredImage?: Maybe<(
       { __typename?: 'FileField' }
-      & Pick<FileField, 'blurhash' | 'url'>
+      & { square?: Maybe<(
+        { __typename?: 'ResponsiveImage' }
+        & ResponsiveImageFragmentFragment
+      )>, normal?: Maybe<(
+        { __typename?: 'ResponsiveImage' }
+        & ResponsiveImageFragmentFragment
+      )>, long?: Maybe<(
+        { __typename?: 'ResponsiveImage' }
+        & ResponsiveImageFragmentFragment
+      )> }
     )> }
   )> }
 );
