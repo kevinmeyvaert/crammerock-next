@@ -1,6 +1,7 @@
 import { useMobileNavigation } from 'context/MobileNavigationContext';
 import Link from 'next/link';
-import { FC } from 'react';
+import { useRouter } from 'next/router';
+import { FC, useEffect } from 'react';
 import styled from 'styled-components';
 import { device } from 'theme';
 
@@ -22,7 +23,7 @@ const Navigation = styled(MainGrid.Navigation)<{ open: boolean }>`
   padding: 2rem 2rem;
   width: 100%;
 
-  background-color: ${(props) => props.open ? props.theme.colors.primary : 'initial'};
+  background-color: ${(props) => (props.open ? props.theme.colors.primary : 'initial')};
   height: ${(props) => (props.open ? '100vh' : 'initial')};
   position: ${(props) => (props.open ? 'absolute' : 'initial')};
   z-index: ${(props) => (props.open ? '99' : 'initial')};
@@ -74,19 +75,29 @@ const Date = styled.aside`
 `;
 
 const MainNavigation: FC<Props> = ({ navigationItems, activeEdition }) => {
-  const { open } = useMobileNavigation();
+  const { open, toggle } = useMobileNavigation();
+  const { pathname } = useRouter();
+
+  useEffect(() => {
+    if (open) {
+      toggle();
+    }
+  }, [pathname]);
+
   return (
     <Navigation open={open}>
       <Burger />
-      {!open && <Date>
-        {`${activeEdition.startDate.slice(-1)}-${activeEdition.endDate.slice(
-          -1,
-        )} September ${activeEdition.startDate.slice(0, 4)}, Stekene`}
-      </Date>}
+      {!open && (
+        <Date>
+          {`${activeEdition.startDate.slice(-1)}-${activeEdition.endDate.slice(
+            -1,
+          )} September ${activeEdition.startDate.slice(0, 4)}, Stekene`}
+        </Date>
+      )}
       <NavigationList>
         <NavigationListItem>
-            <Link href="/">Home</Link>
-          </NavigationListItem>
+          <Link href="/">Home</Link>
+        </NavigationListItem>
         {navigationItems.map((navigationItem) => (
           <NavigationListItem key={navigationItem.label}>
             <NavigationItem item={navigationItem} />
@@ -95,6 +106,9 @@ const MainNavigation: FC<Props> = ({ navigationItems, activeEdition }) => {
       </NavigationList>
       {open && (
         <MobileNavigationList>
+          <MobileNavigationListItem>
+            <Link href="/">Home</Link>
+          </MobileNavigationListItem>
           {navigationItems.map((navigationItem) => (
             <MobileNavigationListItem key={navigationItem.label}>
               <NavigationItem item={navigationItem} />

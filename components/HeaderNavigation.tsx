@@ -13,7 +13,7 @@ const Header = styled(MainGrid.Header)`
   flex-direction: column;
   align-items: center;
   padding: 2rem 2rem 2rem;
-  overflow-x: clip;
+  overflow: hidden;
 `;
 
 const HeaderNav = styled.nav`
@@ -53,7 +53,6 @@ const Logo = styled.div`
   max-width: 200px;
   align-self: center;
   position: relative;
-  margin-top: -50px;
 
   @media ${device.tablet} {
     margin-top: 20px;
