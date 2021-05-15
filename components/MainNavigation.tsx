@@ -20,13 +20,17 @@ const Navigation = styled(MainGrid.Navigation)<{ open: boolean }>`
   flex-direction: column;
   jusitify-content: center;
   align-items: ${(props) => (props.open ? 'center' : 'flex-end')};
-  padding: 2rem 2rem;
+  padding: 2rem 1rem;
   width: 100%;
 
   background-color: ${(props) => (props.open ? props.theme.colors.primary : 'initial')};
   height: ${(props) => (props.open ? '100vh' : 'initial')};
   position: ${(props) => (props.open ? 'absolute' : 'initial')};
   z-index: ${(props) => (props.open ? '99' : 'initial')};
+
+  @media ${device.tablet} {
+    padding: 2rem 2rem;
+  }
 `;
 
 const NavigationList = styled.ul`
@@ -70,8 +74,12 @@ const Date = styled.aside`
   padding: 0.5rem 0.7rem 0.5rem 0;
 
   position: absolute;
-  left: 2rem;
+  left: 1rem;
   top: 2rem;
+
+  @media ${device.tablet} {
+    left: 2rem;
+  }
 `;
 
 const MainNavigation: FC<Props> = ({ navigationItems, activeEdition }) => {

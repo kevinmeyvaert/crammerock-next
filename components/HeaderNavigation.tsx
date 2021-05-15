@@ -14,6 +14,10 @@ const Header = styled(MainGrid.Header)`
   align-items: center;
   padding: 2rem 2rem 2rem;
   overflow: hidden;
+
+  @media ${device.tablet} {
+    overflow: initial;
+  }
 `;
 
 const HeaderNav = styled.nav`
