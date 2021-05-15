@@ -249,6 +249,7 @@ const HomeContent = ({ news, blocks }) => {
             type={contentBlock.size === 'Wide' ? 'd' : 'c'}
             orange={Number(i) % 2 == 0}
             pattern={hasPattern}
+            key={contentBlock.id}
           >
             <CardContent {...contentBlock} />
           </Card>

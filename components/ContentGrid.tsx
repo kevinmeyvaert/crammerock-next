@@ -44,12 +44,12 @@ export const ContentGridItem = styled.article<{
   }
 
   ${(props) =>
-    props.pattern &&
+    props.pattern ?
     `
     background: url('/pattern.jpg');
     background-size: cover;
     animation: none;
-    `}
+    ` : undefined}
 
   @media ${device.tablet} {
     margin-bottom: 0;
