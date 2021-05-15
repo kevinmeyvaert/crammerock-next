@@ -1,5 +1,5 @@
 import { gql } from 'graphql-request';
-
+import { HomepageIframe, HomepageImage } from './homepage';
 import { Sponsor } from './sponsor';
 
 export const Edition = gql`
@@ -36,6 +36,12 @@ export const Edition = gql`
     sponsors {
       ...sponsor
     }
+    homepageBlocks {
+      ...homepageImage
+      ...homepageIframe
+    }
   }
   ${Sponsor}
+  ${HomepageImage}
+  ${HomepageIframe}
 `;

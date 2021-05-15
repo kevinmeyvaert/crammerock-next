@@ -28,6 +28,7 @@ const theme: DefaultTheme = {
     base: 'white',
     primary: '#2f4a5f',
     secondary: '#a5d7dc',
+    thirtiary: '#f0986b',
   },
 };
 
