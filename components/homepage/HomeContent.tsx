@@ -93,7 +93,7 @@ const NewsCardTitle = styled.h1`
 
   background-color: ${(props) => props.theme.colors.primary};
   color: ${(props) => props.theme.colors.base};
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 500;
   padding: 0.6rem 0.8rem 0.4rem 0.8rem;
   margin: 0;
@@ -108,7 +108,7 @@ const NewsCardDate = styled.time`
 `;
 
 const CTACardCopy = styled.p`
-  font-size: 4rem;
+  font-size: 1rem;
   margin: 0;
   display: flex;
   flex-grow: 1;

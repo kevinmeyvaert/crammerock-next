@@ -1,4 +1,5 @@
 import { useMobileNavigation } from 'context/MobileNavigationContext';
+import Link from 'next/link';
 import { FC } from 'react';
 import styled from 'styled-components';
 import { device } from 'theme';
@@ -18,7 +19,7 @@ const Navigation = styled(MainGrid.Navigation)<{ open: boolean }>`
   flex-direction: column;
   jusitify-content: center;
   align-items: ${(props) => (props.open ? 'center' : 'flex-end')};
-  padding: 2rem 1rem;
+  padding: 2rem 2rem;
   width: 100%;
 
   background-color: ${(props) => props.open ? props.theme.colors.primary : 'initial'};
@@ -30,7 +31,7 @@ const Navigation = styled(MainGrid.Navigation)<{ open: boolean }>`
 const NavigationList = styled.ul`
   list-style: none;
   display: none;
-  flex-direction: column;
+  flex-direction: row;
   padding: 0;
   margin: 0;
 
@@ -42,17 +43,23 @@ const NavigationList = styled.ul`
 const NavigationListItem = styled.li`
   font-size: 1.6rem;
   font-family: 'Bebas Neue', sans-serif;
+  margin-left: 2rem;
   color: ${(props) => props.theme.colors.primary};
 `;
 
 const MobileNavigationList = styled.ul`
   list-style: none;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0;
 `;
 
 const MobileNavigationListItem = styled.li`
   font-size: 2rem;
+  margin-bottom: 2rem;
+  font-family: 'Bebas Neue', sans-serif;
   color: ${(props) => props.theme.colors.base};
 `;
 
@@ -62,7 +69,7 @@ const Date = styled.aside`
   padding: 0.5rem 0.7rem 0.5rem 0;
 
   position: absolute;
-  left: 1rem;
+  left: 2rem;
   top: 2rem;
 `;
 
@@ -77,6 +84,9 @@ const MainNavigation: FC<Props> = ({ navigationItems, activeEdition }) => {
         )} September ${activeEdition.startDate.slice(0, 4)}, Stekene`}
       </Date>}
       <NavigationList>
+        <NavigationListItem>
+            <Link href="/">Home</Link>
+          </NavigationListItem>
         {navigationItems.map((navigationItem) => (
           <NavigationListItem key={navigationItem.label}>
             <NavigationItem item={navigationItem} />

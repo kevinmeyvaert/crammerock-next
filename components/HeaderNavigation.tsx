@@ -13,6 +13,7 @@ const Header = styled(MainGrid.Header)`
   flex-direction: column;
   align-items: center;
   padding: 2rem 2rem 2rem;
+  overflow-x: clip;
 `;
 
 const HeaderNav = styled.nav`
