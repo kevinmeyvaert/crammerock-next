@@ -24,7 +24,7 @@ export const PAGE = gql`
         slug
         title
         featuredImage {
-          thumbnail: responsiveImage(imgixParams: { fit: crop, w: 1000, h: 1000, auto: format }) {
+          thumbnail: responsiveImage(imgixParams: { fit: crop, w: 1000, h: 500, auto: format }) {
             ...responsiveImageFragment
           }
         }
@@ -32,6 +32,15 @@ export const PAGE = gql`
       parent {
         title
         slug
+        children {
+          slug
+          title
+          featuredImage {
+            thumbnail: responsiveImage(imgixParams: { fit: crop, w: 1000, h: 500, auto: format }) {
+              ...responsiveImageFragment
+            }
+          }
+        }
       }
     }
   }

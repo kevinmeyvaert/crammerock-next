@@ -6,7 +6,7 @@ import { device } from 'theme';
 
 import { ContentGrid, ContentGridItem } from '../ContentGrid';
 
-const CardWrapper = styled.div<{ type: string; hasLink?: boolean }>`
+export const CardWrapper = styled.div<{ type: string; hasLink?: boolean }>`
   position: relative;
   width: 100%;
   height: 100%;

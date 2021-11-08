@@ -2,6 +2,7 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import Head from 'next/head';
 import { FC } from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 import HeaderNavigation from '@/components/HeaderNavigation';
 import MainGrid from '@/components/MainGrid';
@@ -12,16 +13,24 @@ import { PageQuery, WebsiteQuery } from '@/types/dato.types';
 
 import { fetchDato } from '../lib/api';
 import { ContentGrid, ContentPageWrapper } from '@/components/ContentGrid';
-import { Card, CardBody, CardImage, CardTitle } from '@/components/homepage/HomeContent';
+import {
+  Card,
+  CardBody,
+  CardImage,
+  CardTitle,
+  CardWrapper,
+} from '@/components/homepage/HomeContent';
 import { StructuredText } from 'react-datocms';
 import { device, theme } from 'theme';
+import MoreInfoCard from '@/components/MoreInfoCard';
 
 const InfoItem = styled.div`
   padding: 1rem;
   margin-bottom: 1rem;
   background: ${theme.colors.secondary};
 
-  & h3, p {
+  & h3,
+  p {
     margin: 0;
     margin-bottom: 1rem;
   }
@@ -30,7 +39,7 @@ const InfoItem = styled.div`
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 const Page: FC<Props> = ({ activeEdition, mainNavigation, page }) => {
-  const { content, children } = page;
+  const { content, children, parent } = page;
   console.log(page);
   return (
     <>
@@ -64,19 +73,30 @@ const Page: FC<Props> = ({ activeEdition, mainNavigation, page }) => {
               />
             </ContentPageWrapper>
           </ContentGrid>
-          {children ? (
+          {children.length > 0 ? (
             <ContentGrid>
               {children.map((child) => (
-                <Card type="c" key={child.slug} link={`/${child.slug}`}>
-                  {console.log(child)}
-                  {child.featuredImage?.thumbnail && (
-                    <CardImage data={child.featuredImage?.thumbnail} />
-                  )}
-                  <CardBody>
-                    <CardTitle>{child.title}</CardTitle>
-                  </CardBody>
-                </Card>
+                <MoreInfoCard
+                  href={`/${child.slug}`}
+                  image={child.featuredImage}
+                  title={child.title}
+                  key={child.slug}
+                />
               ))}
+            </ContentGrid>
+          ) : null}
+          {parent?.children ? (
+            <ContentGrid style={{ backgroundColor: theme.colors.primary }}>
+              {parent.children
+                .filter((child) => child.slug !== page.slug)
+                .map((child) => (
+                  <MoreInfoCard
+                    href={`/${child.slug}`}
+                    image={child.featuredImage}
+                    title={child.title}
+                    key={child.slug}
+                  />
+                ))}
             </ContentGrid>
           ) : null}
         </MainGrid.Main>

@@ -86,10 +86,12 @@ export const ContentGridItem = styled.article<{
 export const ContentPageWrapper = styled.article`
   grid-column-start: 1;
   grid-column-end: 6;
+  padding: 1rem;
 
   @media ${device.tablet} {
     grid-column-start: 1;
     grid-column-end: 7;
+    padding: 0;
   }
 
   @media ${device.laptopL} {
