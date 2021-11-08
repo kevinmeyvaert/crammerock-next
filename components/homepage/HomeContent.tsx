@@ -204,44 +204,30 @@ const CardContent = ({ type, asset, iframeEmbedUrl, size }) => {
 
 const HomeContent = ({ news, blocks }) => {
   console.log(blocks);
+  const [news1, news2, news3] = news;
   return (
     <ContentGrid>
-      {news.map((newsItem) => {
-        const image = newsItem.featuredImage.normal;
-        return (
-          <Card type="a" key={newsItem.title} link={`/news/${newsItem.slug}`}>
-            {image && <CardImage data={image} />}
+      <Card type="a" key={news1.title} link={`/news/${news1.slug}`} orange>
+            {news1.featuredImage.square && <CardImage data={news1.featuredImage.normal} />}
             <CardBody>
-              <NewsCardDate dateTime={newsItem._publishedAt}>{newsItem._publishedAt}</NewsCardDate>
-              <CardTitle>{newsItem.title}</CardTitle>
+              <NewsCardDate dateTime={news1._publishedAt}>{news1._publishedAt}</NewsCardDate>
+              <CardTitle>{news1.title}</CardTitle>
             </CardBody>
           </Card>
-        );
-      })}
-      {news.map((newsItem) => {
-        const image = newsItem.featuredImage.square;
-        return (
-          <Card type="b" key={newsItem.title} link={`/news/${newsItem.slug}`} orange>
-            {image && <CardImage data={image} />}
+          <Card type="b" key={news2.title} link={`/news/${news2.slug}`} orange>
+            {news2.featuredImage.square && <CardImage data={news2.featuredImage.square} />}
             <CardBody>
-              <NewsCardDate dateTime={newsItem._publishedAt}>{newsItem._publishedAt}</NewsCardDate>
-              <CardTitle>{newsItem.title}</CardTitle>
+              <NewsCardDate dateTime={news2._publishedAt}>{news2._publishedAt}</NewsCardDate>
+              <CardTitle>{news2.title}</CardTitle>
             </CardBody>
           </Card>
-        );
-      })}
-      {news.map((newsItem) => {
-        const image = newsItem.featuredImage.long;
-        return (
-          <Card type="d" key={newsItem.title} link={`/news/${newsItem.slug}`} orange>
-            {image && <CardImage data={image} />}
+          <Card type="d" key={news3.title} link={`/news/${news3.slug}`} orange>
+            {news3.featuredImage.square && <CardImage data={news3.featuredImage.long} />}
             <CardBody>
-              <NewsCardDate dateTime={newsItem._publishedAt}>{newsItem._publishedAt}</NewsCardDate>
-              <CardTitle>{newsItem.title}</CardTitle>
+              <NewsCardDate dateTime={news3._publishedAt}>{news3._publishedAt}</NewsCardDate>
+              <CardTitle>{news3.title}</CardTitle>
             </CardBody>
           </Card>
-        );
-      })}
       {blocks.map((contentBlock, i) => {
         const hasPattern = ['IframeRecord'].includes(contentBlock.type);
         return (
