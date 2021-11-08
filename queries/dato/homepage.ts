@@ -10,7 +10,7 @@ export const HomepageImage = gql`
       square: responsiveImage(imgixParams: { fit: crop, w: 1000, h: 1000, auto: format }) {
         ...responsiveImageFragment
       }
-      normal: responsiveImage(imgixParams: { fit: crop, w: 1000, h: 750, auto: format }) {
+      normal: responsiveImage(imgixParams: { fit: crop, w: 1000, h: 666, auto: format }) {
         ...responsiveImageFragment
       }
       long: responsiveImage(imgixParams: { fit: crop, w: 1000, h: 500, auto: format }) {

@@ -208,7 +208,7 @@ const HomeContent = ({ news, blocks }) => {
   return (
     <ContentGrid>
       <Card type="a" key={news1.title} link={`/news/${news1.slug}`} orange>
-            {news1.featuredImage.square && <CardImage data={news1.featuredImage.normal} />}
+            {news1.featuredImage.normal && <CardImage data={news1.featuredImage.normal} />}
             <CardBody>
               <NewsCardDate dateTime={news1._publishedAt}>{news1._publishedAt}</NewsCardDate>
               <CardTitle>{news1.title}</CardTitle>
@@ -222,7 +222,7 @@ const HomeContent = ({ news, blocks }) => {
             </CardBody>
           </Card>
           <Card type="d" key={news3.title} link={`/news/${news3.slug}`} orange>
-            {news3.featuredImage.square && <CardImage data={news3.featuredImage.long} />}
+            {news3.featuredImage.long && <CardImage data={news3.featuredImage.long} />}
             <CardBody>
               <NewsCardDate dateTime={news3._publishedAt}>{news3._publishedAt}</NewsCardDate>
               <CardTitle>{news3.title}</CardTitle>
