@@ -1,4 +1,5 @@
 import { gql } from 'graphql-request';
+import { responsiveImageFragment } from './fragments';
 
 export const HomepageImage = gql`
   fragment homepageImage on ImageRecord {
@@ -18,19 +19,7 @@ export const HomepageImage = gql`
     }
   }
 
-  fragment responsiveImageFragment on ResponsiveImage {
-    srcSet
-    webpSrcSet
-    sizes
-    src
-    width
-    height
-    aspectRatio
-    alt
-    title
-    bgColor
-    base64
-  }
+  ${responsiveImageFragment}
 `;
 
 export const HomepageIframe = gql`

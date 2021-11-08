@@ -28,7 +28,6 @@ const HeaderNav = styled.nav`
   align-items: flex-end;
   position: absolute;
   padding: 0 2rem;
-  z-index: 10;
 
   @media ${device.tablet} {
     flex-direction: row;
@@ -68,43 +67,6 @@ const Logo = styled.div`
   }
 `;
 
-const Leaf1 = styled.div`
-  background: url('/blad1.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-
-  position: absolute;
-  animation: leaf 15s ease infinite;
-
-  top: -10px;
-  left: -50px;
-  width: 325px;
-  height: 400px;
-
-  @media ${device.tablet} {
-    top: -50px;
-    left: -150px;
-    width: 525px;
-    height: 400px;
-  }
-
-  @media ${device.desktop} {
-    width: 725px;
-  }
-
-  @keyframes leaf {
-    0% {
-      transform: rotate(-20deg) scale(1);
-    }
-    50% {
-      transform: rotate(-25deg) scale(1.1);
-    }
-    100% {
-      transform: rotate(-20deg) scale(1);
-    }
-  }
-`;
-
 interface Props {
   activeEdition: EditionFragment;
 }
@@ -125,8 +87,7 @@ const HeaderNavigation: React.FC<Props> = ({ activeEdition }) => {
         </List> */}
       </HeaderNav>
       <Logo>
-        <Image data={activeEdition.logo.responsiveImage} style={{ zIndex: 10 }} />
-        <Leaf1/>
+        <Image data={activeEdition.logo.responsiveImage} style={{ zIndex: 10 }} lazyLoad={false} />
       </Logo>
     </Header>
   );

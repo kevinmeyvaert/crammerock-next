@@ -21,62 +21,63 @@ export type Scalars = {
   /** Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. */
   IntType: any;
   ItemId: any;
+  JsonField: any;
   MetaTagAttributes: any;
   UploadId: any;
 };
 
 export type ArtistModelFilter = {
+  OR?: Maybe<Array<Maybe<ArtistModelFilter>>>;
   _createdAt?: Maybe<CreatedAtFilter>;
-  createdAt?: Maybe<CreatedAtFilter>;
-  id?: Maybe<ItemIdFilter>;
   _firstPublishedAt?: Maybe<PublishedAtFilter>;
+  _isValid?: Maybe<BooleanFilter>;
   _publicationScheduledAt?: Maybe<PublishedAtFilter>;
-  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _publishedAt?: Maybe<PublishedAtFilter>;
   _status?: Maybe<StatusFilter>;
+  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _updatedAt?: Maybe<UpdatedAtFilter>;
-  updatedAt?: Maybe<UpdatedAtFilter>;
-  _isValid?: Maybe<BooleanFilter>;
-  name?: Maybe<StringFilter>;
-  slug?: Maybe<SlugFilter>;
+  createdAt?: Maybe<CreatedAtFilter>;
   facebook?: Maybe<StringFilter>;
-  spotify?: Maybe<StringFilter>;
+  id?: Maybe<ItemIdFilter>;
   image?: Maybe<FileFilter>;
   instagram?: Maybe<StringFilter>;
-  OR?: Maybe<Array<Maybe<ArtistModelFilter>>>;
+  name?: Maybe<StringFilter>;
+  slug?: Maybe<SlugFilter>;
+  spotify?: Maybe<StringFilter>;
+  updatedAt?: Maybe<UpdatedAtFilter>;
 };
 
 export enum ArtistModelOrderBy {
   _createdAt_ASC = '_createdAt_ASC',
   _createdAt_DESC = '_createdAt_DESC',
-  createdAt_ASC = 'createdAt_ASC',
-  createdAt_DESC = 'createdAt_DESC',
-  id_ASC = 'id_ASC',
-  id_DESC = 'id_DESC',
   _firstPublishedAt_ASC = '_firstPublishedAt_ASC',
   _firstPublishedAt_DESC = '_firstPublishedAt_DESC',
+  _isValid_ASC = '_isValid_ASC',
+  _isValid_DESC = '_isValid_DESC',
   _publicationScheduledAt_ASC = '_publicationScheduledAt_ASC',
   _publicationScheduledAt_DESC = '_publicationScheduledAt_DESC',
-  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
-  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _publishedAt_ASC = '_publishedAt_ASC',
   _publishedAt_DESC = '_publishedAt_DESC',
   _status_ASC = '_status_ASC',
   _status_DESC = '_status_DESC',
+  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
+  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _updatedAt_ASC = '_updatedAt_ASC',
   _updatedAt_DESC = '_updatedAt_DESC',
-  updatedAt_ASC = 'updatedAt_ASC',
-  updatedAt_DESC = 'updatedAt_DESC',
-  _isValid_ASC = '_isValid_ASC',
-  _isValid_DESC = '_isValid_DESC',
-  name_ASC = 'name_ASC',
-  name_DESC = 'name_DESC',
+  createdAt_ASC = 'createdAt_ASC',
+  createdAt_DESC = 'createdAt_DESC',
   facebook_ASC = 'facebook_ASC',
   facebook_DESC = 'facebook_DESC',
+  id_ASC = 'id_ASC',
+  id_DESC = 'id_DESC',
+  instagram_ASC = 'instagram_ASC',
+  instagram_DESC = 'instagram_DESC',
+  name_ASC = 'name_ASC',
+  name_DESC = 'name_DESC',
   spotify_ASC = 'spotify_ASC',
   spotify_DESC = 'spotify_DESC',
-  instagram_ASC = 'instagram_ASC',
-  instagram_DESC = 'instagram_DESC'
+  updatedAt_ASC = 'updatedAt_ASC',
+  updatedAt_DESC = 'updatedAt_DESC'
 }
 
 /** Record of type Artist (artist) */
@@ -116,25 +117,24 @@ export type BooleanFilter = {
   eq?: Maybe<Scalars['BooleanType']>;
 };
 
-
 export type CollectionMetadata = {
   __typename?: 'CollectionMetadata';
   count: Scalars['IntType'];
 };
 
 export enum ColorBucketType {
-  red = 'red',
+  black = 'black',
+  blue = 'blue',
+  brown = 'brown',
+  cyan = 'cyan',
+  green = 'green',
+  grey = 'grey',
   orange = 'orange',
   pink = 'pink',
-  cyan = 'cyan',
   purple = 'purple',
-  blue = 'blue',
-  yellow = 'yellow',
-  green = 'green',
-  brown = 'brown',
-  grey = 'grey',
+  red = 'red',
   white = 'white',
-  black = 'black'
+  yellow = 'yellow'
 }
 
 export type ColorField = {
@@ -148,63 +148,60 @@ export type ColorField = {
 
 /** Specifies how to filter by creation datetime */
 export type CreatedAtFilter = {
-  /** Filter records with a value that's strictly greater than the one specified */
-  gt?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's less than the one specified */
-  lt?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's greater than or equal to than the one specified */
-  gte?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's less or equal than the one specified */
-  lte?: Maybe<Scalars['DateTime']>;
-  /** Filter records with the specified field defined (i.e. with any value) or not */
-  exists?: Maybe<Scalars['BooleanType']>;
   /** Search for records with an exact match (seconds are truncated) */
   eq?: Maybe<Scalars['DateTime']>;
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: Maybe<Scalars['BooleanType']>;
+  /** Filter records with a value that's strictly greater than the one specified */
+  gt?: Maybe<Scalars['DateTime']>;
+  /** Filter records with a value that's greater than or equal to than the one specified */
+  gte?: Maybe<Scalars['DateTime']>;
+  /** Filter records with a value that's less than the one specified */
+  lt?: Maybe<Scalars['DateTime']>;
+  /** Filter records with a value that's less or equal than the one specified */
+  lte?: Maybe<Scalars['DateTime']>;
   /** Exclude records with an exact match */
   neq?: Maybe<Scalars['DateTime']>;
 };
 
-
-
 /** Specifies how to filter Date fields */
 export type DateFilter = {
-  /** Filter records with a value that's strictly greater than the one specified */
-  gt?: Maybe<Scalars['Date']>;
-  /** Filter records with a value that's less than the one specified */
-  lt?: Maybe<Scalars['Date']>;
-  /** Filter records with a value that's greater than or equal to the one specified */
-  gte?: Maybe<Scalars['Date']>;
-  /** Filter records with a value that's less or equal than the one specified */
-  lte?: Maybe<Scalars['Date']>;
-  /** Filter records with the specified field defined (i.e. with any value) or not */
-  exists?: Maybe<Scalars['BooleanType']>;
   /** Search for records with an exact match */
   eq?: Maybe<Scalars['Date']>;
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: Maybe<Scalars['BooleanType']>;
+  /** Filter records with a value that's strictly greater than the one specified */
+  gt?: Maybe<Scalars['Date']>;
+  /** Filter records with a value that's greater than or equal to the one specified */
+  gte?: Maybe<Scalars['Date']>;
+  /** Filter records with a value that's less than the one specified */
+  lt?: Maybe<Scalars['Date']>;
+  /** Filter records with a value that's less or equal than the one specified */
+  lte?: Maybe<Scalars['Date']>;
   /** Exclude records with an exact match */
   neq?: Maybe<Scalars['Date']>;
 };
 
-
 export type EditionModelFilter = {
+  OR?: Maybe<Array<Maybe<EditionModelFilter>>>;
   _createdAt?: Maybe<CreatedAtFilter>;
-  createdAt?: Maybe<CreatedAtFilter>;
-  id?: Maybe<ItemIdFilter>;
   _firstPublishedAt?: Maybe<PublishedAtFilter>;
+  _isValid?: Maybe<BooleanFilter>;
   _publicationScheduledAt?: Maybe<PublishedAtFilter>;
-  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _publishedAt?: Maybe<PublishedAtFilter>;
   _status?: Maybe<StatusFilter>;
+  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _updatedAt?: Maybe<UpdatedAtFilter>;
-  updatedAt?: Maybe<UpdatedAtFilter>;
-  _isValid?: Maybe<BooleanFilter>;
-  seo?: Maybe<SeoFilter>;
-  title?: Maybe<StringFilter>;
-  logo?: Maybe<FileFilter>;
-  facebookEvent?: Maybe<StringFilter>;
+  createdAt?: Maybe<CreatedAtFilter>;
   endDate?: Maybe<DateFilter>;
+  facebookEvent?: Maybe<StringFilter>;
+  id?: Maybe<ItemIdFilter>;
+  logo?: Maybe<FileFilter>;
+  seo?: Maybe<SeoFilter>;
   sponsors?: Maybe<LinksFilter>;
   startDate?: Maybe<DateFilter>;
-  OR?: Maybe<Array<Maybe<EditionModelFilter>>>;
+  title?: Maybe<StringFilter>;
+  updatedAt?: Maybe<UpdatedAtFilter>;
 };
 
 export type EditionModelHomepageBlocksField = IframeRecord | ImageRecord;
@@ -212,34 +209,34 @@ export type EditionModelHomepageBlocksField = IframeRecord | ImageRecord;
 export enum EditionModelOrderBy {
   _createdAt_ASC = '_createdAt_ASC',
   _createdAt_DESC = '_createdAt_DESC',
-  createdAt_ASC = 'createdAt_ASC',
-  createdAt_DESC = 'createdAt_DESC',
-  id_ASC = 'id_ASC',
-  id_DESC = 'id_DESC',
   _firstPublishedAt_ASC = '_firstPublishedAt_ASC',
   _firstPublishedAt_DESC = '_firstPublishedAt_DESC',
+  _isValid_ASC = '_isValid_ASC',
+  _isValid_DESC = '_isValid_DESC',
   _publicationScheduledAt_ASC = '_publicationScheduledAt_ASC',
   _publicationScheduledAt_DESC = '_publicationScheduledAt_DESC',
-  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
-  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _publishedAt_ASC = '_publishedAt_ASC',
   _publishedAt_DESC = '_publishedAt_DESC',
   _status_ASC = '_status_ASC',
   _status_DESC = '_status_DESC',
+  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
+  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _updatedAt_ASC = '_updatedAt_ASC',
   _updatedAt_DESC = '_updatedAt_DESC',
-  updatedAt_ASC = 'updatedAt_ASC',
-  updatedAt_DESC = 'updatedAt_DESC',
-  _isValid_ASC = '_isValid_ASC',
-  _isValid_DESC = '_isValid_DESC',
-  title_ASC = 'title_ASC',
-  title_DESC = 'title_DESC',
-  facebookEvent_ASC = 'facebookEvent_ASC',
-  facebookEvent_DESC = 'facebookEvent_DESC',
+  createdAt_ASC = 'createdAt_ASC',
+  createdAt_DESC = 'createdAt_DESC',
   endDate_ASC = 'endDate_ASC',
   endDate_DESC = 'endDate_DESC',
+  facebookEvent_ASC = 'facebookEvent_ASC',
+  facebookEvent_DESC = 'facebookEvent_DESC',
+  id_ASC = 'id_ASC',
+  id_DESC = 'id_DESC',
   startDate_ASC = 'startDate_ASC',
-  startDate_DESC = 'startDate_DESC'
+  startDate_DESC = 'startDate_DESC',
+  title_ASC = 'title_ASC',
+  title_DESC = 'title_DESC',
+  updatedAt_ASC = 'updatedAt_ASC',
+  updatedAt_DESC = 'updatedAt_DESC'
 }
 
 /** Record of type Edition (edition) */
@@ -316,8 +313,8 @@ export type ExternalLinkRecord_SeoMetaTagsArgs = {
 };
 
 export enum FaviconType {
-  icon = 'icon',
   appleTouchIcon = 'appleTouchIcon',
+  icon = 'icon',
   msApplication = 'msApplication'
 }
 
@@ -339,6 +336,7 @@ export type FileField = {
   format: Scalars['String'];
   height?: Maybe<Scalars['IntType']>;
   id: Scalars['UploadId'];
+  md5: Scalars['String'];
   mimeType: Scalars['String'];
   notes?: Maybe<Scalars['String']>;
   responsiveImage?: Maybe<ResponsiveImage>;
@@ -358,10 +356,10 @@ export type FileFieldAltArgs = {
 
 
 export type FileFieldBlurUpThumbArgs = {
-  punch?: Maybe<Scalars['Float']>;
-  size?: Maybe<Scalars['Int']>;
-  quality?: Maybe<Scalars['Int']>;
   imgixParams?: Maybe<ImgixParams>;
+  punch?: Maybe<Scalars['Float']>;
+  quality?: Maybe<Scalars['Int']>;
+  size?: Maybe<Scalars['Int']>;
 };
 
 
@@ -394,16 +392,15 @@ export type FileFieldUrlArgs = {
 export type FileFilter = {
   /** Search for records with an exact match. The specified value must be an Upload ID */
   eq?: Maybe<Scalars['UploadId']>;
-  /** Exclude records with an exact match. The specified value must be an Upload ID */
-  neq?: Maybe<Scalars['UploadId']>;
-  /** Filter records that have one of the specified uploads */
-  in?: Maybe<Array<Maybe<Scalars['UploadId']>>>;
-  /** Filter records that do not have one of the specified uploads */
-  notIn?: Maybe<Array<Maybe<Scalars['UploadId']>>>;
   /** Filter records with the specified field defined (i.e. with any value) or not */
   exists?: Maybe<Scalars['BooleanType']>;
+  /** Filter records that have one of the specified uploads */
+  in?: Maybe<Array<Maybe<Scalars['UploadId']>>>;
+  /** Exclude records with an exact match. The specified value must be an Upload ID */
+  neq?: Maybe<Scalars['UploadId']>;
+  /** Filter records that do not have one of the specified uploads */
+  notIn?: Maybe<Array<Maybe<Scalars['UploadId']>>>;
 };
-
 
 export type GlobalSeoField = {
   __typename?: 'GlobalSeoField';
@@ -493,6 +490,14 @@ export type ImgixParams = {
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/bg)
    */
   bg?: Maybe<Scalars['String']>;
+  /**
+   * Blend
+   *
+   * Specifies the location of the blend image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend)
+   */
+  blend?: Maybe<Scalars['String']>;
   /**
    * Blend Align
    *
@@ -612,14 +617,6 @@ export type ImgixParams = {
    */
   blendY?: Maybe<Scalars['IntType']>;
   /**
-   * Blend
-   *
-   * Specifies the location of the blend image.
-   *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/url/blending/blend)
-   */
-  blend?: Maybe<Scalars['String']>;
-  /**
    * Gaussian Blur
    *
    * Applies a gaussian blur to an image.
@@ -627,6 +624,14 @@ export type ImgixParams = {
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/blur)
    */
   blur?: Maybe<Scalars['IntType']>;
+  /**
+   * Border Size & Color
+   *
+   * Applies a border to an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border)
+   */
+  border?: Maybe<Scalars['String']>;
   /**
    * Border Bottom
    *
@@ -644,16 +649,6 @@ export type ImgixParams = {
    */
   borderLeft?: Maybe<Scalars['IntType']>;
   /**
-   * Inner Border Radius
-   *
-   * Sets the inner radius of the image's border in pixels.
-   *
-   * Depends on: `border`
-   *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-radius-inner)
-   */
-  borderRadiusInner?: Maybe<Scalars['String']>;
-  /**
    * Outer Border Radius
    *
    * Sets the outer radius of the image's border in pixels.
@@ -663,6 +658,16 @@ export type ImgixParams = {
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-radius)
    */
   borderRadius?: Maybe<Scalars['String']>;
+  /**
+   * Inner Border Radius
+   *
+   * Sets the inner radius of the image's border in pixels.
+   *
+   * Depends on: `border`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-radius-inner)
+   */
+  borderRadiusInner?: Maybe<Scalars['String']>;
   /**
    * Border Right
    *
@@ -679,14 +684,6 @@ export type ImgixParams = {
    * Depends on: `border`
    */
   borderTop?: Maybe<Scalars['IntType']>;
-  /**
-   * Border Size & Color
-   *
-   * Applies a border to an image.
-   *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border)
-   */
-  border?: Maybe<Scalars['String']>;
   /**
    * Brightness
    *
@@ -790,6 +787,14 @@ export type ImgixParams = {
    */
   dpr?: Maybe<Scalars['FloatType']>;
   /**
+   * Duotone
+   *
+   * Applies a duotone effect to the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/duotone)
+   */
+  duotone?: Maybe<Scalars['String']>;
+  /**
    * Duotone Alpha
    *
    * Changes the alpha of the duotone effect atop the source image.
@@ -799,14 +804,6 @@ export type ImgixParams = {
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/duotone-alpha)
    */
   duotoneAlpha?: Maybe<Scalars['IntType']>;
-  /**
-   * Duotone
-   *
-   * Applies a duotone effect to the source image.
-   *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/url/stylize/duotone)
-   */
-  duotone?: Maybe<Scalars['String']>;
   /**
    * Exposure
    *
@@ -854,16 +851,6 @@ export type ImgixParams = {
    */
   faces?: Maybe<Scalars['IntType']>;
   /**
-   * Fill Color
-   *
-   * Sets the fill color for images with additional space created by the fit setting
-   *
-   * Depends on: `fill=solid`
-   *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-color)
-   */
-  fillColor?: Maybe<Scalars['String']>;
-  /**
    * Fill Mode
    *
    * Determines how to fill in additional space created by the fit setting
@@ -873,6 +860,16 @@ export type ImgixParams = {
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill)
    */
   fill?: Maybe<ImgixParamsFill>;
+  /**
+   * Fill Color
+   *
+   * Sets the fill color for images with additional space created by the fit setting
+   *
+   * Depends on: `fill=solid`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/fill-color)
+   */
+  fillColor?: Maybe<Scalars['String']>;
   /**
    * Resize Fit Mode
    *
@@ -1012,6 +1009,14 @@ export type ImgixParams = {
    */
   lossless?: Maybe<Scalars['BooleanType']>;
   /**
+   * Watermark Image Url
+   *
+   * Specifies the location of the watermark image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark)
+   */
+  mark?: Maybe<Scalars['String']>;
+  /**
    * Watermark Alignment Mode
    *
    * Changes the watermark alignment relative to the parent image.
@@ -1112,13 +1117,13 @@ export type ImgixParams = {
    */
   markY?: Maybe<Scalars['IntType']>;
   /**
-   * Watermark Image Url
+   * Mask Type
    *
-   * Specifies the location of the watermark image.
+   * Defines the type of mask and specifies the URL if that type is selected.
    *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark)
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/mask)
    */
-  mark?: Maybe<Scalars['String']>;
+  mask?: Maybe<Scalars['String']>;
   /**
    * Mask Background Color
    *
@@ -1129,14 +1134,6 @@ export type ImgixParams = {
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/mask/mask-bg)
    */
   maskBg?: Maybe<Scalars['String']>;
-  /**
-   * Mask Type
-   *
-   * Defines the type of mask and specifies the URL if that type is selected.
-   *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/url/mask)
-   */
-  mask?: Maybe<Scalars['String']>;
   /**
    * Maximum Height
    *
@@ -1210,6 +1207,14 @@ export type ImgixParams = {
    */
   orient?: Maybe<Scalars['IntType']>;
   /**
+   * Padding
+   *
+   * Pads an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad)
+   */
+  pad?: Maybe<Scalars['IntType']>;
+  /**
    * Padding Bottom
    *
    * Sets bottom padding of an image.
@@ -1233,14 +1238,6 @@ export type ImgixParams = {
    * Sets top padding of an image.
    */
   padTop?: Maybe<Scalars['IntType']>;
-  /**
-   * Padding
-   *
-   * Pads an image.
-   *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad)
-   */
-  pad?: Maybe<Scalars['IntType']>;
   /**
    * Pdf Page Number
    *
@@ -1340,6 +1337,14 @@ export type ImgixParams = {
    */
   transparency?: Maybe<ImgixParamsTransparency>;
   /**
+   * Trim Image
+   *
+   * Trims the source image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim)
+   */
+  trim?: Maybe<ImgixParamsTrim>;
+  /**
    * Trim Color
    *
    * Specifies a trim color on a trim operation.
@@ -1390,13 +1395,13 @@ export type ImgixParams = {
    */
   trimTol?: Maybe<Scalars['FloatType']>;
   /**
-   * Trim Image
+   * Text String
    *
-   * Trims the source image.
+   * Sets the text string to render.
    *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/url/trim/trim)
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt)
    */
-  trim?: Maybe<ImgixParamsTrim>;
+  txt?: Maybe<Scalars['String']>;
   /**
    * Text Align
    *
@@ -1468,16 +1473,6 @@ export type ImgixParams = {
    */
   txtLig?: Maybe<Scalars['IntType']>;
   /**
-   * Text Outline Color
-   *
-   * Specifies a text outline color.
-   *
-   * Depends on: `txt`, `txtline`
-   *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-line-color)
-   */
-  txtLineColor?: Maybe<Scalars['String']>;
-  /**
    * Text Outline
    *
    * Outlines the rendered text with a specified color.
@@ -1487,6 +1482,16 @@ export type ImgixParams = {
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-line)
    */
   txtLine?: Maybe<Scalars['IntType']>;
+  /**
+   * Text Outline Color
+   *
+   * Specifies a text outline color.
+   *
+   * Depends on: `txt`, `txtline`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt-line-color)
+   */
+  txtLineColor?: Maybe<Scalars['String']>;
   /**
    * Text Padding
    *
@@ -1538,14 +1543,6 @@ export type ImgixParams = {
    */
   txtWidth?: Maybe<Scalars['IntType']>;
   /**
-   * Text String
-   *
-   * Sets the text string to render.
-   *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/url/text/txt)
-   */
-  txt?: Maybe<Scalars['String']>;
-  /**
    * Unsharp Mask
    *
    * Sharpens the source image using an unsharp mask.
@@ -1582,54 +1579,54 @@ export type ImgixParams = {
 };
 
 export enum ImgixParamsAuto {
+  compress = 'compress',
   enhance = 'enhance',
   format = 'format',
-  redeye = 'redeye',
-  compress = 'compress'
+  redeye = 'redeye'
 }
 
 export enum ImgixParamsBlendAlign {
-  top = 'top',
   bottom = 'bottom',
-  middle = 'middle',
+  center = 'center',
   left = 'left',
+  middle = 'middle',
   right = 'right',
-  center = 'center'
+  top = 'top'
 }
 
 export enum ImgixParamsBlendCrop {
-  top = 'top',
   bottom = 'bottom',
+  faces = 'faces',
   left = 'left',
   right = 'right',
-  faces = 'faces'
+  top = 'top'
 }
 
 export enum ImgixParamsBlendFit {
   clamp = 'clamp',
   clip = 'clip',
   crop = 'crop',
-  scale = 'scale',
-  max = 'max'
+  max = 'max',
+  scale = 'scale'
 }
 
 export enum ImgixParamsBlendMode {
-  color = 'color',
   burn = 'burn',
-  dodge = 'dodge',
+  color = 'color',
   darken = 'darken',
   difference = 'difference',
+  dodge = 'dodge',
   exclusion = 'exclusion',
   hardlight = 'hardlight',
   hue = 'hue',
   lighten = 'lighten',
   luminosity = 'luminosity',
   multiply = 'multiply',
+  normal = 'normal',
   overlay = 'overlay',
   saturation = 'saturation',
   screen = 'screen',
-  softlight = 'softlight',
-  normal = 'normal'
+  softlight = 'softlight'
 }
 
 export enum ImgixParamsBlendSize {
@@ -1637,32 +1634,32 @@ export enum ImgixParamsBlendSize {
 }
 
 export enum ImgixParamsCh {
-  width = 'width',
   dpr = 'dpr',
-  saveData = 'saveData'
+  saveData = 'saveData',
+  width = 'width'
 }
 
 export enum ImgixParamsCrop {
-  top = 'top',
   bottom = 'bottom',
+  edges = 'edges',
+  entropy = 'entropy',
+  faces = 'faces',
+  focalpoint = 'focalpoint',
   left = 'left',
   right = 'right',
-  faces = 'faces',
-  entropy = 'entropy',
-  edges = 'edges',
-  focalpoint = 'focalpoint'
+  top = 'top'
 }
 
 export enum ImgixParamsCs {
-  srgb = 'srgb',
   adobergb1998 = 'adobergb1998',
-  tinysrgb = 'tinysrgb',
-  strip = 'strip'
+  srgb = 'srgb',
+  strip = 'strip',
+  tinysrgb = 'tinysrgb'
 }
 
 export enum ImgixParamsFill {
-  solid = 'solid',
-  blur = 'blur'
+  blur = 'blur',
+  solid = 'solid'
 }
 
 export enum ImgixParamsFit {
@@ -1679,32 +1676,32 @@ export enum ImgixParamsFit {
 
 export enum ImgixParamsFlip {
   h = 'h',
-  v = 'v',
-  hv = 'hv'
+  hv = 'hv',
+  v = 'v'
 }
 
 export enum ImgixParamsFm {
   gif = 'gif',
-  jpg = 'jpg',
   jp2 = 'jp2',
+  jpg = 'jpg',
   json = 'json',
   jxr = 'jxr',
-  pjpg = 'pjpg',
   mp4 = 'mp4',
+  pjpg = 'pjpg',
   png = 'png',
   png8 = 'png8',
   png32 = 'png32',
-  webp = 'webp',
-  webm = 'webm'
+  webm = 'webm',
+  webp = 'webp'
 }
 
 export enum ImgixParamsMarkAlign {
-  top = 'top',
-  middle = 'middle',
   bottom = 'bottom',
-  left = 'left',
   center = 'center',
-  right = 'right'
+  left = 'left',
+  middle = 'middle',
+  right = 'right',
+  top = 'top'
 }
 
 export enum ImgixParamsMarkFit {
@@ -1730,19 +1727,19 @@ export enum ImgixParamsTrim {
 }
 
 export enum ImgixParamsTxtAlign {
-  top = 'top',
-  middle = 'middle',
   bottom = 'bottom',
-  left = 'left',
   center = 'center',
-  right = 'right'
+  left = 'left',
+  middle = 'middle',
+  right = 'right',
+  top = 'top'
 }
 
 export enum ImgixParamsTxtClip {
-  start = 'start',
-  middle = 'middle',
+  ellipsis = 'ellipsis',
   end = 'end',
-  ellipsis = 'ellipsis'
+  middle = 'middle',
+  start = 'start'
 }
 
 export enum ImgixParamsTxtFit {
@@ -1755,6 +1752,38 @@ export type InUseFilter = {
   eq?: Maybe<Scalars['BooleanType']>;
 };
 
+/** Record of type Info Item (info_item) */
+export type InfoItemRecord = {
+  __typename?: 'InfoItemRecord';
+  _createdAt: Scalars['DateTime'];
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  content?: Maybe<Scalars['String']>;
+  createdAt: Scalars['DateTime'];
+  id: Scalars['ItemId'];
+  title?: Maybe<Scalars['String']>;
+  updatedAt: Scalars['DateTime'];
+};
+
+
+/** Record of type Info Item (info_item) */
+export type InfoItemRecord_SeoMetaTagsArgs = {
+  locale?: Maybe<SiteLocale>;
+};
+
+
+/** Record of type Info Item (info_item) */
+export type InfoItemRecordContentArgs = {
+  markdown?: Maybe<Scalars['Boolean']>;
+};
 
 /** Record of type Internal Link (internal_link) */
 export type InternalLinkRecord = {
@@ -1783,23 +1812,22 @@ export type InternalLinkRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
-
 /** Specifies how to filter by ID */
 export type ItemIdFilter = {
   /** Search the record with the specified ID */
   eq?: Maybe<Scalars['ItemId']>;
-  /** Exclude the record with the specified ID */
-  neq?: Maybe<Scalars['ItemId']>;
   /** Search records with the specified IDs */
   in?: Maybe<Array<Maybe<Scalars['ItemId']>>>;
+  /** Exclude the record with the specified ID */
+  neq?: Maybe<Scalars['ItemId']>;
   /** Search records that do not have the specified IDs */
   notIn?: Maybe<Array<Maybe<Scalars['ItemId']>>>;
 };
 
 export enum ItemStatus {
   draft = 'draft',
-  updated = 'updated',
-  published = 'published'
+  published = 'published',
+  updated = 'updated'
 }
 
 /** Record of type Lineup Item (lineup_item) */
@@ -1849,81 +1877,80 @@ export type LineupItemRecordListMultiLocaleField = {
 export type LinkFilter = {
   /** Search for records with an exact match. The specified value must be a Record ID */
   eq?: Maybe<Scalars['ItemId']>;
-  /** Exclude records with an exact match. The specified value must be a Record ID */
-  neq?: Maybe<Scalars['ItemId']>;
-  /** Filter records linked to one of the specified records */
-  in?: Maybe<Array<Maybe<Scalars['ItemId']>>>;
-  /** Filter records not linked to one of the specified records */
-  notIn?: Maybe<Array<Maybe<Scalars['ItemId']>>>;
   /** Filter records with the specified field defined (i.e. with any value) or not */
   exists?: Maybe<Scalars['BooleanType']>;
+  /** Filter records linked to one of the specified records */
+  in?: Maybe<Array<Maybe<Scalars['ItemId']>>>;
+  /** Exclude records with an exact match. The specified value must be a Record ID */
+  neq?: Maybe<Scalars['ItemId']>;
+  /** Filter records not linked to one of the specified records */
+  notIn?: Maybe<Array<Maybe<Scalars['ItemId']>>>;
 };
 
 /** Specifies how to filter Multiple-links fields */
 export type LinksFilter = {
-  /** Search for records with an exact match. The specified values must be Record IDs */
-  eq?: Maybe<Array<Maybe<Scalars['ItemId']>>>;
   /** Filter records linked to all of the specified records. The specified values must be Record IDs */
   allIn?: Maybe<Array<Maybe<Scalars['ItemId']>>>;
   /** Filter records linked to at least one of the specified records. The specified values must be Record IDs */
   anyIn?: Maybe<Array<Maybe<Scalars['ItemId']>>>;
-  /** Filter records not linked to any of the specified records. The specified values must be Record IDs */
-  notIn?: Maybe<Array<Maybe<Scalars['ItemId']>>>;
+  /** Search for records with an exact match. The specified values must be Record IDs */
+  eq?: Maybe<Array<Maybe<Scalars['ItemId']>>>;
   /** Filter records with the specified field defined (i.e. with any value) or not */
   exists?: Maybe<Scalars['BooleanType']>;
+  /** Filter records not linked to any of the specified records. The specified values must be Record IDs */
+  notIn?: Maybe<Array<Maybe<Scalars['ItemId']>>>;
 };
 
-
 export enum MuxThumbnailFormatType {
+  gif = 'gif',
   jpg = 'jpg',
-  png = 'png',
-  gif = 'gif'
+  png = 'png'
 }
 
 export type NewsModelFilter = {
+  OR?: Maybe<Array<Maybe<NewsModelFilter>>>;
   _createdAt?: Maybe<CreatedAtFilter>;
-  createdAt?: Maybe<CreatedAtFilter>;
-  id?: Maybe<ItemIdFilter>;
   _firstPublishedAt?: Maybe<PublishedAtFilter>;
+  _isValid?: Maybe<BooleanFilter>;
   _publicationScheduledAt?: Maybe<PublishedAtFilter>;
-  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _publishedAt?: Maybe<PublishedAtFilter>;
   _status?: Maybe<StatusFilter>;
+  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _updatedAt?: Maybe<UpdatedAtFilter>;
-  updatedAt?: Maybe<UpdatedAtFilter>;
-  _isValid?: Maybe<BooleanFilter>;
+  createdAt?: Maybe<CreatedAtFilter>;
   featuredImage?: Maybe<FileFilter>;
-  title?: Maybe<StringFilter>;
-  slug?: Maybe<SlugFilter>;
+  id?: Maybe<ItemIdFilter>;
   seo?: Maybe<SeoFilter>;
-  OR?: Maybe<Array<Maybe<NewsModelFilter>>>;
+  slug?: Maybe<SlugFilter>;
+  title?: Maybe<StringFilter>;
+  updatedAt?: Maybe<UpdatedAtFilter>;
 };
 
 export enum NewsModelOrderBy {
   _createdAt_ASC = '_createdAt_ASC',
   _createdAt_DESC = '_createdAt_DESC',
-  createdAt_ASC = 'createdAt_ASC',
-  createdAt_DESC = 'createdAt_DESC',
-  id_ASC = 'id_ASC',
-  id_DESC = 'id_DESC',
   _firstPublishedAt_ASC = '_firstPublishedAt_ASC',
   _firstPublishedAt_DESC = '_firstPublishedAt_DESC',
+  _isValid_ASC = '_isValid_ASC',
+  _isValid_DESC = '_isValid_DESC',
   _publicationScheduledAt_ASC = '_publicationScheduledAt_ASC',
   _publicationScheduledAt_DESC = '_publicationScheduledAt_DESC',
-  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
-  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _publishedAt_ASC = '_publishedAt_ASC',
   _publishedAt_DESC = '_publishedAt_DESC',
   _status_ASC = '_status_ASC',
   _status_DESC = '_status_DESC',
+  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
+  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _updatedAt_ASC = '_updatedAt_ASC',
   _updatedAt_DESC = '_updatedAt_DESC',
-  updatedAt_ASC = 'updatedAt_ASC',
-  updatedAt_DESC = 'updatedAt_DESC',
-  _isValid_ASC = '_isValid_ASC',
-  _isValid_DESC = '_isValid_DESC',
+  createdAt_ASC = 'createdAt_ASC',
+  createdAt_DESC = 'createdAt_DESC',
+  id_ASC = 'id_ASC',
+  id_DESC = 'id_DESC',
   title_ASC = 'title_ASC',
-  title_DESC = 'title_DESC'
+  title_DESC = 'title_DESC',
+  updatedAt_ASC = 'updatedAt_ASC',
+  updatedAt_DESC = 'updatedAt_DESC'
 }
 
 /** Record of type News (news) */
@@ -2016,59 +2043,74 @@ export type OrientationFilter = {
   neq?: Maybe<UploadOrientation>;
 };
 
+export type PageModelContentField = {
+  __typename?: 'PageModelContentField';
+  blocks: Array<InfoItemRecord>;
+  links: Array<EditionRecord>;
+  value: Scalars['JsonField'];
+};
+
+export type PageModelContentFieldMultiLocaleField = {
+  __typename?: 'PageModelContentFieldMultiLocaleField';
+  locale?: Maybe<SiteLocale>;
+  value?: Maybe<PageModelContentField>;
+};
+
 export type PageModelFilter = {
+  OR?: Maybe<Array<Maybe<PageModelFilter>>>;
   _createdAt?: Maybe<CreatedAtFilter>;
-  createdAt?: Maybe<CreatedAtFilter>;
-  id?: Maybe<ItemIdFilter>;
   _firstPublishedAt?: Maybe<PublishedAtFilter>;
-  parent?: Maybe<ParentFilter>;
-  position?: Maybe<PositionFilter>;
+  _isValid?: Maybe<BooleanFilter>;
   _publicationScheduledAt?: Maybe<PublishedAtFilter>;
-  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _publishedAt?: Maybe<PublishedAtFilter>;
   _status?: Maybe<StatusFilter>;
+  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _updatedAt?: Maybe<UpdatedAtFilter>;
-  updatedAt?: Maybe<UpdatedAtFilter>;
-  _isValid?: Maybe<BooleanFilter>;
+  content?: Maybe<StructuredTextFilter>;
+  createdAt?: Maybe<CreatedAtFilter>;
+  featuredImage?: Maybe<FileFilter>;
+  id?: Maybe<ItemIdFilter>;
+  parent?: Maybe<ParentFilter>;
+  position?: Maybe<PositionFilter>;
   seo?: Maybe<SeoFilter>;
   slug?: Maybe<SlugFilter>;
   title?: Maybe<StringFilter>;
-  OR?: Maybe<Array<Maybe<PageModelFilter>>>;
+  updatedAt?: Maybe<UpdatedAtFilter>;
 };
 
 export enum PageModelOrderBy {
   _createdAt_ASC = '_createdAt_ASC',
   _createdAt_DESC = '_createdAt_DESC',
-  createdAt_ASC = 'createdAt_ASC',
-  createdAt_DESC = 'createdAt_DESC',
-  id_ASC = 'id_ASC',
-  id_DESC = 'id_DESC',
   _firstPublishedAt_ASC = '_firstPublishedAt_ASC',
   _firstPublishedAt_DESC = '_firstPublishedAt_DESC',
-  position_ASC = 'position_ASC',
-  position_DESC = 'position_DESC',
+  _isValid_ASC = '_isValid_ASC',
+  _isValid_DESC = '_isValid_DESC',
   _publicationScheduledAt_ASC = '_publicationScheduledAt_ASC',
   _publicationScheduledAt_DESC = '_publicationScheduledAt_DESC',
-  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
-  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _publishedAt_ASC = '_publishedAt_ASC',
   _publishedAt_DESC = '_publishedAt_DESC',
   _status_ASC = '_status_ASC',
   _status_DESC = '_status_DESC',
+  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
+  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _updatedAt_ASC = '_updatedAt_ASC',
   _updatedAt_DESC = '_updatedAt_DESC',
-  updatedAt_ASC = 'updatedAt_ASC',
-  updatedAt_DESC = 'updatedAt_DESC',
-  _isValid_ASC = '_isValid_ASC',
-  _isValid_DESC = '_isValid_DESC',
+  createdAt_ASC = 'createdAt_ASC',
+  createdAt_DESC = 'createdAt_DESC',
+  id_ASC = 'id_ASC',
+  id_DESC = 'id_DESC',
+  position_ASC = 'position_ASC',
+  position_DESC = 'position_DESC',
   title_ASC = 'title_ASC',
-  title_DESC = 'title_DESC'
+  title_DESC = 'title_DESC',
+  updatedAt_ASC = 'updatedAt_ASC',
+  updatedAt_DESC = 'updatedAt_DESC'
 }
 
 /** Record of type Page (page) */
 export type PageRecord = {
   __typename?: 'PageRecord';
-  _allContentLocales?: Maybe<Array<Maybe<WysiwygRecordListMultiLocaleField>>>;
+  _allContentLocales?: Maybe<Array<Maybe<PageModelContentFieldMultiLocaleField>>>;
   _allSeoLocales?: Maybe<Array<Maybe<SeoFieldMultiLocaleField>>>;
   _allSlugLocales?: Maybe<Array<Maybe<StringMultiLocaleField>>>;
   _allTitleLocales?: Maybe<Array<Maybe<StringMultiLocaleField>>>;
@@ -2084,8 +2126,9 @@ export type PageRecord = {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
   children?: Maybe<Array<Maybe<PageRecord>>>;
-  content?: Maybe<Array<Maybe<WysiwygRecord>>>;
+  content?: Maybe<PageModelContentField>;
   createdAt: Scalars['DateTime'];
+  featuredImage?: Maybe<FileField>;
   id: Scalars['ItemId'];
   parent?: Maybe<PageRecord>;
   position?: Maybe<Scalars['IntType']>;
@@ -2159,34 +2202,34 @@ export type ParentFilter = {
 
 /** Specifies how to filter by position (sorted and tree-like collections) */
 export type PositionFilter = {
-  /** Filter records with a value that's strictly greater than the one specified */
-  gt?: Maybe<Scalars['IntType']>;
-  /** Filter records with a value that's less than the one specified */
-  lt?: Maybe<Scalars['IntType']>;
-  /** Filter records with a value that's greater than or equal to the one specified */
-  gte?: Maybe<Scalars['IntType']>;
-  /** Filter records with a value that's less or equal than the one specified */
-  lte?: Maybe<Scalars['IntType']>;
   /** Search for records with an exact match */
   eq?: Maybe<Scalars['IntType']>;
+  /** Filter records with a value that's strictly greater than the one specified */
+  gt?: Maybe<Scalars['IntType']>;
+  /** Filter records with a value that's greater than or equal to the one specified */
+  gte?: Maybe<Scalars['IntType']>;
+  /** Filter records with a value that's less than the one specified */
+  lt?: Maybe<Scalars['IntType']>;
+  /** Filter records with a value that's less or equal than the one specified */
+  lte?: Maybe<Scalars['IntType']>;
   /** Exclude records with an exact match */
   neq?: Maybe<Scalars['IntType']>;
 };
 
 /** Specifies how to filter by publication datetime */
 export type PublishedAtFilter = {
-  /** Filter records with a value that's strictly greater than the one specified */
-  gt?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's less than the one specified */
-  lt?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's greater than or equal to than the one specified */
-  gte?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's less or equal than the one specified */
-  lte?: Maybe<Scalars['DateTime']>;
-  /** Filter records with the specified field defined (i.e. with any value) or not */
-  exists?: Maybe<Scalars['BooleanType']>;
   /** Search for records with an exact match (seconds are truncated) */
   eq?: Maybe<Scalars['DateTime']>;
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: Maybe<Scalars['BooleanType']>;
+  /** Filter records with a value that's strictly greater than the one specified */
+  gt?: Maybe<Scalars['DateTime']>;
+  /** Filter records with a value that's greater than or equal to than the one specified */
+  gte?: Maybe<Scalars['DateTime']>;
+  /** Filter records with a value that's less than the one specified */
+  lt?: Maybe<Scalars['DateTime']>;
+  /** Filter records with a value that's less or equal than the one specified */
+  lte?: Maybe<Scalars['DateTime']>;
   /** Exclude records with an exact match */
   neq?: Maybe<Scalars['DateTime']>;
 };
@@ -2251,57 +2294,57 @@ export type Query = {
 
 /** The query root for this schema */
 export type Query_AllArtistsMetaArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<ArtistModelFilter>;
+  locale?: Maybe<SiteLocale>;
 };
 
 
 /** The query root for this schema */
 export type Query_AllEditionsMetaArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<EditionModelFilter>;
+  locale?: Maybe<SiteLocale>;
 };
 
 
 /** The query root for this schema */
 export type Query_AllNewsMetaArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<NewsModelFilter>;
+  locale?: Maybe<SiteLocale>;
 };
 
 
 /** The query root for this schema */
 export type Query_AllPagesMetaArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<PageModelFilter>;
+  locale?: Maybe<SiteLocale>;
 };
 
 
 /** The query root for this schema */
 export type Query_AllSponsorsMetaArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<SponsorModelFilter>;
+  locale?: Maybe<SiteLocale>;
 };
 
 
 /** The query root for this schema */
 export type Query_AllStagesMetaArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<StageModelFilter>;
+  locale?: Maybe<SiteLocale>;
 };
 
 
 /** The query root for this schema */
 export type Query_AllUploadsMetaArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<UploadFilter>;
+  locale?: Maybe<SiteLocale>;
 };
 
 
 /** The query root for this schema */
 export type Query_AllWavesMetaArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<WaveModelFilter>;
+  locale?: Maybe<SiteLocale>;
 };
 
 
@@ -2313,144 +2356,144 @@ export type Query_SiteArgs = {
 
 /** The query root for this schema */
 export type QueryAllArtistsArgs = {
-  locale?: Maybe<SiteLocale>;
-  skip?: Maybe<Scalars['IntType']>;
-  first?: Maybe<Scalars['IntType']>;
   filter?: Maybe<ArtistModelFilter>;
+  first?: Maybe<Scalars['IntType']>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<ArtistModelOrderBy>>>;
+  skip?: Maybe<Scalars['IntType']>;
 };
 
 
 /** The query root for this schema */
 export type QueryAllEditionsArgs = {
-  locale?: Maybe<SiteLocale>;
-  skip?: Maybe<Scalars['IntType']>;
-  first?: Maybe<Scalars['IntType']>;
   filter?: Maybe<EditionModelFilter>;
+  first?: Maybe<Scalars['IntType']>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<EditionModelOrderBy>>>;
+  skip?: Maybe<Scalars['IntType']>;
 };
 
 
 /** The query root for this schema */
 export type QueryAllNewsArgs = {
-  locale?: Maybe<SiteLocale>;
-  skip?: Maybe<Scalars['IntType']>;
-  first?: Maybe<Scalars['IntType']>;
   filter?: Maybe<NewsModelFilter>;
+  first?: Maybe<Scalars['IntType']>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<NewsModelOrderBy>>>;
+  skip?: Maybe<Scalars['IntType']>;
 };
 
 
 /** The query root for this schema */
 export type QueryAllPagesArgs = {
-  locale?: Maybe<SiteLocale>;
-  skip?: Maybe<Scalars['IntType']>;
-  first?: Maybe<Scalars['IntType']>;
   filter?: Maybe<PageModelFilter>;
+  first?: Maybe<Scalars['IntType']>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<PageModelOrderBy>>>;
+  skip?: Maybe<Scalars['IntType']>;
 };
 
 
 /** The query root for this schema */
 export type QueryAllSponsorsArgs = {
-  locale?: Maybe<SiteLocale>;
-  skip?: Maybe<Scalars['IntType']>;
-  first?: Maybe<Scalars['IntType']>;
   filter?: Maybe<SponsorModelFilter>;
+  first?: Maybe<Scalars['IntType']>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<SponsorModelOrderBy>>>;
+  skip?: Maybe<Scalars['IntType']>;
 };
 
 
 /** The query root for this schema */
 export type QueryAllStagesArgs = {
-  locale?: Maybe<SiteLocale>;
-  skip?: Maybe<Scalars['IntType']>;
-  first?: Maybe<Scalars['IntType']>;
   filter?: Maybe<StageModelFilter>;
+  first?: Maybe<Scalars['IntType']>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<StageModelOrderBy>>>;
+  skip?: Maybe<Scalars['IntType']>;
 };
 
 
 /** The query root for this schema */
 export type QueryAllUploadsArgs = {
-  locale?: Maybe<SiteLocale>;
-  skip?: Maybe<Scalars['IntType']>;
-  first?: Maybe<Scalars['IntType']>;
   filter?: Maybe<UploadFilter>;
+  first?: Maybe<Scalars['IntType']>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<UploadOrderBy>>>;
+  skip?: Maybe<Scalars['IntType']>;
 };
 
 
 /** The query root for this schema */
 export type QueryAllWavesArgs = {
-  locale?: Maybe<SiteLocale>;
-  skip?: Maybe<Scalars['IntType']>;
-  first?: Maybe<Scalars['IntType']>;
   filter?: Maybe<WaveModelFilter>;
+  first?: Maybe<Scalars['IntType']>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<WaveModelOrderBy>>>;
+  skip?: Maybe<Scalars['IntType']>;
 };
 
 
 /** The query root for this schema */
 export type QueryArtistArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<ArtistModelFilter>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<ArtistModelOrderBy>>>;
 };
 
 
 /** The query root for this schema */
 export type QueryEditionArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<EditionModelFilter>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<EditionModelOrderBy>>>;
 };
 
 
 /** The query root for this schema */
 export type QueryNewsArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<NewsModelFilter>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<NewsModelOrderBy>>>;
 };
 
 
 /** The query root for this schema */
 export type QueryPageArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<PageModelFilter>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<PageModelOrderBy>>>;
 };
 
 
 /** The query root for this schema */
 export type QuerySponsorArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<SponsorModelFilter>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<SponsorModelOrderBy>>>;
 };
 
 
 /** The query root for this schema */
 export type QueryStageArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<StageModelFilter>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<StageModelOrderBy>>>;
 };
 
 
 /** The query root for this schema */
 export type QueryUploadArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<UploadFilter>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<UploadOrderBy>>>;
 };
 
 
 /** The query root for this schema */
 export type QueryWaveArgs = {
-  locale?: Maybe<SiteLocale>;
   filter?: Maybe<WaveModelFilter>;
+  locale?: Maybe<SiteLocale>;
   orderBy?: Maybe<Array<Maybe<WaveModelOrderBy>>>;
 };
 
@@ -2464,19 +2507,19 @@ export type QueryWebsiteArgs = {
 export type ResolutionFilter = {
   /** Search uploads with the specified resolution */
   eq?: Maybe<ResolutionType>;
-  /** Exclude uploads with the specified resolution */
-  neq?: Maybe<ResolutionType>;
   /** Search uploads with the specified resolutions */
   in?: Maybe<Array<Maybe<ResolutionType>>>;
+  /** Exclude uploads with the specified resolution */
+  neq?: Maybe<ResolutionType>;
   /** Search uploads without the specified resolutions */
   notIn?: Maybe<Array<Maybe<ResolutionType>>>;
 };
 
 export enum ResolutionType {
   icon = 'icon',
-  small = 'small',
+  large = 'large',
   medium = 'medium',
-  large = 'large'
+  small = 'small'
 }
 
 export type ResponsiveImage = {
@@ -2519,6 +2562,7 @@ export type Site = {
   favicon?: Maybe<FileField>;
   faviconMetaTags: Array<Tag>;
   globalSeo?: Maybe<GlobalSeoField>;
+  locales: Array<SiteLocale>;
 };
 
 
@@ -2532,73 +2576,72 @@ export type SiteGlobalSeoArgs = {
 };
 
 export enum SiteLocale {
-  nl = 'nl',
-  en = 'en'
+  nl = 'nl'
 }
 
 /** Specifies how to filter Slug fields */
 export type SlugFilter = {
   /** Search for records with an exact match */
   eq?: Maybe<Scalars['String']>;
-  /** Exclude records with an exact match */
-  neq?: Maybe<Scalars['String']>;
   /** Filter records that have one of the specified slugs */
   in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Exclude records with an exact match */
+  neq?: Maybe<Scalars['String']>;
   /** Filter records that do have one of the specified slugs */
   notIn?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SponsorModelFilter = {
+  OR?: Maybe<Array<Maybe<SponsorModelFilter>>>;
   _createdAt?: Maybe<CreatedAtFilter>;
-  createdAt?: Maybe<CreatedAtFilter>;
-  id?: Maybe<ItemIdFilter>;
   _firstPublishedAt?: Maybe<PublishedAtFilter>;
+  _isValid?: Maybe<BooleanFilter>;
   _publicationScheduledAt?: Maybe<PublishedAtFilter>;
-  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _publishedAt?: Maybe<PublishedAtFilter>;
   _status?: Maybe<StatusFilter>;
+  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _updatedAt?: Maybe<UpdatedAtFilter>;
-  updatedAt?: Maybe<UpdatedAtFilter>;
-  _isValid?: Maybe<BooleanFilter>;
-  displayLogo?: Maybe<BooleanFilter>;
-  logo?: Maybe<FileFilter>;
-  website?: Maybe<StringFilter>;
+  createdAt?: Maybe<CreatedAtFilter>;
   displayFooter?: Maybe<BooleanFilter>;
+  displayLogo?: Maybe<BooleanFilter>;
+  id?: Maybe<ItemIdFilter>;
+  logo?: Maybe<FileFilter>;
   name?: Maybe<StringFilter>;
-  OR?: Maybe<Array<Maybe<SponsorModelFilter>>>;
+  updatedAt?: Maybe<UpdatedAtFilter>;
+  website?: Maybe<StringFilter>;
 };
 
 export enum SponsorModelOrderBy {
   _createdAt_ASC = '_createdAt_ASC',
   _createdAt_DESC = '_createdAt_DESC',
-  createdAt_ASC = 'createdAt_ASC',
-  createdAt_DESC = 'createdAt_DESC',
-  id_ASC = 'id_ASC',
-  id_DESC = 'id_DESC',
   _firstPublishedAt_ASC = '_firstPublishedAt_ASC',
   _firstPublishedAt_DESC = '_firstPublishedAt_DESC',
+  _isValid_ASC = '_isValid_ASC',
+  _isValid_DESC = '_isValid_DESC',
   _publicationScheduledAt_ASC = '_publicationScheduledAt_ASC',
   _publicationScheduledAt_DESC = '_publicationScheduledAt_DESC',
-  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
-  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _publishedAt_ASC = '_publishedAt_ASC',
   _publishedAt_DESC = '_publishedAt_DESC',
   _status_ASC = '_status_ASC',
   _status_DESC = '_status_DESC',
+  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
+  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _updatedAt_ASC = '_updatedAt_ASC',
   _updatedAt_DESC = '_updatedAt_DESC',
-  updatedAt_ASC = 'updatedAt_ASC',
-  updatedAt_DESC = 'updatedAt_DESC',
-  _isValid_ASC = '_isValid_ASC',
-  _isValid_DESC = '_isValid_DESC',
-  displayLogo_ASC = 'displayLogo_ASC',
-  displayLogo_DESC = 'displayLogo_DESC',
-  website_ASC = 'website_ASC',
-  website_DESC = 'website_DESC',
+  createdAt_ASC = 'createdAt_ASC',
+  createdAt_DESC = 'createdAt_DESC',
   displayFooter_ASC = 'displayFooter_ASC',
   displayFooter_DESC = 'displayFooter_DESC',
+  displayLogo_ASC = 'displayLogo_ASC',
+  displayLogo_DESC = 'displayLogo_DESC',
+  id_ASC = 'id_ASC',
+  id_DESC = 'id_DESC',
   name_ASC = 'name_ASC',
-  name_DESC = 'name_DESC'
+  name_DESC = 'name_DESC',
+  updatedAt_ASC = 'updatedAt_ASC',
+  updatedAt_DESC = 'updatedAt_DESC',
+  website_ASC = 'website_ASC',
+  website_DESC = 'website_DESC'
 }
 
 /** Record of type Sponsor (sponsor) */
@@ -2632,47 +2675,47 @@ export type SponsorRecord_SeoMetaTagsArgs = {
 };
 
 export type StageModelFilter = {
+  OR?: Maybe<Array<Maybe<StageModelFilter>>>;
   _createdAt?: Maybe<CreatedAtFilter>;
-  createdAt?: Maybe<CreatedAtFilter>;
-  id?: Maybe<ItemIdFilter>;
   _firstPublishedAt?: Maybe<PublishedAtFilter>;
+  _isValid?: Maybe<BooleanFilter>;
   _publicationScheduledAt?: Maybe<PublishedAtFilter>;
-  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _publishedAt?: Maybe<PublishedAtFilter>;
   _status?: Maybe<StatusFilter>;
+  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _updatedAt?: Maybe<UpdatedAtFilter>;
-  updatedAt?: Maybe<UpdatedAtFilter>;
-  _isValid?: Maybe<BooleanFilter>;
-  slug?: Maybe<SlugFilter>;
+  createdAt?: Maybe<CreatedAtFilter>;
+  id?: Maybe<ItemIdFilter>;
   name?: Maybe<StringFilter>;
-  OR?: Maybe<Array<Maybe<StageModelFilter>>>;
+  slug?: Maybe<SlugFilter>;
+  updatedAt?: Maybe<UpdatedAtFilter>;
 };
 
 export enum StageModelOrderBy {
   _createdAt_ASC = '_createdAt_ASC',
   _createdAt_DESC = '_createdAt_DESC',
-  createdAt_ASC = 'createdAt_ASC',
-  createdAt_DESC = 'createdAt_DESC',
-  id_ASC = 'id_ASC',
-  id_DESC = 'id_DESC',
   _firstPublishedAt_ASC = '_firstPublishedAt_ASC',
   _firstPublishedAt_DESC = '_firstPublishedAt_DESC',
+  _isValid_ASC = '_isValid_ASC',
+  _isValid_DESC = '_isValid_DESC',
   _publicationScheduledAt_ASC = '_publicationScheduledAt_ASC',
   _publicationScheduledAt_DESC = '_publicationScheduledAt_DESC',
-  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
-  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _publishedAt_ASC = '_publishedAt_ASC',
   _publishedAt_DESC = '_publishedAt_DESC',
   _status_ASC = '_status_ASC',
   _status_DESC = '_status_DESC',
+  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
+  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _updatedAt_ASC = '_updatedAt_ASC',
   _updatedAt_DESC = '_updatedAt_DESC',
-  updatedAt_ASC = 'updatedAt_ASC',
-  updatedAt_DESC = 'updatedAt_DESC',
-  _isValid_ASC = '_isValid_ASC',
-  _isValid_DESC = '_isValid_DESC',
+  createdAt_ASC = 'createdAt_ASC',
+  createdAt_DESC = 'createdAt_DESC',
+  id_ASC = 'id_ASC',
+  id_DESC = 'id_DESC',
   name_ASC = 'name_ASC',
-  name_DESC = 'name_DESC'
+  name_DESC = 'name_DESC',
+  updatedAt_ASC = 'updatedAt_ASC',
+  updatedAt_DESC = 'updatedAt_DESC'
 }
 
 /** Record of type Stage (stage) */
@@ -2706,37 +2749,37 @@ export type StageRecord_SeoMetaTagsArgs = {
 export type StatusFilter = {
   /** Search the record with the specified status */
   eq?: Maybe<ItemStatus>;
-  /** Exclude the record with the specified status */
-  neq?: Maybe<ItemStatus>;
   /** Search records with the specified statuses */
   in?: Maybe<Array<Maybe<ItemStatus>>>;
+  /** Exclude the record with the specified status */
+  neq?: Maybe<ItemStatus>;
   /** Search records without the specified statuses */
   notIn?: Maybe<Array<Maybe<ItemStatus>>>;
 };
 
 /** Specifies how to filter Single-line string fields */
 export type StringFilter = {
-  /** Filter records based on a regular expression */
-  matches?: Maybe<StringMatchesFilter>;
-  /** Exclude records based on a regular expression */
-  notMatches?: Maybe<StringMatchesFilter>;
-  /** Filter records with the specified field set as blank (null or empty string) */
-  isBlank?: Maybe<Scalars['BooleanType']>;
   /** Search for records with an exact match */
   eq?: Maybe<Scalars['String']>;
-  /** Exclude records with an exact match */
-  neq?: Maybe<Scalars['String']>;
-  /** Filter records that equal one of the specified values */
-  in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  /** Filter records that do not equal one of the specified values */
-  notIn?: Maybe<Array<Maybe<Scalars['String']>>>;
   /** Filter records with the specified field defined (i.e. with any value) or not */
   exists?: Maybe<Scalars['BooleanType']>;
+  /** Filter records that equal one of the specified values */
+  in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Filter records with the specified field set as blank (null or empty string) */
+  isBlank?: Maybe<Scalars['BooleanType']>;
+  /** Filter records based on a regular expression */
+  matches?: Maybe<StringMatchesFilter>;
+  /** Exclude records with an exact match */
+  neq?: Maybe<Scalars['String']>;
+  /** Filter records that do not equal one of the specified values */
+  notIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Exclude records based on a regular expression */
+  notMatches?: Maybe<StringMatchesFilter>;
 };
 
 export type StringMatchesFilter = {
-  pattern: Scalars['String'];
   caseSensitive?: Maybe<Scalars['BooleanType']>;
+  pattern: Scalars['String'];
   regexp?: Maybe<Scalars['BooleanType']>;
 };
 
@@ -2744,6 +2787,18 @@ export type StringMultiLocaleField = {
   __typename?: 'StringMultiLocaleField';
   locale?: Maybe<SiteLocale>;
   value?: Maybe<Scalars['String']>;
+};
+
+/** Specifies how to filter Structured Text fields */
+export type StructuredTextFilter = {
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: Maybe<Scalars['BooleanType']>;
+  /** Filter records with the specified field set as blank (null or single empty paragraph) */
+  isBlank?: Maybe<Scalars['BooleanType']>;
+  /** Filter records based on a regular expression */
+  matches?: Maybe<StringMatchesFilter>;
+  /** Exclude records based on a regular expression */
+  notMatches?: Maybe<StringMatchesFilter>;
 };
 
 export type Tag = {
@@ -2757,58 +2812,58 @@ export type Tag = {
 export type TypeFilter = {
   /** Search uploads with the specified type */
   eq?: Maybe<UploadType>;
-  /** Exclude uploads with the specified type */
-  neq?: Maybe<UploadType>;
   /** Search uploads with the specified types */
   in?: Maybe<Array<Maybe<UploadType>>>;
+  /** Exclude uploads with the specified type */
+  neq?: Maybe<UploadType>;
   /** Search uploads without the specified types */
   notIn?: Maybe<Array<Maybe<UploadType>>>;
 };
 
 /** Specifies how to filter by update datetime */
 export type UpdatedAtFilter = {
-  /** Filter records with a value that's strictly greater than the one specified */
-  gt?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's less than the one specified */
-  lt?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's greater than or equal to than the one specified */
-  gte?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's less or equal than the one specified */
-  lte?: Maybe<Scalars['DateTime']>;
-  /** Filter records with the specified field defined (i.e. with any value) or not */
-  exists?: Maybe<Scalars['BooleanType']>;
   /** Search for records with an exact match (seconds are truncated) */
   eq?: Maybe<Scalars['DateTime']>;
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: Maybe<Scalars['BooleanType']>;
+  /** Filter records with a value that's strictly greater than the one specified */
+  gt?: Maybe<Scalars['DateTime']>;
+  /** Filter records with a value that's greater than or equal to than the one specified */
+  gte?: Maybe<Scalars['DateTime']>;
+  /** Filter records with a value that's less than the one specified */
+  lt?: Maybe<Scalars['DateTime']>;
+  /** Filter records with a value that's less or equal than the one specified */
+  lte?: Maybe<Scalars['DateTime']>;
   /** Exclude records with an exact match */
   neq?: Maybe<Scalars['DateTime']>;
 };
 
 /** Specifies how to filter by default alt */
 export type UploadAltFilter = {
-  /** Filter uploads based on a regular expression */
-  matches?: Maybe<StringMatchesFilter>;
-  /** Exclude uploads based on a regular expression */
-  notMatches?: Maybe<StringMatchesFilter>;
   /** Search the uploads with the specified alt */
   eq?: Maybe<Scalars['String']>;
-  /** Exclude the uploads with the specified alt */
-  neq?: Maybe<Scalars['String']>;
-  /** Search uploads with the specified values as default alt */
-  in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  /** Search uploads that do not have the specified values as default alt */
-  notIn?: Maybe<Array<Maybe<Scalars['String']>>>;
   /** Filter uploads with the specified field defined (i.e. with any value) or not */
   exists?: Maybe<Scalars['BooleanType']>;
+  /** Search uploads with the specified values as default alt */
+  in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Filter uploads based on a regular expression */
+  matches?: Maybe<StringMatchesFilter>;
+  /** Exclude the uploads with the specified alt */
+  neq?: Maybe<Scalars['String']>;
+  /** Search uploads that do not have the specified values as default alt */
+  notIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Exclude uploads based on a regular expression */
+  notMatches?: Maybe<StringMatchesFilter>;
 };
 
 /** Specifies how to filter by auhtor */
 export type UploadAuthorFilter = {
+  /** Filter uploads with the specified field defined (i.e. with any value) or not */
+  exists?: Maybe<Scalars['BooleanType']>;
   /** Filter uploads based on a regular expression */
   matches?: Maybe<StringMatchesFilter>;
   /** Exclude uploads based on a regular expression */
   notMatches?: Maybe<StringMatchesFilter>;
-  /** Filter uploads with the specified field defined (i.e. with any value) or not */
-  exists?: Maybe<Scalars['BooleanType']>;
 };
 
 /** Specifies how to filter by basename */
@@ -2821,42 +2876,42 @@ export type UploadBasenameFilter = {
 
 /** Specifies how to filter by colors */
 export type UploadColorsFilter = {
-  /** Filter uploads that have the specified colors */
-  contains?: Maybe<ColorBucketType>;
   /** Filter uploads that have all of the specified colors */
   allIn?: Maybe<Array<Maybe<ColorBucketType>>>;
   /** Filter uploads that have at least one of the specified colors */
   anyIn?: Maybe<Array<Maybe<ColorBucketType>>>;
-  /** Filter uploads that do not have any of the specified colors */
-  notIn?: Maybe<Array<Maybe<ColorBucketType>>>;
+  /** Filter uploads that have the specified colors */
+  contains?: Maybe<ColorBucketType>;
   /** Search for uploads with an exact match */
   eq?: Maybe<Array<Maybe<ColorBucketType>>>;
+  /** Filter uploads that do not have any of the specified colors */
+  notIn?: Maybe<Array<Maybe<ColorBucketType>>>;
 };
 
 /** Specifies how to filter by copyright */
 export type UploadCopyrightFilter = {
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: Maybe<Scalars['BooleanType']>;
   /** Filter uploads based on a regular expression */
   matches?: Maybe<StringMatchesFilter>;
   /** Exclude uploads based on a regular expression */
   notMatches?: Maybe<StringMatchesFilter>;
-  /** Filter records with the specified field defined (i.e. with any value) or not */
-  exists?: Maybe<Scalars['BooleanType']>;
 };
 
 /** Specifies how to filter by creation datetime */
 export type UploadCreatedAtFilter = {
   /** Search for uploads with an exact match */
   eq?: Maybe<Scalars['DateTime']>;
-  /** Exclude uploads with an exact match */
-  neq?: Maybe<Scalars['DateTime']>;
-  /** Filter uploads with a value that's less than the one specified */
-  lt?: Maybe<Scalars['DateTime']>;
-  /** Filter uploads with a value that's less or equal than the one specified */
-  lte?: Maybe<Scalars['DateTime']>;
   /** Filter uploads with a value that's strictly greater than the one specified */
   gt?: Maybe<Scalars['DateTime']>;
   /** Filter uploads with a value that's greater than or equal to the one specified */
   gte?: Maybe<Scalars['DateTime']>;
+  /** Filter uploads with a value that's less than the one specified */
+  lt?: Maybe<Scalars['DateTime']>;
+  /** Filter uploads with a value that's less or equal than the one specified */
+  lte?: Maybe<Scalars['DateTime']>;
+  /** Exclude uploads with an exact match */
+  neq?: Maybe<Scalars['DateTime']>;
 };
 
 /** Specifies how to filter by filename */
@@ -2868,117 +2923,129 @@ export type UploadFilenameFilter = {
 };
 
 export type UploadFilter = {
-  type?: Maybe<TypeFilter>;
-  inUse?: Maybe<InUseFilter>;
-  resolution?: Maybe<ResolutionFilter>;
-  size?: Maybe<UploadSizeFilter>;
-  tags?: Maybe<UploadTagsFilter>;
-  smartTags?: Maybe<UploadTagsFilter>;
-  colors?: Maybe<UploadColorsFilter>;
-  orientation?: Maybe<OrientationFilter>;
-  id?: Maybe<UploadIdFilter>;
-  mimeType?: Maybe<UploadMimeTypeFilter>;
-  format?: Maybe<UploadFormatFilter>;
-  height?: Maybe<UploadHeightFilter>;
-  width?: Maybe<UploadWidthFilter>;
-  alt?: Maybe<UploadAltFilter>;
-  title?: Maybe<UploadTitleFilter>;
-  notes?: Maybe<UploadNotesFilter>;
-  author?: Maybe<UploadAuthorFilter>;
-  copyright?: Maybe<UploadCopyrightFilter>;
-  basename?: Maybe<UploadBasenameFilter>;
-  filename?: Maybe<UploadFilenameFilter>;
+  OR?: Maybe<Array<Maybe<UploadFilter>>>;
   _createdAt?: Maybe<UploadCreatedAtFilter>;
   _updatedAt?: Maybe<UploadUpdatedAtFilter>;
-  OR?: Maybe<Array<Maybe<UploadFilter>>>;
+  alt?: Maybe<UploadAltFilter>;
+  author?: Maybe<UploadAuthorFilter>;
+  basename?: Maybe<UploadBasenameFilter>;
+  colors?: Maybe<UploadColorsFilter>;
+  copyright?: Maybe<UploadCopyrightFilter>;
+  filename?: Maybe<UploadFilenameFilter>;
+  format?: Maybe<UploadFormatFilter>;
+  height?: Maybe<UploadHeightFilter>;
+  id?: Maybe<UploadIdFilter>;
+  inUse?: Maybe<InUseFilter>;
+  md5?: Maybe<UploadMd5Filter>;
+  mimeType?: Maybe<UploadMimeTypeFilter>;
+  notes?: Maybe<UploadNotesFilter>;
+  orientation?: Maybe<OrientationFilter>;
+  resolution?: Maybe<ResolutionFilter>;
+  size?: Maybe<UploadSizeFilter>;
+  smartTags?: Maybe<UploadTagsFilter>;
+  tags?: Maybe<UploadTagsFilter>;
+  title?: Maybe<UploadTitleFilter>;
+  type?: Maybe<TypeFilter>;
+  width?: Maybe<UploadWidthFilter>;
 };
 
 /** Specifies how to filter by format */
 export type UploadFormatFilter = {
   /** Search the asset with the specified format */
   eq?: Maybe<Scalars['String']>;
-  /** Exclude the asset with the specified format */
-  neq?: Maybe<Scalars['String']>;
   /** Search assets with the specified formats */
   in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Exclude the asset with the specified format */
+  neq?: Maybe<Scalars['String']>;
   /** Search assets that do not have the specified formats */
   notIn?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 /** Specifies how to filter by height */
 export type UploadHeightFilter = {
+  /** Search assets with the specified height */
+  eq?: Maybe<Scalars['IntType']>;
   /** Search all assets larger than the specified height */
   gt?: Maybe<Scalars['IntType']>;
+  /** Search all assets larger or equal to the specified height */
+  gte?: Maybe<Scalars['IntType']>;
   /** Search all assets smaller than the specified height */
   lt?: Maybe<Scalars['IntType']>;
   /** Search all assets larger or equal to the specified height */
-  gte?: Maybe<Scalars['IntType']>;
-  /** Search all assets larger or equal to the specified height */
   lte?: Maybe<Scalars['IntType']>;
-  /** Search assets with the specified height */
-  eq?: Maybe<Scalars['IntType']>;
   /** Search assets that do not have the specified height */
   neq?: Maybe<Scalars['IntType']>;
 };
-
 
 /** Specifies how to filter by ID */
 export type UploadIdFilter = {
   /** Search the asset with the specified ID */
   eq?: Maybe<Scalars['UploadId']>;
-  /** Exclude the asset with the specified ID */
-  neq?: Maybe<Scalars['UploadId']>;
   /** Search assets with the specified IDs */
   in?: Maybe<Array<Maybe<Scalars['UploadId']>>>;
+  /** Exclude the asset with the specified ID */
+  neq?: Maybe<Scalars['UploadId']>;
   /** Search assets that do not have the specified IDs */
   notIn?: Maybe<Array<Maybe<Scalars['UploadId']>>>;
 };
 
+/** Specifies how to filter by MD5 */
+export type UploadMd5Filter = {
+  /** Search the asset with the specified MD5 */
+  eq?: Maybe<Scalars['String']>;
+  /** Search assets with the specified MD5s */
+  in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Exclude the asset with the specified MD5 */
+  neq?: Maybe<Scalars['String']>;
+  /** Search assets that do not have the specified MD5s */
+  notIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
 /** Specifies how to filter by mime type */
 export type UploadMimeTypeFilter = {
-  /** Filter uploads based on a regular expression */
-  matches?: Maybe<StringMatchesFilter>;
-  /** Exclude uploads based on a regular expression */
-  notMatches?: Maybe<StringMatchesFilter>;
   /** Search the asset with the specified mime type */
   eq?: Maybe<Scalars['String']>;
-  /** Exclude the asset with the specified mime type */
-  neq?: Maybe<Scalars['String']>;
   /** Search assets with the specified mime types */
   in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Filter uploads based on a regular expression */
+  matches?: Maybe<StringMatchesFilter>;
+  /** Exclude the asset with the specified mime type */
+  neq?: Maybe<Scalars['String']>;
   /** Search assets that do not have the specified mime types */
   notIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Exclude uploads based on a regular expression */
+  notMatches?: Maybe<StringMatchesFilter>;
 };
 
 /** Specifies how to filter by notes */
 export type UploadNotesFilter = {
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: Maybe<Scalars['BooleanType']>;
   /** Filter uploads based on a regular expression */
   matches?: Maybe<StringMatchesFilter>;
   /** Exclude uploads based on a regular expression */
   notMatches?: Maybe<StringMatchesFilter>;
-  /** Filter records with the specified field defined (i.e. with any value) or not */
-  exists?: Maybe<Scalars['BooleanType']>;
 };
 
 export enum UploadOrderBy {
   _createdAt_ASC = '_createdAt_ASC',
   _createdAt_DESC = '_createdAt_DESC',
-  size_ASC = 'size_ASC',
-  size_DESC = 'size_DESC',
-  resolution_ASC = 'resolution_ASC',
-  resolution_DESC = 'resolution_DESC',
-  filename_ASC = 'filename_ASC',
-  filename_DESC = 'filename_DESC',
-  basename_ASC = 'basename_ASC',
-  basename_DESC = 'basename_DESC',
-  mimeType_ASC = 'mimeType_ASC',
-  mimeType_DESC = 'mimeType_DESC',
-  format_ASC = 'format_ASC',
-  format_DESC = 'format_DESC',
   _updatedAt_ASC = '_updatedAt_ASC',
   _updatedAt_DESC = '_updatedAt_DESC',
+  basename_ASC = 'basename_ASC',
+  basename_DESC = 'basename_DESC',
+  filename_ASC = 'filename_ASC',
+  filename_DESC = 'filename_DESC',
+  format_ASC = 'format_ASC',
+  format_DESC = 'format_DESC',
   id_ASC = 'id_ASC',
-  id_DESC = 'id_DESC'
+  id_DESC = 'id_DESC',
+  mimeType_ASC = 'mimeType_ASC',
+  mimeType_DESC = 'mimeType_DESC',
+  resolution_ASC = 'resolution_ASC',
+  resolution_DESC = 'resolution_DESC',
+  size_ASC = 'size_ASC',
+  size_DESC = 'size_DESC'
 }
 
 export enum UploadOrientation {
@@ -2989,77 +3056,77 @@ export enum UploadOrientation {
 
 /** Specifies how to filter by size */
 export type UploadSizeFilter = {
-  /** Search all assets larger than the specified size */
-  gt?: Maybe<Scalars['IntType']>;
-  /** Search all assets smaller than the specified size */
-  lt?: Maybe<Scalars['IntType']>;
-  /** Search all assets larger or equal to the specified size */
-  gte?: Maybe<Scalars['IntType']>;
-  /** Search all assets larger or equal to the specified size */
-  lte?: Maybe<Scalars['IntType']>;
-  /** Search assets with the specified size */
+  /** Search assets with the specified size (in bytes) */
   eq?: Maybe<Scalars['IntType']>;
-  /** Search assets that do not have the specified size */
+  /** Search all assets larger than the specified size (in bytes) */
+  gt?: Maybe<Scalars['IntType']>;
+  /** Search all assets larger or equal to the specified size (in bytes) */
+  gte?: Maybe<Scalars['IntType']>;
+  /** Search all assets smaller than the specified size (in bytes) */
+  lt?: Maybe<Scalars['IntType']>;
+  /** Search all assets larger or equal to the specified size (in bytes) */
+  lte?: Maybe<Scalars['IntType']>;
+  /** Search assets that do not have the specified size (in bytes) */
   neq?: Maybe<Scalars['IntType']>;
 };
 
 /** Specifies how to filter by tags */
 export type UploadTagsFilter = {
-  /** Filter uploads linked to the specified tag */
-  contains?: Maybe<Scalars['String']>;
   /** Filter uploads linked to all of the specified tags */
   allIn?: Maybe<Array<Maybe<Scalars['String']>>>;
   /** Filter uploads linked to at least one of the specified tags */
   anyIn?: Maybe<Array<Maybe<Scalars['String']>>>;
-  /** Filter uploads not linked to any of the specified tags */
-  notIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Filter uploads linked to the specified tag */
+  contains?: Maybe<Scalars['String']>;
   /** Search for uploads with an exact match */
   eq?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Filter uploads not linked to any of the specified tags */
+  notIn?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 /** Specifies how to filter by default title */
 export type UploadTitleFilter = {
-  /** Filter uploads based on a regular expression */
-  matches?: Maybe<StringMatchesFilter>;
-  /** Exclude uploads based on a regular expression */
-  notMatches?: Maybe<StringMatchesFilter>;
   /** Search the asset with the specified title */
   eq?: Maybe<Scalars['String']>;
-  /** Exclude the asset with the specified title */
-  neq?: Maybe<Scalars['String']>;
-  /** Search assets with the specified as default title */
-  in?: Maybe<Array<Maybe<Scalars['String']>>>;
-  /** Search assets that do not have the specified as default title */
-  notIn?: Maybe<Array<Maybe<Scalars['String']>>>;
   /** Filter assets with the specified field defined (i.e. with any value) or not */
   exists?: Maybe<Scalars['BooleanType']>;
+  /** Search assets with the specified as default title */
+  in?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Filter uploads based on a regular expression */
+  matches?: Maybe<StringMatchesFilter>;
+  /** Exclude the asset with the specified title */
+  neq?: Maybe<Scalars['String']>;
+  /** Search assets that do not have the specified as default title */
+  notIn?: Maybe<Array<Maybe<Scalars['String']>>>;
+  /** Exclude uploads based on a regular expression */
+  notMatches?: Maybe<StringMatchesFilter>;
 };
 
 export enum UploadType {
-  image = 'image',
+  archive = 'archive',
   audio = 'audio',
-  video = 'video',
-  richtext = 'richtext',
-  presentation = 'presentation',
-  spreadsheet = 'spreadsheet',
+  image = 'image',
   pdfdocument = 'pdfdocument',
-  archive = 'archive'
+  presentation = 'presentation',
+  richtext = 'richtext',
+  spreadsheet = 'spreadsheet',
+  video = 'video'
 }
 
 /** Specifies how to filter by update datetime */
 export type UploadUpdatedAtFilter = {
   /** Search for uploads with an exact match */
   eq?: Maybe<Scalars['DateTime']>;
-  /** Exclude uploads with an exact match */
-  neq?: Maybe<Scalars['DateTime']>;
-  /** Filter uploads with a value that's less than the one specified */
-  lt?: Maybe<Scalars['DateTime']>;
-  /** Filter uploads with a value that's less or equal than the one specified */
-  lte?: Maybe<Scalars['DateTime']>;
   /** Filter uploads with a value that's strictly greater than the one specified */
   gt?: Maybe<Scalars['DateTime']>;
   /** Filter uploads with a value that's greater than or equal to the one specified */
   gte?: Maybe<Scalars['DateTime']>;
+  /** Filter uploads with a value that's less than the one specified */
+  lt?: Maybe<Scalars['DateTime']>;
+  /** Filter uploads with a value that's less or equal than the one specified */
+  lte?: Maybe<Scalars['DateTime']>;
+  /** Exclude uploads with an exact match */
+  neq?: Maybe<Scalars['DateTime']>;
 };
 
 export type UploadVideoField = {
@@ -3075,8 +3142,8 @@ export type UploadVideoField = {
 
 
 export type UploadVideoFieldMp4UrlArgs = {
-  res?: Maybe<VideoMp4Res>;
   exactRes?: Maybe<VideoMp4Res>;
+  res?: Maybe<VideoMp4Res>;
 };
 
 
@@ -3086,68 +3153,68 @@ export type UploadVideoFieldThumbnailUrlArgs = {
 
 /** Specifies how to filter by width */
 export type UploadWidthFilter = {
+  /** Search assets with the specified width */
+  eq?: Maybe<Scalars['IntType']>;
   /** Search all assets larger than the specified width */
   gt?: Maybe<Scalars['IntType']>;
+  /** Search all assets larger or equal to the specified width */
+  gte?: Maybe<Scalars['IntType']>;
   /** Search all assets smaller than the specified width */
   lt?: Maybe<Scalars['IntType']>;
   /** Search all assets larger or equal to the specified width */
-  gte?: Maybe<Scalars['IntType']>;
-  /** Search all assets larger or equal to the specified width */
   lte?: Maybe<Scalars['IntType']>;
-  /** Search assets with the specified width */
-  eq?: Maybe<Scalars['IntType']>;
   /** Search assets that do not have the specified width */
   neq?: Maybe<Scalars['IntType']>;
 };
 
 export enum VideoMp4Res {
+  high = 'high',
   low = 'low',
-  medium = 'medium',
-  high = 'high'
+  medium = 'medium'
 }
 
 export type WaveModelFilter = {
+  OR?: Maybe<Array<Maybe<WaveModelFilter>>>;
   _createdAt?: Maybe<CreatedAtFilter>;
-  createdAt?: Maybe<CreatedAtFilter>;
-  id?: Maybe<ItemIdFilter>;
   _firstPublishedAt?: Maybe<PublishedAtFilter>;
+  _isValid?: Maybe<BooleanFilter>;
   _publicationScheduledAt?: Maybe<PublishedAtFilter>;
-  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _publishedAt?: Maybe<PublishedAtFilter>;
   _status?: Maybe<StatusFilter>;
+  _unpublishingScheduledAt?: Maybe<PublishedAtFilter>;
   _updatedAt?: Maybe<UpdatedAtFilter>;
-  updatedAt?: Maybe<UpdatedAtFilter>;
-  _isValid?: Maybe<BooleanFilter>;
+  createdAt?: Maybe<CreatedAtFilter>;
   edition?: Maybe<LinkFilter>;
+  id?: Maybe<ItemIdFilter>;
   title?: Maybe<StringFilter>;
-  OR?: Maybe<Array<Maybe<WaveModelFilter>>>;
+  updatedAt?: Maybe<UpdatedAtFilter>;
 };
 
 export enum WaveModelOrderBy {
   _createdAt_ASC = '_createdAt_ASC',
   _createdAt_DESC = '_createdAt_DESC',
-  createdAt_ASC = 'createdAt_ASC',
-  createdAt_DESC = 'createdAt_DESC',
-  id_ASC = 'id_ASC',
-  id_DESC = 'id_DESC',
   _firstPublishedAt_ASC = '_firstPublishedAt_ASC',
   _firstPublishedAt_DESC = '_firstPublishedAt_DESC',
+  _isValid_ASC = '_isValid_ASC',
+  _isValid_DESC = '_isValid_DESC',
   _publicationScheduledAt_ASC = '_publicationScheduledAt_ASC',
   _publicationScheduledAt_DESC = '_publicationScheduledAt_DESC',
-  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
-  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _publishedAt_ASC = '_publishedAt_ASC',
   _publishedAt_DESC = '_publishedAt_DESC',
   _status_ASC = '_status_ASC',
   _status_DESC = '_status_DESC',
+  _unpublishingScheduledAt_ASC = '_unpublishingScheduledAt_ASC',
+  _unpublishingScheduledAt_DESC = '_unpublishingScheduledAt_DESC',
   _updatedAt_ASC = '_updatedAt_ASC',
   _updatedAt_DESC = '_updatedAt_DESC',
-  updatedAt_ASC = 'updatedAt_ASC',
-  updatedAt_DESC = 'updatedAt_DESC',
-  _isValid_ASC = '_isValid_ASC',
-  _isValid_DESC = '_isValid_DESC',
+  createdAt_ASC = 'createdAt_ASC',
+  createdAt_DESC = 'createdAt_DESC',
+  id_ASC = 'id_ASC',
+  id_DESC = 'id_DESC',
   title_ASC = 'title_ASC',
-  title_DESC = 'title_DESC'
+  title_DESC = 'title_DESC',
+  updatedAt_ASC = 'updatedAt_ASC',
+  updatedAt_DESC = 'updatedAt_DESC'
 }
 
 /** Record of type Wave (wave) */
@@ -3266,6 +3333,13 @@ export type WebsiteRecordMainNavigationArgs = {
   locale?: Maybe<SiteLocale>;
 };
 
+export type WysiwygModelRichTextField = {
+  __typename?: 'WysiwygModelRichTextField';
+  blocks: Array<InfoItemRecord>;
+  links: Array<EditionRecord>;
+  value: Scalars['JsonField'];
+};
+
 /** Record of type WYSIWYG (wysiwyg) */
 export type WysiwygRecord = {
   __typename?: 'WysiwygRecord';
@@ -3280,9 +3354,9 @@ export type WysiwygRecord = {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
-  content?: Maybe<Scalars['String']>;
   createdAt: Scalars['DateTime'];
   id: Scalars['ItemId'];
+  richText?: Maybe<WysiwygModelRichTextField>;
   updatedAt: Scalars['DateTime'];
 };
 
@@ -3290,12 +3364,6 @@ export type WysiwygRecord = {
 /** Record of type WYSIWYG (wysiwyg) */
 export type WysiwygRecord_SeoMetaTagsArgs = {
   locale?: Maybe<SiteLocale>;
-};
-
-
-/** Record of type WYSIWYG (wysiwyg) */
-export type WysiwygRecordContentArgs = {
-  markdown?: Maybe<Scalars['Boolean']>;
 };
 
 export type WysiwygRecordListMultiLocaleField = {
@@ -3310,181 +3378,44 @@ export type FocalPoint = {
   y?: Maybe<Scalars['FloatType']>;
 };
 
-export type EditionFragment = (
-  { __typename?: 'EditionRecord' }
-  & Pick<EditionRecord, 'id' | 'endDate' | 'facebookEvent' | 'startDate' | 'title'>
-  & { logo?: Maybe<(
-    { __typename?: 'FileField' }
-    & { responsiveImage?: Maybe<(
-      { __typename?: 'ResponsiveImage' }
-      & Pick<ResponsiveImage, 'srcSet' | 'webpSrcSet' | 'sizes' | 'src' | 'width' | 'height' | 'aspectRatio' | 'alt' | 'title' | 'bgColor' | 'base64'>
-    )> }
-  )>, sponsors: Array<(
-    { __typename?: 'SponsorRecord' }
-    & SponsorFragment
-  )>, homepageBlocks?: Maybe<Array<Maybe<(
-    { __typename?: 'IframeRecord' }
-    & HomepageIframeFragment
-  ) | (
-    { __typename?: 'ImageRecord' }
-    & HomepageImageFragment
-  )>>> }
-);
+export type EditionFragment = { __typename?: 'EditionRecord', id: any, endDate?: any | null | undefined, facebookEvent?: string | null | undefined, startDate?: any | null | undefined, title?: string | null | undefined, logo?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined, sponsors: Array<{ __typename?: 'SponsorRecord', website?: string | null | undefined, name?: string | null | undefined, displayLogo?: any | null | undefined, displayFooter?: any | null | undefined, logo?: { __typename?: 'FileField', url: string } | null | undefined }>, homepageBlocks?: Array<{ __typename?: 'IframeRecord', id: any, size?: string | null | undefined, iframeEmbedUrl?: string | null | undefined, type: 'IframeRecord' } | { __typename?: 'ImageRecord', id: any, size?: string | null | undefined, type: 'ImageRecord', asset?: { __typename?: 'FileField', square?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined, normal?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined, long?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined };
 
-export type HomepageImageFragment = (
-  { __typename?: 'ImageRecord' }
-  & Pick<ImageRecord, 'id' | 'size'>
-  & { type: 'ImageRecord' }
-  & { asset?: Maybe<(
-    { __typename?: 'FileField' }
-    & { square?: Maybe<(
-      { __typename?: 'ResponsiveImage' }
-      & ResponsiveImageFragmentFragment
-    )>, normal?: Maybe<(
-      { __typename?: 'ResponsiveImage' }
-      & ResponsiveImageFragmentFragment
-    )>, long?: Maybe<(
-      { __typename?: 'ResponsiveImage' }
-      & ResponsiveImageFragmentFragment
-    )> }
-  )> }
-);
+export type ResponsiveImageFragmentFragment = { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined };
 
-export type ResponsiveImageFragmentFragment = (
-  { __typename?: 'ResponsiveImage' }
-  & Pick<ResponsiveImage, 'srcSet' | 'webpSrcSet' | 'sizes' | 'src' | 'width' | 'height' | 'aspectRatio' | 'alt' | 'title' | 'bgColor' | 'base64'>
-);
+export type HomepageImageFragment = { __typename?: 'ImageRecord', id: any, size?: string | null | undefined, type: 'ImageRecord', asset?: { __typename?: 'FileField', square?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined, normal?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined, long?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined };
 
-export type HomepageIframeFragment = (
-  { __typename?: 'IframeRecord' }
-  & Pick<IframeRecord, 'id' | 'size' | 'iframeEmbedUrl'>
-  & { type: 'IframeRecord' }
-);
+export type HomepageIframeFragment = { __typename?: 'IframeRecord', id: any, size?: string | null | undefined, iframeEmbedUrl?: string | null | undefined, type: 'IframeRecord' };
 
 export type NewsQueryVariables = Exact<{
   slug?: Maybe<Scalars['String']>;
 }>;
 
 
-export type NewsQuery = (
-  { __typename?: 'Query' }
-  & { news?: Maybe<(
-    { __typename?: 'NewsRecord' }
-    & Pick<NewsRecord, 'title' | 'slug'>
-    & { seo?: Maybe<(
-      { __typename?: 'SeoField' }
-      & Pick<SeoField, 'description' | 'twitterCard'>
-      & { image?: Maybe<(
-        { __typename?: 'FileField' }
-        & Pick<FileField, 'url'>
-      )> }
-    )>, featuredImage?: Maybe<(
-      { __typename?: 'FileField' }
-      & Pick<FileField, 'blurhash' | 'url'>
-    )>, article?: Maybe<Array<Maybe<(
-      { __typename?: 'WysiwygRecord' }
-      & Pick<WysiwygRecord, 'content'>
-    )>>> }
-  )> }
-);
+export type NewsQuery = { __typename?: 'Query', news?: { __typename?: 'NewsRecord', title?: string | null | undefined, slug?: string | null | undefined, seo?: { __typename?: 'SeoField', description?: string | null | undefined, twitterCard?: string | null | undefined, image?: { __typename?: 'FileField', url: string } | null | undefined } | null | undefined, featuredImage?: { __typename?: 'FileField', blurhash?: string | null | undefined, url: string } | null | undefined, article?: Array<{ __typename?: 'WysiwygRecord', richText?: { __typename?: 'WysiwygModelRichTextField', value: any } | null | undefined } | null | undefined> | null | undefined } | null | undefined };
 
 export type NewsOverviewQueryVariables = Exact<{
   locale?: Maybe<SiteLocale>;
 }>;
 
 
-export type NewsOverviewQuery = (
-  { __typename?: 'Query' }
-  & { news: Array<(
-    { __typename?: 'NewsRecord' }
-    & Pick<NewsRecord, 'title' | 'slug' | '_publishedAt'>
-    & { featuredImage?: Maybe<(
-      { __typename?: 'FileField' }
-      & { square?: Maybe<(
-        { __typename?: 'ResponsiveImage' }
-        & ResponsiveImageFragmentFragment
-      )>, normal?: Maybe<(
-        { __typename?: 'ResponsiveImage' }
-        & ResponsiveImageFragmentFragment
-      )>, long?: Maybe<(
-        { __typename?: 'ResponsiveImage' }
-        & ResponsiveImageFragmentFragment
-      )> }
-    )> }
-  )> }
-);
+export type NewsOverviewQuery = { __typename?: 'Query', news: Array<{ __typename?: 'NewsRecord', title?: string | null | undefined, slug?: string | null | undefined, _publishedAt?: any | null | undefined, featuredImage?: { __typename?: 'FileField', square?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined, normal?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined, long?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined }> };
 
 export type PageQueryVariables = Exact<{
   slug?: Maybe<Scalars['String']>;
 }>;
 
 
-export type PageQuery = (
-  { __typename?: 'Query' }
-  & { page?: Maybe<(
-    { __typename?: 'PageRecord' }
-    & Pick<PageRecord, 'slug' | 'title'>
-    & { content?: Maybe<Array<Maybe<(
-      { __typename?: 'WysiwygRecord' }
-      & Pick<WysiwygRecord, 'content'>
-    )>>>, children?: Maybe<Array<Maybe<(
-      { __typename?: 'PageRecord' }
-      & Pick<PageRecord, 'slug' | 'title'>
-    )>>>, parent?: Maybe<(
-      { __typename?: 'PageRecord' }
-      & Pick<PageRecord, 'title' | 'slug'>
-    )> }
-  )> }
-);
+export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'PageRecord', slug?: string | null | undefined, title?: string | null | undefined, featuredImage?: { __typename?: 'FileField', opengraph?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined, content?: { __typename?: 'PageModelContentField', value: any } | null | undefined, children?: Array<{ __typename?: 'PageRecord', slug?: string | null | undefined, title?: string | null | undefined, featuredImage?: { __typename?: 'FileField', thumbnail?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined, parent?: { __typename?: 'PageRecord', title?: string | null | undefined, slug?: string | null | undefined } | null | undefined } | null | undefined };
 
-export type SponsorFragment = (
-  { __typename?: 'SponsorRecord' }
-  & Pick<SponsorRecord, 'website' | 'name' | 'displayLogo' | 'displayFooter'>
-  & { logo?: Maybe<(
-    { __typename?: 'FileField' }
-    & Pick<FileField, 'url'>
-  )> }
-);
+export type SponsorFragment = { __typename?: 'SponsorRecord', website?: string | null | undefined, name?: string | null | undefined, displayLogo?: any | null | undefined, displayFooter?: any | null | undefined, logo?: { __typename?: 'FileField', url: string } | null | undefined };
 
-export type InternalLinkFragment = (
-  { __typename?: 'InternalLinkRecord' }
-  & Pick<InternalLinkRecord, 'label'>
-  & { page?: Maybe<(
-    { __typename?: 'PageRecord' }
-    & Pick<PageRecord, 'id' | 'slug'>
-  )> }
-);
+export type InternalLinkFragment = { __typename?: 'InternalLinkRecord', label?: string | null | undefined, page?: { __typename?: 'PageRecord', id: any, slug?: string | null | undefined } | null | undefined };
 
-export type ExternalLinkFragment = (
-  { __typename?: 'ExternalLinkRecord' }
-  & Pick<ExternalLinkRecord, 'label' | 'link'>
-);
+export type ExternalLinkFragment = { __typename?: 'ExternalLinkRecord', label?: string | null | undefined, link?: string | null | undefined };
 
 export type WebsiteQueryVariables = Exact<{
   locale?: Maybe<SiteLocale>;
 }>;
 
 
-export type WebsiteQuery = (
-  { __typename?: 'Query' }
-  & { website?: Maybe<(
-    { __typename?: 'WebsiteRecord' }
-    & Pick<WebsiteRecord, 'ticketingActive' | 'lineupActive' | 'displayTimeLayout' | 'displayStageLayout' | 'displayDayLayout'>
-    & { activeEdition?: Maybe<(
-      { __typename?: 'EditionRecord' }
-      & EditionFragment
-    )>, mainNavigation?: Maybe<Array<Maybe<(
-      { __typename: 'ExternalLinkRecord' }
-      & ExternalLinkFragment
-    ) | (
-      { __typename: 'InternalLinkRecord' }
-      & InternalLinkFragment
-    )>>>, footerNavigation?: Maybe<Array<Maybe<(
-      { __typename: 'ExternalLinkRecord' }
-      & ExternalLinkFragment
-    ) | (
-      { __typename: 'InternalLinkRecord' }
-      & InternalLinkFragment
-    )>>> }
-  )> }
-);
+export type WebsiteQuery = { __typename?: 'Query', website?: { __typename?: 'WebsiteRecord', ticketingActive?: any | null | undefined, lineupActive?: any | null | undefined, displayTimeLayout?: any | null | undefined, displayStageLayout?: any | null | undefined, displayDayLayout?: any | null | undefined, activeEdition?: { __typename?: 'EditionRecord', id: any, endDate?: any | null | undefined, facebookEvent?: string | null | undefined, startDate?: any | null | undefined, title?: string | null | undefined, logo?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined, sponsors: Array<{ __typename?: 'SponsorRecord', website?: string | null | undefined, name?: string | null | undefined, displayLogo?: any | null | undefined, displayFooter?: any | null | undefined, logo?: { __typename?: 'FileField', url: string } | null | undefined }>, homepageBlocks?: Array<{ __typename?: 'IframeRecord', id: any, size?: string | null | undefined, iframeEmbedUrl?: string | null | undefined, type: 'IframeRecord' } | { __typename?: 'ImageRecord', id: any, size?: string | null | undefined, type: 'ImageRecord', asset?: { __typename?: 'FileField', square?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined, normal?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined, long?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined, mainNavigation?: Array<{ __typename: 'ExternalLinkRecord', label?: string | null | undefined, link?: string | null | undefined } | { __typename: 'InternalLinkRecord', label?: string | null | undefined, page?: { __typename?: 'PageRecord', id: any, slug?: string | null | undefined } | null | undefined } | null | undefined> | null | undefined, footerNavigation?: Array<{ __typename: 'ExternalLinkRecord', label?: string | null | undefined, link?: string | null | undefined } | { __typename: 'InternalLinkRecord', label?: string | null | undefined, page?: { __typename?: 'PageRecord', id: any, slug?: string | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined };

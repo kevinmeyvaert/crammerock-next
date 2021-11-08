@@ -33,8 +33,8 @@ const Home: FC<Props> = ({ activeEdition, mainNavigation, news }) => {
 };
 
 export const getServerSideProps = async ({ locale }: GetServerSidePropsContext) => {
-  const { website }: WebsiteQuery = await fetchDato(WEBSITE, { variables: { locale } });
-  const { news }: NewsQuery = await fetchDato(NEWS_OVERVIEW, {
+  const { website } = await fetchDato<WebsiteQuery>(WEBSITE, { variables: { locale } });
+  const { news } = await fetchDato<NewsQuery>(NEWS_OVERVIEW, {
     variables: { locale },
   });
   return {

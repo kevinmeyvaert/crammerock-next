@@ -1,4 +1,5 @@
 import { gql } from 'graphql-request';
+import { responsiveImageFragment } from './fragments';
 
 export const NEWS = gql`
   query News($slug: String) {
@@ -17,7 +18,9 @@ export const NEWS = gql`
         url
       }
       article {
-        content(markdown: false)
+        richText {
+          value
+        }
       }
     }
   }
@@ -46,17 +49,5 @@ export const NEWS_OVERVIEW = gql`
     }
   }
 
-  fragment responsiveImageFragment on ResponsiveImage {
-    srcSet
-    webpSrcSet
-    sizes
-    src
-    width
-    height
-    aspectRatio
-    alt
-    title
-    bgColor
-    base64
-  }
+  ${responsiveImageFragment}
 `;

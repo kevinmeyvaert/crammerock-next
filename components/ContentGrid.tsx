@@ -44,12 +44,13 @@ export const ContentGridItem = styled.article<{
   }
 
   ${(props) =>
-    props.pattern ?
-    `
+    props.pattern
+      ? `
     background: url('/pattern.jpg');
     background-size: cover;
     animation: none;
-    ` : undefined}
+    `
+      : ''}
 
   @media ${device.tablet} {
     margin-bottom: 0;
@@ -79,5 +80,20 @@ export const ContentGridItem = styled.article<{
         return `grid-column: span 4; grid-row: span 2;`;
       }
     }};
+  }
+`;
+
+export const ContentPageWrapper = styled.article`
+  grid-column-start: 1;
+  grid-column-end: 6;
+
+  @media ${device.tablet} {
+    grid-column-start: 1;
+    grid-column-end: 7;
+  }
+
+  @media ${device.laptopL} {
+    grid-column-start: 3;
+    grid-column-end: 11;
   }
 `;

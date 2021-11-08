@@ -7,7 +7,7 @@ interface DatoQueryOptions {
   variables?: Record<string, any>;
 }
 
-export async function fetchDato(query: RequestDocument, options?: DatoQueryOptions) {
+export async function fetchDato<T>(query: RequestDocument, options?: DatoQueryOptions): Promise<T> {
   const client = new GraphQLClient(`${DATCOCMS_ENDPOINT}`);
   const requestHeaders = {
     Authorization: `Bearer ${process.env.DATOCMS_TOKEN}`,

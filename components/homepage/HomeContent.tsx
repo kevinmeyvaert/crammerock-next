@@ -33,7 +33,7 @@ const CardWrapper = styled.div<{ type: string; hasLink?: boolean }>`
   }};
 `;
 
-const CardImage = styled(Image)`
+export const CardImage = styled(Image)`
   position: absolute !important;
   top: 0;
   right: 0;
@@ -49,7 +49,7 @@ const CardImage = styled(Image)`
   }
 `;
 
-const CardBody = styled.header`
+export const CardBody = styled.header`
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -72,7 +72,7 @@ const CardIframe = styled.iframe`
   height: 100%;
 `;
 
-const NewsCardTitle = styled.h1`
+export const CardTitle = styled.h1`
   font-family: 'Bebas Neue', sans-serif;
   background: ${(props) =>
     `linear-gradient(-45deg, ${props.theme.colors.secondary}, ${props.theme.colors.primary})`};
@@ -171,7 +171,7 @@ interface CardProps {
   pattern?: boolean;
 }
 
-const Card: FC<CardProps> = ({ type, orange, children, link, pattern }) => {
+export const Card: FC<CardProps> = ({ type, orange, children, link, pattern }) => {
   if (!link) {
     return (
       <ContentGridItem type={type} orange={orange} pattern={pattern}>
@@ -213,7 +213,7 @@ const HomeContent = ({ news, blocks }) => {
             {image && <CardImage data={image} />}
             <CardBody>
               <NewsCardDate dateTime={newsItem._publishedAt}>{newsItem._publishedAt}</NewsCardDate>
-              <NewsCardTitle>{newsItem.title}</NewsCardTitle>
+              <CardTitle>{newsItem.title}</CardTitle>
             </CardBody>
           </Card>
         );
@@ -225,7 +225,7 @@ const HomeContent = ({ news, blocks }) => {
             {image && <CardImage data={image} />}
             <CardBody>
               <NewsCardDate dateTime={newsItem._publishedAt}>{newsItem._publishedAt}</NewsCardDate>
-              <NewsCardTitle>{newsItem.title}</NewsCardTitle>
+              <CardTitle>{newsItem.title}</CardTitle>
             </CardBody>
           </Card>
         );
@@ -237,7 +237,7 @@ const HomeContent = ({ news, blocks }) => {
             {image && <CardImage data={image} />}
             <CardBody>
               <NewsCardDate dateTime={newsItem._publishedAt}>{newsItem._publishedAt}</NewsCardDate>
-              <NewsCardTitle>{newsItem.title}</NewsCardTitle>
+              <CardTitle>{newsItem.title}</CardTitle>
             </CardBody>
           </Card>
         );
