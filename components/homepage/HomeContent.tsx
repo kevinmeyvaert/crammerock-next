@@ -1,8 +1,10 @@
+import { format } from 'date-fns';
 import Link from 'next/link';
 import { FC, ReactNode } from 'react';
 import { Image, ResponsiveImageType } from 'react-datocms';
 import styled from 'styled-components';
 import { device } from 'theme';
+import nl from 'date-fns/locale/nl';
 
 import { ContentGrid, ContentGridItem } from '../ContentGrid';
 
@@ -115,7 +117,7 @@ const CTACardCopy = styled.p`
   align-items: center;
   padding: 1rem;
   line-height: 1.5;
-  
+
   background-color: ${(props) => props.theme.colors.primary};
   color: ${(props) => props.theme.colors.base};
 
@@ -144,7 +146,7 @@ const CTACardLink = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
   color: ${(props) => props.theme.colors.base};
   font-family: 'Bebas Neue', sans-serif;
-  
+
   @media ${device.tablet} {
     font-size: 1.2rem;
   }
@@ -203,31 +205,31 @@ const CardContent = ({ type, asset, iframeEmbedUrl, size }) => {
 };
 
 const HomeContent = ({ news, blocks }) => {
-  console.log(blocks);
-  const [news1, news2, news3] = news;
+  const cardConfig = [
+    { type: 'a', imageSize: 'normal' },
+    { type: 'b', imageSize: 'square' },
+    { type: 'd', imageSize: 'long' },
+  ];
+
   return (
     <ContentGrid>
-      <Card type="a" key={news1.title} link={`/news/${news1.slug}`} orange>
-            {news1.featuredImage.normal && <CardImage data={news1.featuredImage.normal} />}
+      {news.slice(0, 3).map((item, index) => {
+        return (
+          <Card type={cardConfig[index].type} key={item.title} link={`/news/${item.slug}`} orange>
+            {item.featuredImage[cardConfig[index].imageSize] && (
+              <CardImage data={item.featuredImage[cardConfig[index].imageSize]} />
+            )}
             <CardBody>
-              <NewsCardDate dateTime={news1._publishedAt}>{news1._publishedAt}</NewsCardDate>
-              <CardTitle>{news1.title}</CardTitle>
+              <NewsCardDate dateTime={item._publishedAt}>
+                {format(new Date(item._publishedAt), 'PPP', {
+                  locale: nl,
+                })}
+              </NewsCardDate>
+              <CardTitle>{item.title}</CardTitle>
             </CardBody>
           </Card>
-          <Card type="b" key={news2.title} link={`/news/${news2.slug}`} orange>
-            {news2.featuredImage.square && <CardImage data={news2.featuredImage.square} />}
-            <CardBody>
-              <NewsCardDate dateTime={news2._publishedAt}>{news2._publishedAt}</NewsCardDate>
-              <CardTitle>{news2.title}</CardTitle>
-            </CardBody>
-          </Card>
-          <Card type="d" key={news3.title} link={`/news/${news3.slug}`} orange>
-            {news3.featuredImage.long && <CardImage data={news3.featuredImage.long} />}
-            <CardBody>
-              <NewsCardDate dateTime={news3._publishedAt}>{news3._publishedAt}</NewsCardDate>
-              <CardTitle>{news3.title}</CardTitle>
-            </CardBody>
-          </Card>
+        );
+      })}
       {blocks.map((contentBlock, i) => {
         const hasPattern = ['IframeRecord'].includes(contentBlock.type);
         return (

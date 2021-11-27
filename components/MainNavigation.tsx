@@ -20,7 +20,7 @@ const Navigation = styled(MainGrid.Navigation)<{ open: boolean }>`
   flex-direction: column;
   jusitify-content: center;
   align-items: ${(props) => (props.open ? 'center' : 'flex-end')};
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 2rem 1rem;
   width: 100%;
 
   background-color: ${(props) => (props.open ? props.theme.colors.primary : 'initial')};
@@ -29,7 +29,7 @@ const Navigation = styled(MainGrid.Navigation)<{ open: boolean }>`
   z-index: ${(props) => (props.open ? '99' : 'initial')};
 
   @media ${device.tablet} {
-    padding: 2rem 2rem;
+    padding: 2rem 2rem 1rem 2rem;
   }
 `;
 

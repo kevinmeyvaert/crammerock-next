@@ -12,8 +12,8 @@ const Header = styled(MainGrid.Header)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 2rem 2rem;
   overflow: hidden;
+  padding-bottom: 1rem;
 
   @media ${device.tablet} {
     overflow: initial;
