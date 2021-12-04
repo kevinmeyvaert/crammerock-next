@@ -101,7 +101,7 @@ export const CardTitle = styled.h1`
   margin: 0;
 `;
 
-const NewsCardDate = styled.time`
+export const NewsCardDate = styled.time`
   color: ${(props) => props.theme.colors.primary};
   background: ${(props) => props.theme.colors.base};
   align-self: flex-end;

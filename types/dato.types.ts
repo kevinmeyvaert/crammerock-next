@@ -148,19 +148,19 @@ export type ColorField = {
 
 /** Specifies how to filter by creation datetime */
 export type CreatedAtFilter = {
-  /** Search for records with an exact match (seconds are truncated) */
+  /** Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument. */
   eq?: Maybe<Scalars['DateTime']>;
   /** Filter records with the specified field defined (i.e. with any value) or not */
   exists?: Maybe<Scalars['BooleanType']>;
-  /** Filter records with a value that's strictly greater than the one specified */
+  /** Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument. */
   gt?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's greater than or equal to than the one specified */
+  /** Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument. */
   gte?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's less than the one specified */
+  /** Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument. */
   lt?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's less or equal than the one specified */
+  /** Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument. */
   lte?: Maybe<Scalars['DateTime']>;
-  /** Exclude records with an exact match */
+  /** Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument. */
   neq?: Maybe<Scalars['DateTime']>;
 };
 
@@ -472,6 +472,8 @@ export type ImgixParams = {
    * Specifies an aspect ratio to maintain when resizing and cropping the image
    *
    * Depends on: `fit=crop`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/size/ar)
    */
   ar?: Maybe<Scalars['String']>;
   /**
@@ -638,6 +640,8 @@ export type ImgixParams = {
    * Sets bottom border of an image.
    *
    * Depends on: `border`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-bottom)
    */
   borderBottom?: Maybe<Scalars['IntType']>;
   /**
@@ -646,6 +650,8 @@ export type ImgixParams = {
    * Sets left border of an image.
    *
    * Depends on: `border`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-left)
    */
   borderLeft?: Maybe<Scalars['IntType']>;
   /**
@@ -674,6 +680,8 @@ export type ImgixParams = {
    * Sets right border of an image.
    *
    * Depends on: `border`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-right)
    */
   borderRight?: Maybe<Scalars['IntType']>;
   /**
@@ -682,6 +690,8 @@ export type ImgixParams = {
    * Sets top border of an image.
    *
    * Depends on: `border`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/border-top)
    */
   borderTop?: Maybe<Scalars['IntType']>;
   /**
@@ -933,7 +943,7 @@ export type ImgixParams = {
    *
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/focalpoint-crop/fp-z)
    */
-  fpZ?: Maybe<Scalars['IntType']>;
+  fpZ?: Maybe<Scalars['FloatType']>;
   /**
    * Gamma
    *
@@ -1077,6 +1087,14 @@ export type ImgixParams = {
    */
   markPad?: Maybe<Scalars['IntType']>;
   /**
+   * Watermark Rotation
+   *
+   * Rotates a watermark or tiled watermarks by a specified number of degrees.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-rot)
+   */
+  markRot?: Maybe<Scalars['FloatType']>;
+  /**
    * Watermark Scale
    *
    * Adjusts the scale of the watermark image.
@@ -1086,6 +1104,16 @@ export type ImgixParams = {
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-scale)
    */
   markScale?: Maybe<Scalars['IntType']>;
+  /**
+   * Watermark Tile
+   *
+   * Adds tiled watermark.
+   *
+   * Depends on: `mark`
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/watermark/mark-tile)
+   */
+  markTile?: Maybe<ImgixParamsMarkTile>;
   /**
    * Watermark Width
    *
@@ -1218,24 +1246,32 @@ export type ImgixParams = {
    * Padding Bottom
    *
    * Sets bottom padding of an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-bottom)
    */
   padBottom?: Maybe<Scalars['IntType']>;
   /**
    * Padding Left
    *
    * Sets left padding of an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-left)
    */
   padLeft?: Maybe<Scalars['IntType']>;
   /**
    * Padding Right
    *
    * Sets right padding of an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-right)
    */
   padRight?: Maybe<Scalars['IntType']>;
   /**
    * Padding Top
    *
    * Sets top padding of an image.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/border-and-padding/pad-top)
    */
   padTop?: Maybe<Scalars['IntType']>;
   /**
@@ -1243,7 +1279,7 @@ export type ImgixParams = {
    *
    * Selects a page from a PDF for display.
    *
-   * [Open Imgix reference »](https://docs.imgix.com/apis/url/pdf-page-number)
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/pdf/page)
    */
   page?: Maybe<Scalars['IntType']>;
   /**
@@ -1254,6 +1290,14 @@ export type ImgixParams = {
    * [Open Imgix reference »](https://docs.imgix.com/apis/url/color-palette/palette)
    */
   palette?: Maybe<ImgixParamsPalette>;
+  /**
+   * Pdf Annotation
+   *
+   * Enables or disables PDF annotation.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/pdf/pdf-annotation)
+   */
+  pdfAnnotation?: Maybe<Scalars['BooleanType']>;
   /**
    * Css Prefix
    *
@@ -1334,6 +1378,8 @@ export type ImgixParams = {
    * Transparency
    *
    * Adds checkerboard behind images which support transparency.
+   *
+   * [Open Imgix reference »](https://docs.imgix.com/apis/url/fill/transparency)
    */
   transparency?: Maybe<ImgixParamsTransparency>;
   /**
@@ -1681,6 +1727,8 @@ export enum ImgixParamsFlip {
 }
 
 export enum ImgixParamsFm {
+  avif = 'avif',
+  blurhash = 'blurhash',
   gif = 'gif',
   jp2 = 'jp2',
   jpg = 'jpg',
@@ -1710,6 +1758,10 @@ export enum ImgixParamsMarkFit {
   fill = 'fill',
   max = 'max',
   scale = 'scale'
+}
+
+export enum ImgixParamsMarkTile {
+  grid = 'grid'
 }
 
 export enum ImgixParamsPalette {
@@ -1845,6 +1897,7 @@ export type LineupItemRecord = {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
   artist?: Maybe<ArtistRecord>;
+  artistLevel?: Maybe<Scalars['String']>;
   createdAt: Scalars['DateTime'];
   endTime?: Maybe<Scalars['DateTime']>;
   id: Scalars['ItemId'];
@@ -2218,19 +2271,19 @@ export type PositionFilter = {
 
 /** Specifies how to filter by publication datetime */
 export type PublishedAtFilter = {
-  /** Search for records with an exact match (seconds are truncated) */
+  /** Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument. */
   eq?: Maybe<Scalars['DateTime']>;
   /** Filter records with the specified field defined (i.e. with any value) or not */
   exists?: Maybe<Scalars['BooleanType']>;
-  /** Filter records with a value that's strictly greater than the one specified */
+  /** Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument. */
   gt?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's greater than or equal to than the one specified */
+  /** Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument. */
   gte?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's less than the one specified */
+  /** Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument. */
   lt?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's less or equal than the one specified */
+  /** Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument. */
   lte?: Maybe<Scalars['DateTime']>;
-  /** Exclude records with an exact match */
+  /** Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument. */
   neq?: Maybe<Scalars['DateTime']>;
 };
 
@@ -2822,19 +2875,19 @@ export type TypeFilter = {
 
 /** Specifies how to filter by update datetime */
 export type UpdatedAtFilter = {
-  /** Search for records with an exact match (seconds are truncated) */
+  /** Filter records with a value that's within the specified minute range. Seconds and milliseconds are truncated from the argument. */
   eq?: Maybe<Scalars['DateTime']>;
   /** Filter records with the specified field defined (i.e. with any value) or not */
   exists?: Maybe<Scalars['BooleanType']>;
-  /** Filter records with a value that's strictly greater than the one specified */
+  /** Filter records with a value that's strictly greater than the one specified. Seconds and milliseconds are truncated from the argument. */
   gt?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's greater than or equal to than the one specified */
+  /** Filter records with a value that's greater than or equal to than the one specified. Seconds and milliseconds are truncated from the argument. */
   gte?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's less than the one specified */
+  /** Filter records with a value that's less than the one specified. Seconds and milliseconds are truncated from the argument. */
   lt?: Maybe<Scalars['DateTime']>;
-  /** Filter records with a value that's less or equal than the one specified */
+  /** Filter records with a value that's less or equal than the one specified. Seconds and milliseconds are truncated from the argument. */
   lte?: Maybe<Scalars['DateTime']>;
-  /** Exclude records with an exact match */
+  /** Filter records with a value that's outside the specified minute range. Seconds and milliseconds are truncated from the argument. */
   neq?: Maybe<Scalars['DateTime']>;
 };
 
@@ -3408,6 +3461,38 @@ export type PageQueryVariables = Exact<{
 export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'PageRecord', slug?: string | null | undefined, title?: string | null | undefined, featuredImage?: { __typename?: 'FileField', opengraph?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined, content?: { __typename?: 'PageModelContentField', value: any, blocks: Array<{ __typename: 'InfoItemRecord', content?: string | null | undefined, title?: string | null | undefined, id: any }> } | null | undefined, children?: Array<{ __typename?: 'PageRecord', slug?: string | null | undefined, title?: string | null | undefined, featuredImage?: { __typename?: 'FileField', thumbnail?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined, parent?: { __typename?: 'PageRecord', title?: string | null | undefined, slug?: string | null | undefined, children?: Array<{ __typename?: 'PageRecord', slug?: string | null | undefined, title?: string | null | undefined, featuredImage?: { __typename?: 'FileField', thumbnail?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined } | null | undefined };
 
 export type SponsorFragment = { __typename?: 'SponsorRecord', website?: string | null | undefined, name?: string | null | undefined, displayLogo?: any | null | undefined, displayFooter?: any | null | undefined, logo?: { __typename?: 'FileField', url: string } | null | undefined };
+
+export type WavesQueryVariables = Exact<{
+  edition?: Maybe<Scalars['ItemId']>;
+  locale?: Maybe<SiteLocale>;
+}>;
+
+
+export type WavesQuery = { __typename?: 'Query', waves: Array<{ __typename?: 'WaveRecord', lineup?: Array<{ __typename?: 'LineupItemRecord', id: any, artistLevel?: string | null | undefined, artist?: { __typename?: 'ArtistRecord', id: any, name?: string | null | undefined, slug?: string | null | undefined, image?: { __typename?: 'FileField', normal?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined }> };
+
+export type WavesWithDayQueryVariables = Exact<{
+  edition?: Maybe<Scalars['ItemId']>;
+  locale?: Maybe<SiteLocale>;
+}>;
+
+
+export type WavesWithDayQuery = { __typename?: 'Query', waves: Array<{ __typename?: 'WaveRecord', lineup?: Array<{ __typename?: 'LineupItemRecord', id: any, artistLevel?: string | null | undefined, lineupDate?: any | null | undefined, artist?: { __typename?: 'ArtistRecord', id: any, name?: string | null | undefined, slug?: string | null | undefined, image?: { __typename?: 'FileField', normal?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined }> };
+
+export type WavesWithDayStageQueryVariables = Exact<{
+  edition?: Maybe<Scalars['ItemId']>;
+  locale?: Maybe<SiteLocale>;
+}>;
+
+
+export type WavesWithDayStageQuery = { __typename?: 'Query', waves: Array<{ __typename?: 'WaveRecord', lineup?: Array<{ __typename?: 'LineupItemRecord', id: any, artistLevel?: string | null | undefined, lineupDate?: any | null | undefined, stage?: { __typename?: 'StageRecord', name?: string | null | undefined, slug?: string | null | undefined, id: any } | null | undefined, artist?: { __typename?: 'ArtistRecord', id: any, name?: string | null | undefined, slug?: string | null | undefined, image?: { __typename?: 'FileField', normal?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined }> };
+
+export type WavesWithDayStageTimeQueryVariables = Exact<{
+  edition?: Maybe<Scalars['ItemId']>;
+  locale?: Maybe<SiteLocale>;
+}>;
+
+
+export type WavesWithDayStageTimeQuery = { __typename?: 'Query', waves: Array<{ __typename?: 'WaveRecord', lineup?: Array<{ __typename?: 'LineupItemRecord', id: any, artistLevel?: string | null | undefined, endTime?: any | null | undefined, lineupDate?: any | null | undefined, startTime?: any | null | undefined, stage?: { __typename?: 'StageRecord', name?: string | null | undefined, slug?: string | null | undefined, id: any } | null | undefined, artist?: { __typename?: 'ArtistRecord', id: any, name?: string | null | undefined, slug?: string | null | undefined, image?: { __typename?: 'FileField', normal?: { __typename?: 'ResponsiveImage', srcSet: string, webpSrcSet: string, sizes: string, src: string, width: any, height: any, aspectRatio: any, alt?: string | null | undefined, title?: string | null | undefined, bgColor?: string | null | undefined, base64?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined }> };
 
 export type InternalLinkFragment = { __typename?: 'InternalLinkRecord', label?: string | null | undefined, page?: { __typename?: 'PageRecord', id: any, slug?: string | null | undefined } | null | undefined };
 

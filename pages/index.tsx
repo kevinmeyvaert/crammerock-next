@@ -11,6 +11,7 @@ import { WEBSITE } from '@/queries/dato/website';
 import { NewsQuery, WebsiteQuery } from '@/types/dato.types';
 
 import { fetchDato } from '../lib/api';
+import Footer from '@/components/Footer';
 
 type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
@@ -28,6 +29,7 @@ const Home: FC<Props> = ({ activeEdition, mainNavigation, news }) => {
         </MainGrid.Main>
         <MainGrid.Footer />
       </MainGrid.Grid>
+      <Footer/>
     </>
   );
 };

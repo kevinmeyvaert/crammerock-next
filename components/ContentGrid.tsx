@@ -65,7 +65,7 @@ export const ContentGridItem = styled.article<{
         return `grid-column: span 2;`;
       }
       if (props.type === 'd') {
-        return `grid-column: span 4;`;
+        return `grid-column: span 6;`;
       }
     }};
   }
@@ -78,6 +78,9 @@ export const ContentGridItem = styled.article<{
       }
       if (props.type === 'b') {
         return `grid-column: span 4; grid-row: span 2;`;
+      }
+      if (props.type === 'd') {
+        return `grid-column: span 4;`;
       }
     }};
   }

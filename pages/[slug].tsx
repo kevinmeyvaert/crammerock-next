@@ -23,6 +23,7 @@ import {
 import { StructuredText } from 'react-datocms';
 import { device, theme } from 'theme';
 import MoreInfoCard from '@/components/MoreInfoCard';
+import Footer from '@/components/Footer';
 
 const InfoItem = styled.div`
   padding: 1rem;
@@ -102,6 +103,7 @@ const Page: FC<Props> = ({ activeEdition, mainNavigation, page }) => {
         </MainGrid.Main>
         <MainGrid.Footer />
       </MainGrid.Grid>
+      <Footer />
     </>
   );
 };
