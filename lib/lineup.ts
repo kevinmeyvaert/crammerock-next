@@ -19,6 +19,6 @@ export const fetchRequiredLineupData = (website: WebsiteQuery['website']) => {
   return WAVES;
 };
 
-export const flattenWaves = (waves: WavesQuery['waves']): LineupItemRecord[] => {
+export const flattenWaves = (waves: WavesQuery['waves']) => {
   return waves.reduce((lineup, wave) => [...lineup, ...wave.lineup], []);
 };
