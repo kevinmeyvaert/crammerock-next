@@ -2,21 +2,21 @@ import { gql } from 'graphql-request';
 import { responsiveImageFragment } from './fragments';
 
 export const WAVES = gql`
-  query Waves($edition: ItemId, $locale: SiteLocale) {
+  query Waves($edition: ItemId) {
     waves: allWaves(filter: { edition: { eq: $edition } }) {
-      lineup(locale: $locale) {
+      lineup {
         id
         artistLevel
-        artist {
-          image {
-            normal: responsiveImage(imgixParams: { fit: crop, w: 1000, h: 500, auto: format, crop: faces }) {
-              ...responsiveImageFragment
-            }
+        image {
+          normal: responsiveImage(
+            imgixParams: { fit: crop, w: 1000, h: 500, auto: format, crop: faces }
+          ) {
+            ...responsiveImageFragment
           }
-          id
-          name
-          slug
         }
+        id
+        name
+        slug
       }
     }
   }
@@ -24,22 +24,22 @@ export const WAVES = gql`
 `;
 
 export const WAVES_WITH_DAY = gql`
-  query WavesWithDay($edition: ItemId, $locale: SiteLocale) {
+  query WavesWithDay($edition: ItemId) {
     waves: allWaves(filter: { edition: { eq: $edition } }) {
-      lineup(locale: $locale) {
+      lineup {
         id
         artistLevel
         lineupDate
-        artist {
-          image {
-            normal: responsiveImage(imgixParams: { fit: crop, w: 1000, h: 500, auto: format, crop: faces }) {
-              ...responsiveImageFragment
-            }
+        image {
+          normal: responsiveImage(
+            imgixParams: { fit: crop, w: 1000, h: 500, auto: format, crop: faces }
+          ) {
+            ...responsiveImageFragment
           }
-          id
-          name
-          slug
         }
+        id
+        name
+        slug
       }
     }
   }
@@ -47,9 +47,9 @@ export const WAVES_WITH_DAY = gql`
 `;
 
 export const WAVES_WITH_DAY_STAGE = gql`
-  query WavesWithDayStage($edition: ItemId, $locale: SiteLocale) {
+  query WavesWithDayStage($edition: ItemId) {
     waves: allWaves(filter: { edition: { eq: $edition } }) {
-      lineup(locale: $locale) {
+      lineup {
         id
         artistLevel
         lineupDate
@@ -58,16 +58,16 @@ export const WAVES_WITH_DAY_STAGE = gql`
           slug
           id
         }
-        artist {
-          image {
-            normal: responsiveImage(imgixParams: { fit: crop, w: 1000, h: 500, auto: format, crop: faces }) {
-              ...responsiveImageFragment
-            }
+        image {
+          normal: responsiveImage(
+            imgixParams: { fit: crop, w: 1000, h: 500, auto: format, crop: faces }
+          ) {
+            ...responsiveImageFragment
           }
-          id
-          name
-          slug
         }
+        id
+        name
+        slug
       }
     }
   }
@@ -75,9 +75,9 @@ export const WAVES_WITH_DAY_STAGE = gql`
 `;
 
 export const WAVES_WITH_DAY_STAGE_TIME = gql`
-  query WavesWithDayStageTime($edition: ItemId, $locale: SiteLocale) {
+  query WavesWithDayStageTime($edition: ItemId) {
     waves: allWaves(filter: { edition: { eq: $edition } }) {
-      lineup(locale: $locale) {
+      lineup {
         id
         artistLevel
         endTime
@@ -88,16 +88,16 @@ export const WAVES_WITH_DAY_STAGE_TIME = gql`
           slug
           id
         }
-        artist {
-          image {
-            normal: responsiveImage(imgixParams: { fit: crop, w: 1000, h: 500, auto: format, crop: faces }) {
-              ...responsiveImageFragment
-            }
+        image {
+          normal: responsiveImage(
+            imgixParams: { fit: crop, w: 1000, h: 500, auto: format, crop: faces }
+          ) {
+            ...responsiveImageFragment
           }
-          id
-          name
-          slug
         }
+        id
+        name
+        slug
       }
     }
   }

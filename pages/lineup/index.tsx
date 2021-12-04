@@ -39,8 +39,8 @@ const Lineup: FC<Props> = ({ activeEdition, mainNavigation, lineup }) => {
             {lineup &&
               lineup.map((lineupItem) => (
                 <Card type="d" key={lineupItem.id} orange>
-                  {lineupItem.artist.image.normal && (
-                    <CardImage data={lineupItem.artist.image.normal} />
+                  {lineupItem.image.normal && (
+                    <CardImage data={lineupItem.image.normal} />
                   )}
                   <CardBody>
                     {lineupItem.lineupDate && (
@@ -50,7 +50,7 @@ const Lineup: FC<Props> = ({ activeEdition, mainNavigation, lineup }) => {
                         })}
                       </NewsCardDate>
                     )}
-                    <CardTitle>{lineupItem.artist.name}</CardTitle>
+                    <CardTitle>{lineupItem.name}</CardTitle>
                   </CardBody>
                 </Card>
               ))}
