@@ -2,7 +2,6 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next';
 import Head from 'next/head';
 import { FC } from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 
 import HeaderNavigation from '@/components/HeaderNavigation';
 import MainGrid from '@/components/MainGrid';
@@ -13,15 +12,8 @@ import { PageQuery, WebsiteQuery } from '@/types/dato.types';
 
 import { fetchDato } from '../lib/api';
 import { ContentGrid, ContentPageWrapper } from '@/components/ContentGrid';
-import {
-  Card,
-  CardBody,
-  CardImage,
-  CardTitle,
-  CardWrapper,
-} from '@/components/homepage/HomeContent';
 import { StructuredText } from 'react-datocms';
-import { device, theme } from 'theme';
+import { theme } from 'theme';
 import MoreInfoCard from '@/components/MoreInfoCard';
 import Footer from '@/components/Footer';
 
@@ -41,7 +33,6 @@ type Props = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 const Page: FC<Props> = ({ activeEdition, mainNavigation, page }) => {
   const { content, children, parent } = page;
-  console.log(page);
   return (
     <>
       <Head>
@@ -53,27 +44,29 @@ const Page: FC<Props> = ({ activeEdition, mainNavigation, page }) => {
         <MainNavigation navigationItems={mainNavigation} activeEdition={activeEdition} />
         <HeaderNavigation activeEdition={activeEdition} />
         <MainGrid.Main>
-          <ContentGrid>
-            <ContentPageWrapper>
-              {content && <h2>{page.title}</h2>}
-              <StructuredText
-                data={content}
-                renderBlock={({ record }) => {
-                  switch (record.__typename) {
-                    case 'InfoItemRecord':
-                      return (
-                        <InfoItem>
-                          <h3>{record.title}</h3>
-                          <div dangerouslySetInnerHTML={{ __html: record.content }} />
-                        </InfoItem>
-                      );
-                    default:
-                      return null;
-                  }
-                }}
-              />
-            </ContentPageWrapper>
-          </ContentGrid>
+          {content && (
+            <ContentGrid>
+              <ContentPageWrapper>
+                <h2>{page.title}</h2>
+                <StructuredText
+                  data={content}
+                  renderBlock={({ record }) => {
+                    switch (record.__typename) {
+                      case 'InfoItemRecord':
+                        return (
+                          <InfoItem>
+                            <h3>{record.title}</h3>
+                            <div dangerouslySetInnerHTML={{ __html: record.content }} />
+                          </InfoItem>
+                        );
+                      default:
+                        return null;
+                    }
+                  }}
+                />
+              </ContentPageWrapper>
+            </ContentGrid>
+          )}
           {children.length > 0 ? (
             <ContentGrid>
               {children.map((child) => (

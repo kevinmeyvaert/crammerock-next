@@ -11,15 +11,12 @@ const MoreInfoItem = styled.article`
 
   @media ${device.tablet} {
     margin-bottom: 0;
-    grid-column: span 6;
-  }
-
-  @media ${device.laptop} {
-    margin-bottom: 0;
     grid-column: span 3;
   }
 
+
   @media ${device.laptopL} {
+    grid-column: span 4;
     margin-bottom: 0;
   }
 `;

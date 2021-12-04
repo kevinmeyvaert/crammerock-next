@@ -109,61 +109,6 @@ export const NewsCardDate = styled.time`
   padding: 0.5rem 1rem;
 `;
 
-const CTACardCopy = styled.p`
-  font-size: 1rem;
-  margin: 0;
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
-  padding: 1rem;
-  line-height: 1.5;
-
-  background-color: ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.base};
-
-  @media ${device.tablet} {
-    font-size: 1.2rem;
-  }
-
-  @media ${device.laptop} {
-    font-size: 1.7rem;
-  }
-
-  @media ${device.laptopL} {
-    font-size: 1.2rem;
-  }
-
-  @media ${device.desktop} {
-    font-size: 1.6rem;
-  }
-`;
-
-const CTACardLink = styled.div`
-  display: flex;
-  padding: 1rem;
-  width: 100%;
-  justify-content: flex-end;
-  background-color: ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.base};
-  font-family: 'Bebas Neue', sans-serif;
-
-  @media ${device.tablet} {
-    font-size: 1.2rem;
-  }
-
-  @media ${device.laptop} {
-    font-size: 1.7rem;
-  }
-
-  @media ${device.laptopL} {
-    font-size: 1.2rem;
-  }
-
-  @media ${device.desktop} {
-    font-size: 1.6rem;
-  }
-`;
-
 interface CardProps {
   type: string;
   image?: ResponsiveImageType;
@@ -243,17 +188,6 @@ const HomeContent = ({ news, blocks }) => {
           </Card>
         );
       })}
-      <Card type="d" orange pattern>
-        <CardBody>
-          <CTACardCopy>
-            Kan je de schoonste pintjes tappen van Stekene en omstreken, of heb je een ander talent
-            dat ons team kan versterken?
-          </CTACardCopy>
-          <CTACardLink>
-            <Link href="/vrijwilligers">Word vrijwilliger &#8594;</Link>
-          </CTACardLink>
-        </CardBody>
-      </Card>
     </ContentGrid>
   );
 };

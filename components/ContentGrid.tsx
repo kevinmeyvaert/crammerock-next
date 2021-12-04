@@ -5,9 +5,9 @@ export const ContentGrid = styled.section`
   display: grid;
   grid-gap: 1rem;
   grid-auto-flow: dense;
+  padding: 1rem;
 
   @media ${device.tablet} {
-    padding: 1rem;
     grid-template-columns: repeat(6, 1fr);
   }
 
@@ -65,7 +65,7 @@ export const ContentGridItem = styled.article<{
         return `grid-column: span 2;`;
       }
       if (props.type === 'd') {
-        return `grid-column: span 6;`;
+        return `grid-column: span 3;`;
       }
     }};
   }
